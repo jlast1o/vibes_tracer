@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0e0c">
   <meta name="description" content="DEV//PULSE — локальный трекер времени, стриков и достижений в программировании.">
-  <title>DEV//PULSE V14 — IndexedDB Safe Storage</title>
+  <title>DEV//PULSE V15.2 — 100 Upgrades & Code Stats</title>
   <style>
     :root {
       color-scheme: dark;
@@ -832,6 +832,28 @@ button.kx-report-row:hover{border-color:#a5ca74}
       #view-knowledge .v11-kpi strong{font-size:20px}
     }
 
+    /* V15.2 / 100-step workstation progression */
+    .v152-upgrade .v152-upgrade-top{display:flex;align-items:center;gap:11px}
+    .v152-upgrade .v152-upgrade-emoji{height:41px;width:41px;flex:0 0 41px;border-radius:12px;background:#2a392d;display:grid;place-items:center;font-size:22px}
+    .v152-small-rail{height:7px;border-radius:30px;background:#2d412f;overflow:hidden;margin:13px 0 10px}
+    .v152-small-rail i{display:block;height:100%;border-radius:30px;background:linear-gradient(90deg,#83af5a,#d8ff65);transition:width .35s}
+    .v152-upgrade-foot{display:flex;justify-content:space-between;gap:9px;margin-bottom:12px;color:#9eb39f;font-size:10px}
+    .v152-upgrade-foot strong{color:#d8ff65;white-space:nowrap}
+    .v152-progress-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:18px}
+    .v152-progress-head b{font-size:13px;color:#d8ff65}
+    .v152-progress-head small{font-size:10px;color:#9bad9d}
+    .v152-main-rail{height:9px;margin:10px 0 2px}
+    .v15-workstation .v152-work-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .v152-era-detail{margin-top:15px;padding:13px 15px;border:1px solid #3a503a;background:#18271d;border-radius:13px}
+    .v152-era-detail summary{cursor:pointer;font-weight:800;font-size:11px;color:#d8ff65}
+    .v152-era-detail p{font-size:10px;color:#99b097;line-height:1.5;margin:12px 0 0}
+    .v152-era-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #2c412f;padding:9px 1px;font-size:11px;color:#b4c8b4}
+    .v152-era-row:last-child{border-bottom:none}
+    @media(max-width:500px){.v15-workstation .v152-work-stats{grid-template-columns:1fr 1fr}.v15-workstation .v152-work-stats>div:last-child{grid-column:1 / -1}}
+    /* Turbo workstation: high-level upgrades visibly accelerate typing. */
+    .v15-workstation.v15-turbo .v15-code-window {border-color:#648a52;box-shadow:0 0 0 1px rgba(216,255,101,.08),0 18px 38px rgba(0,0,0,.28)}
+    .v15-workstation.v15-turbo .v15-code-header {background:linear-gradient(90deg,#233b28,#192b22)}
+    .v15-workstation.v15-turbo #v15WriterSpeed {color:#e3ff8e}
     /* Storage usage · settings / backup */
     .storage-meter {
       margin: 4px 0 11px;
@@ -886,6 +908,39 @@ button.kx-report-row:hover{border-color:#a5ca74}
     .storage-boot .storage-meter-track { margin:22px 0 0; }
     @media(max-width:420px) { .storage-center { padding:13px; } .storage-center-grid { grid-template-columns:1fr 1fr; gap:6px; } .storage-center-item { padding:9px; } .storage-center-item strong {font-size:13px;} }
 
+
+/* V15 · focused onboarding, living workstation and sharper wardrobe */
+.v15-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v15-quick-card{min-height:156px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;border:1px solid #435942;border-radius:20px;padding:21px;background:radial-gradient(circle at 88% 0,rgba(216,255,101,.085),transparent 55%),linear-gradient(135deg,#202f23,#151e18);color:#eff6e9;cursor:pointer;text-align:left;transition:border-color .2s,transform .2s,background .2s}
+.v15-quick-card:hover{border-color:#d8ff65;transform:translateY(-3px);background:#253a28}
+.v15-quick-card .v15-quick-ico{width:43px;height:43px;border-radius:13px;background:#32482f;display:grid;place-items:center;font-size:24px;box-shadow:0 0 0 1px #526a46}
+.v15-quick-card strong{font-size:17px;letter-spacing:-.03em}.v15-quick-card small{font-size:11px;color:#b1c6ab;line-height:1.5;max-width:335px}.v15-quick-card em{margin-top:auto;font-size:11px;color:#d8ff65;font-weight:800;font-style:normal}
+.v15-hero{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:23px;border:1px solid #4d6a48;background:radial-gradient(circle at 90% 12%,rgba(216,255,101,.14),transparent 45%),linear-gradient(120deg,#213323,#151f18);border-radius:22px}
+.v15-hero h2{font-size:25px;letter-spacing:-.045em;margin:6px 0}.v15-hero p{font-size:12px;color:#b1c0ad;line-height:1.65;margin:5px 0 16px}.v15-hero-kpi{color:#d8ff65;text-align:center;font-size:32px;font-weight:900;min-width:105px}.v15-hero-kpi small{display:block;font-size:10px;color:#b1c7ad;font-weight:600;margin-top:3px}
+.v15-start-actions{display:flex;gap:8px;flex-wrap:wrap}.v15-start-actions .kv-btn{min-width:140px}
+.v15-focus-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.v15-focus-stat{padding:17px;border:1px solid #3d543e;border-radius:15px;background:#1a271e}.v15-focus-stat b{font-size:22px;display:block;color:#d8ff65}.v15-focus-stat span{font-size:11px;display:block;color:#afc3aa;margin-top:6px}
+.v15-focus-insight{border:1px solid #446249;background:linear-gradient(130deg,#203324,#1a261d);border-radius:15px;padding:16px;color:#c4d9c0;font-size:12px;line-height:1.65}
+.v15-workstation{margin-top:19px;padding:18px;border:1px solid #4a674b;border-radius:20px;background:radial-gradient(circle at 100% 0,rgba(216,255,101,.1),transparent 48%),#111a16;overflow:hidden}
+.v15-work-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.v15-work-head strong{font-size:14px;color:#edfae8}.v15-work-sub{font-size:11px;color:#9fb49b;line-height:1.6;margin-top:6px}
+.v15-code-window{border:1px solid #385443;border-radius:14px;margin-top:15px;overflow:hidden;background:#0d1512;box-shadow:0 18px 28px rgba(0,0,0,.23)}
+.v15-code-header{background:#1b2a21;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;color:#acd3bc}
+.v15-code-dots{display:flex;gap:5px}.v15-code-dots i{height:8px;width:8px;border-radius:50%;background:#eb9682}.v15-code-dots i:nth-child(2){background:#eed08b}.v15-code-dots i:nth-child(3){background:#a8d686}
+.v15-code-viewport{height:227px;overflow:hidden;padding:14px 15px;position:relative}
+.v15-code-viewport pre{font-family:'Cascadia Code',Consolas,'Liberation Mono',monospace;font-size:11px;line-height:1.8;color:#d5e6d4;white-space:pre;overflow:hidden;margin:0;tab-size:2}
+.v15-code-viewport pre::after{content:'▋';color:#d8ff65;animation:v15-blink 1s steps(1,end) infinite}
+.v15-syntax-key{color:#c9a1ff}.v15-syntax-str{color:#a8e68e}.v15-syntax-num{color:#ffcb91}.v15-syntax-comment{color:#759687;font-style:italic}.v15-syntax-type{color:#91e5d6}
+@keyframes v15-blink{50%{opacity:0}}
+.v15-work-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}
+.v15-work-stats>div{border:1px solid #344a3c;background:#1b2b20;border-radius:11px;padding:11px}.v15-work-stats b{display:block;font-size:15px;color:#d8ff65}.v15-work-stats small{display:block;font-size:9px;color:#a0b4a0;margin-top:4px}
+.v15-work-buttons{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:13px}
+.v15-work-buttons button{padding:8px 11px;border:1px solid #486449;border-radius:9px;color:#d9eacb;background:#27372a;cursor:pointer;font-weight:750;font-size:10px}.v15-work-buttons button:hover{border-color:#d8ff65}.v15-work-buttons button:disabled{opacity:.4;cursor:not-allowed}
+.v15-work-note{font-size:10px;color:#a4b5a0;line-height:1.6;margin-top:12px}
+.v15-world-feature{margin-bottom:17px}.v15-world-feature .v15-workstation{margin-top:0}
+.v15-advanced{margin-top:13px;border:1px solid #39523e;border-radius:14px;padding:12px 16px;background:#17241a}.v15-advanced summary{font-size:12px;font-weight:850;color:#d8ff65;cursor:pointer;list-style-position:outside;padding:4px}.v15-advanced>.kv-form{margin-top:14px}
+.v15-practice-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.v15-practice-choices button{display:grid;text-align:left;gap:8px;padding:18px;color:#e8f4e4;border:1px solid #405a43;border-radius:15px;background:#1d2c20;cursor:pointer}.v15-practice-choices button.active{border-color:#d8ff65;background:#293f29}.v15-practice-choices strong{font-size:13px}.v15-practice-choices span{font-size:10px;color:#a8bca6;line-height:1.5}
+@media(max-width:800px){.v15-focus-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.v15-practice-choices{grid-template-columns:1fr}}
+@media(max-width:560px){.v15-quick-grid{grid-template-columns:1fr}.v15-quick-card{min-height:120px;padding:15px}.v15-hero{flex-wrap:wrap;padding:17px}.v15-hero h2{font-size:20px}.v15-hero-kpi{font-size:23px}.v15-workstation{padding:11px}.v15-code-viewport{height:206px;padding:12px 9px}.v15-code-viewport pre{font-size:9px}.v15-work-stats{grid-template-columns:1fr 1fr}.v15-work-stats>div:last-child{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.v15-code-viewport pre::after{animation:none}}
 </style>
 </head>
 <body>
@@ -966,7 +1021,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
         <div class="two-col"><div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Динамика фокуса</h2><p class="card-subtitle">Последние 14 дней • время в часах</p></div><div class="analytics-tabs" id="trendTabs"><button data-range="14" class="active">14 дней</button><button data-range="30">30 дней</button><button data-range="90">90 дней</button></div></div><div id="trendChart"></div></div><div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Направления работы</h2><p class="card-subtitle">Распределение времени по активностям</p></div></div><div id="categoryChart"></div></div></div>
         <div class="two-col"><div class="card content-card"><h2 class="card-title">Ритм последних 30 дней</h2><p class="card-subtitle">Выполнение личной ежедневной цели</p><div id="goalBreakdown" style="margin-top:24px;"></div></div><div class="card content-card"><h2 class="card-title">Твоя статистика</h2><p class="card-subtitle">Цифры, которые показывают прогресс</p><div id="deepStats" style="margin-top:14px;"></div></div></div>
         <div class="two-col"><div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Фокус по дням недели</h2><p class="card-subtitle">Где у тебя самый сильный ритм</p></div></div><div id="weekdayChart"></div></div><div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Когда ты чаще кодишь</h2><p class="card-subtitle">Распределение по времени суток</p></div></div><div id="timeOfDayChart"></div></div></div>
-        <div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Инсайты и паттерны</h2><p class="card-subtitle">Короткая выжимка по твоему темпу, регулярности и стилю работы</p></div><span class="chart-legend">AI-free insight</span></div><div class="insight-grid" id="insightGrid"></div></div>
+        <section class="card content-card" id="focusIntelligence"></section><div class="card content-card"><div class="card-heading"><div><h2 class="card-title">Инсайты и паттерны</h2><p class="card-subtitle">Короткая выжимка по твоему темпу, регулярности и стилю работы</p></div><span class="chart-legend">AI-free insight</span></div><div class="insight-grid" id="insightGrid"></div></div>
       </section>
       <section class="section" id="view-goals" hidden>
         <div class="view-lead"><div class="view-lead-bar"><div><div class="eyebrow">THE DAILY GRIND</div><h2>Система миссий<span class="brand-decor">.</span></h2><p>Задавай задачи себе сам: 5 коммитов, 60 минут непрерывного фокуса или собственный челлендж. Закрывай цель и забирай настоящие XP и BIT. Учебные миссии учитывают решённые вопросы, повторы и исправления ошибок; коммиты отмечаются вручную.</p></div><div class="view-lead-facts"><div class="view-fact"><b id="goalsClaimed">0</b><span>наград забрано</span></div><div class="view-fact"><b id="goalsEarned">0 XP</b><span>из миссий</span></div></div></div></div>
@@ -993,7 +1048,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
         <div class="view-lead"><div class="view-lead-bar"><div><div class="eyebrow">CODING WORLD / RAIDS / EVOLUTION</div><h2>Твой игровой мир разработчика<span class="brand-decor">.</span></h2><p>Здесь живёт большой цикл мотивации: еженедельные боссы, улучшаемая база, дерево навыков, карта регионов, эволюция питомца и путь к новым достижениям.</p></div><div class="view-lead-facts"><div class="view-fact"><b id="worldBossFact">0%</b><span>урон по боссу</span></div><div class="view-fact"><b id="worldRegionFact">0</b><span>регионов освоено</span></div><div class="view-fact"><b id="worldPetFact">Stage 1</b><span>эволюция питомца</span></div></div></div></div>
         <section class="card boss-card"><div class="boss-top"><div class="boss-identity"><div class="boss-icon" id="bossIcon">👾</div><div><div class="eyebrow" id="bossWeekLabel">WEEKLY RAID</div><div class="boss-name" id="bossName">Босс недели</div><div class="boss-desc" id="bossDesc">Описание босса.</div></div></div><button class="button button-primary" id="bossClaimButton" data-action="claim-boss" disabled>Награда недоступна</button></div><div class="boss-hp-row"><strong id="bossHp">0 / 0 HP</strong><span id="bossDamageNote">Урон наносится за минуты фокуса и активность за неделю.</span></div><div class="progress-track" style="height:12px"><div class="progress-fill" id="bossProgress"></div></div><div class="boss-badges" id="bossRewards"></div></section>
         <div class="world-stack section-split"><section class="card room-card"><div class="section-heading"><div><h2 class="card-title">База разработчика</h2><p class="card-subtitle">Улучши свою комнату: стол, мониторы, свет, серверы и декор</p></div><span class="coin-tag" id="baseSpent">0 BIT</span></div><div class="setup-summary" id="baseRoom"></div><div class="upgrade-grid" id="baseUpgradeGrid"></div></section><section class="card content-card"><div class="section-heading"><div><h2 class="card-title">Эволюция питомца</h2><p class="card-subtitle">Чем дисциплинированнее ты работаешь, тем мощнее становится спутник</p></div></div><div class="pet-evo" id="petEvolutionCard"></div></section></div>
-        <div class="world-stack section-split"><section class="card content-card"><div class="section-heading"><div><h2 class="card-title">Дерево навыков разработчика</h2><p class="card-subtitle">Go, алгоритмы, базы данных, архитектура, DevOps и system design</p></div></div><div class="skill-tree" id="skillTree"></div></section><section class="card content-card"><div class="section-heading"><div><h2 class="card-title">Карта мира Coding World</h2><p class="card-subtitle">Открывай новые регионы и забирай награды за освоение направлений</p></div></div><div class="world-map" id="worldMap"></div></section></div>
+        <div class="world-stack section-split"><section class="card content-card"><div class="section-heading"><div><h2 class="card-title">Карта мира Coding World</h2><p class="card-subtitle">Открывай новые регионы и забирай награды за освоение направлений</p></div></div><div class="world-map" id="worldMap"></div></section></div>
       </section>
       <section class="section" id="view-reports" hidden>
         <div class="view-lead"><div class="view-lead-bar"><div><div class="eyebrow">DEVELOPER WRAPPED / WEEKLY REPORT</div><h2>Красивый отчёт по неделе<span class="brand-decor">.</span></h2><p>Автоматическая сводка по последним семи дням: время, сессии, лучший день, главные проекты, прогресс против прошлой недели и персональный титул.</p></div><div class="view-lead-facts"><div class="view-fact"><b id="reportMainHours">0ч</b><span>за 7 дней</span></div><div class="view-fact"><b id="reportMainSessions">0</b><span>сессий</span></div><div class="view-fact"><b id="reportMainTitle">—</b><span>титул недели</span></div></div></div></div>
@@ -1025,8 +1080,8 @@ button.kx-report-row:hover{border-color:#a5ca74}
                 <div class="storage-center-actions"><button type="button" class="button button-secondary button-small" data-action="storage-verify">✓ Проверить целостность</button><button type="button" class="button button-secondary button-small" data-action="storage-refresh">↻ Обновить</button></div>
                 <p class="storage-center-note">* Показатель браузера может включать другие данные этого источника. При запуске через file:// доступность хранилища зависит от браузера и пути файла. Перед переименованием или переносом HTML сделай экспорт JSON.</p>
               </section>
-              <div class="setting-row"><div><div class="setting-title">Импорт данных</div><div class="setting-desc">Восстанови данные из резервной копии</div></div><button class="button button-secondary button-small" data-action="import"><svg class="icon"><use href="#i-upload"/></svg> Импорт</button></div><div class="setting-row"><div><div class="setting-title">Очистка статистики</div><div class="setting-desc">Безвозвратно удалить сессии и таймер</div></div><button class="button button-danger button-small" data-action="reset"><svg class="icon"><use href="#i-trash"/></svg> Очистить</button></div></div></div><div class="settings-group"><div class="card content-card"><h2 class="card-title">Прогресс и мотивация</h2><p class="card-subtitle">Твоя система персональных целей</p><div class="setting-row"><div><div class="setting-title">Цель на каждый день</div><div class="setting-desc">Сколько минут ты хочешь программировать</div></div><strong id="settingsGoal" style="white-space:nowrap;font-size:13px;">120 мин</strong></div><div class="setting-row"><div><div class="setting-title">Текущий уровень</div><div class="setting-desc">Прокачивается за время практики</div></div><strong id="settingsLevel" style="font-size:13px;color:var(--accent);">01 LVL</strong></div><div class="setting-row"><div><div class="setting-title">Суммарный опыт</div><div class="setting-desc">10 XP за минуту плюс трофеи и миссии</div></div><strong id="settingsXp" style="font-size:13px;white-space:nowrap;">0 XP</strong></div></div><div class="card content-card"><h2 class="card-title">Режим демонстрации</h2><p class="card-subtitle">Посмотри, как трекер выглядит с заполненной статистикой</p><p class="muted" style="font-size:11px;line-height:1.6;margin:20px 0;">Демо-режим добавляет примерные сессии за прошлые дни. Данные можно удалить одной кнопкой — твои реальные записи сохранятся.</p><button class="button button-secondary button-small" data-action="demo"><svg class="icon"><use href="#i-spark"/></svg> Добавить демо-данные</button></div></div></div></section>
-      <footer class="footer-note">DEV//PULSE KNOWLEDGE / ACADEMY V14 <span class="brand-decor">✳</span> — built for progress · Все данные остаются в этом браузере.</footer>
+              <div class="setting-row"><div><div class="setting-title">Импорт данных</div><div class="setting-desc">Восстанови данные из резервной копии</div></div><button class="button button-secondary button-small" data-action="import"><svg class="icon"><use href="#i-upload"/></svg> Импорт</button></div><div class="setting-row"><div><div class="setting-title">Очистка статистики</div><div class="setting-desc">Безвозвратно удалить сессии и таймер</div></div><button class="button button-danger button-small" data-action="reset"><svg class="icon"><use href="#i-trash"/></svg> Очистить</button></div></div></div><div class="settings-group"><div class="card content-card"><h2 class="card-title">Прогресс и мотивация</h2><p class="card-subtitle">Твоя система персональных целей</p><div class="setting-row"><div><div class="setting-title">Цель на каждый день</div><div class="setting-desc">Сколько минут ты хочешь программировать</div></div><strong id="settingsGoal" style="white-space:nowrap;font-size:13px;">120 мин</strong></div><div class="setting-row"><div><div class="setting-title">Текущий уровень</div><div class="setting-desc">Прокачивается за время практики</div></div><strong id="settingsLevel" style="font-size:13px;color:var(--accent);">01 LVL</strong></div><div class="setting-row"><div><div class="setting-title">Суммарный опыт</div><div class="setting-desc">10 XP за минуту плюс трофеи и миссии</div></div><strong id="settingsXp" style="font-size:13px;white-space:nowrap;">0 XP</strong></div></div></div></div></section>
+      <footer class="footer-note">DEV//PULSE KNOWLEDGE / ACADEMY V15 <span class="brand-decor">✳</span> — built for progress · Все данные остаются в этом браузере.</footer>
     </div></main>
   </div>
   <div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><h2 id="modalTitle">Заголовок</h2><button class="icon-button" data-action="modal-close" aria-label="Закрыть окно"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="modalContent"></div></div></div>
@@ -1087,13 +1142,19 @@ button.kx-report-row:hover{border-color:#a5ca74}
       {id:'latency',name:'Latency Phantom',emoji:'👻',desc:'Призрак задержек и откладываний. Чем больше непрерывного фокуса, тем слабее его поле.'},
       {id:'merge',name:'Merge Conflict Colossus',emoji:'🤖',desc:'Колосс конфликтов и хаоса. Снимает броню только перед теми, кто доводит спринты до конца.'}
     ];
+    // V15.2: Five upgrade tracks, twenty levels each. Prices rise gently from 10 BIT.
+    // An old save had only four expensive tiers per track; conversion is performed below.
+    const legacyBasePrices={
+      desk:[45,90,160,260],screens:[55,110,180,280],light:[35,85,130,200],
+      server:[60,120,210,320],decor:[25,70,120,190]
+    };
     const baseTracks=[
-      {id:'desk',emoji:'🪵',name:'Стол',tiers:['Стартовый уголок','Улучшенный стол','Широкий стол','Command Center'],costs:[45,90,160,260]},
-      {id:'screens',emoji:'🖥️',name:'Мониторы',tiers:['Один экран','Два экрана','Три экрана','Ультраширокий сетап'],costs:[55,110,180,280]},
-      {id:'light',emoji:'💡',name:'Свет',tiers:['Лампа','RGB-подсветка','Ambient glow','Neon aura'],costs:[35,85,130,200]},
-      {id:'server',emoji:'🗄️',name:'Серверная стойка',tiers:['Мини-стойка','Stack rack','Lab rack','Data citadel'],costs:[60,120,210,320]},
-      {id:'decor',emoji:'🪴',name:'Декор',tiers:['Постер','Растение','Коллекция трофеев','Галерея легенды'],costs:[25,70,120,190]}
-    ];
+      {id:'desk',emoji:'🪵',name:'Рабочий стол',tiers:['Стартовая поверхность','Эргономика','Command Desk','Инженерная станция','Стол архитектора'],offset:0},
+      {id:'screens',emoji:'🖥️',name:'Экраны',tiers:['Первый монитор','Широкий обзор','Двойной экран','Тройная панель','Панорама кода'],offset:1},
+      {id:'light',emoji:'💡',name:'Освещение',tiers:['Лампа','Тёплый свет','RGB контур','Ambient Studio','Неоновая лаборатория'],offset:2},
+      {id:'server',emoji:'🗄️',name:'Серверная',tiers:['Локальный сервер','Домашний кластер','Backend Rack','Compute Cluster','Data Citadel'],offset:3},
+      {id:'decor',emoji:'🪴',name:'Оформление',tiers:['Уют','Рабочая атмосфера','Студия','Легендарный кабинет','Hall of Fame'],offset:4}
+    ].map(t=>({...t,costs:Array.from({length:20},(_,i)=>10+i+Math.floor(i*i/38)+t.offset)}));
     const regionDefs=[
       {id:'algo',emoji:'🌲',name:'Лес алгоритмов',desc:'Освой базу алгоритмов и ритм решения задач.',require:'1 уровень алгоритмов',skill:'algorithms',target:240,reward:{xp:110,bits:55,common:5}},
       {id:'go',emoji:'🏰',name:'Цитадель Go',desc:'Строится на практике, проектах и дисциплине.',require:'1 уровень Go',skill:'go',target:300,reward:{xp:140,bits:70,rare:3}},
@@ -1194,7 +1255,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
       {id:'starter-deep',title:'60 минут без паузы',metric:'deep',target:60,reward:150,repeat:true,emoji:'🧘',createdAt:0,disabled:false},
       {id:'starter-sessions',title:'Два захода в код',metric:'sessions',target:2,reward:80,repeat:true,emoji:'⚡',createdAt:0,disabled:false}
     ];
-    const defaultState = () => ({version:6,profile:{name:'Разработчик',title:'Мой путь в программировании',dailyGoal:120},sessions:[],timer:null,meta:{petBestCombo:0,totalDodges:0},goals:starterGoals(),goalProgress:{},goalClaims:{},pet:{skin:'classic',owned:['classic']},inventory:{owned:[],equipped:{},scrapped:[]},knowledge:{variants:{},ledger:{}},caseRolls:[],bonusClaims:{},materials:{common:0,rare:0,epic:0,legendary:0},contractClaims:{},bossClaims:{},regionClaims:{},base:{desk:0,screens:0,light:0,server:0,decor:0},runner:{distance:0,loot:0,avoided:0,bestZone:1}});
+    const defaultState = () => ({version:6,workstation:{chars:0,lines:0,byStage:[0,0,0,0,0]},profile:{name:'Разработчик',title:'Мой путь в программировании',dailyGoal:120},sessions:[],timer:null,meta:{petBestCombo:0,totalDodges:0,xpFloor:0,baseSchemaV2:2,baseCostOffset:0},goals:starterGoals(),goalProgress:{},goalClaims:{},pet:{skin:'classic',owned:['classic']},inventory:{owned:[],equipped:{},scrapped:[]},knowledge:{variants:{},ledger:{}},caseRolls:[],bonusClaims:{},materials:{common:0,rare:0,epic:0,legendary:0},contractClaims:{},bossClaims:{},regionClaims:{},base:{desk:0,screens:0,light:0,server:0,decor:0},runner:{distance:0,loot:0,avoided:0,bestZone:1}});
     const validSegment = p => p && Number.isFinite(p.start) && Number.isFinite(p.end) && p.end >= p.start && p.end-p.start <= 7*86400000;
     const cleanSession = (item) => {
       if (!item || !Array.isArray(item.segments)) return null;
@@ -1213,7 +1274,8 @@ button.kx-report-row:hover{border-color:#a5ca74}
       const s=defaultState(); if(!raw||typeof raw!=='object') return s;
       if(raw.profile && typeof raw.profile==='object') s.profile={name:String(raw.profile.name||'Разработчик').slice(0,40),title:String(raw.profile.title||'Мой путь в программировании').slice(0,90),dailyGoal:clamp(Number(raw.profile.dailyGoal)||120,10,960)};
       if(Array.isArray(raw.sessions)) s.sessions=raw.sessions.slice(0,20000).map(cleanSession).filter(Boolean);
-      if(raw.meta && typeof raw.meta==='object') s.meta={petBestCombo:clamp(Number(raw.meta.petBestCombo)||0,0,99999),totalDodges:clamp(Number(raw.meta.totalDodges)||0,0,999999)};
+      if(raw.meta && typeof raw.meta==='object') s.meta={petBestCombo:clamp(Number(raw.meta.petBestCombo)||0,0,99999),totalDodges:clamp(Number(raw.meta.totalDodges)||0,0,999999),xpFloor:clamp(Number(raw.meta.xpFloor)||0,0,100000000),baseSchemaV2:raw.meta.baseSchemaV2===2?2:1,baseCostOffset:clamp(Math.trunc(Number(raw.meta.baseCostOffset)||0),-1000000,1000000)};
+      if(raw.workstation&&typeof raw.workstation==='object')s.workstation={chars:clamp(Math.floor(Number(raw.workstation.chars)||0),0,100000000000),lines:clamp(Math.floor(Number(raw.workstation.lines)||0),0,10000000000),byStage:Array.from({length:5},(_,i)=>clamp(Math.floor(Number(raw.workstation.byStage?.[i])||0),0,100000000000))};
       if(Array.isArray(raw.goals)) s.goals=raw.goals.slice(0,120).filter(g=>g&&typeof g==='object').map(g=>({id:String(g.id||'g-'+Math.random()).slice(0,75),title:String(g.title||'Миссия').slice(0,70),metric:['manual','minutes','deep','sessions','learnCorrect','learnReview','learnTests','learnFix','learnExams'].includes(g.metric)?g.metric:'manual',target:clamp(Math.floor(Number(g.target)||1),1,1440),reward:clamp(Math.floor(Number(g.reward)||80),10,250),repeat:!!g.repeat,emoji:String(g.emoji||'✦').slice(0,10),createdAt:Math.max(0,Number(g.createdAt)||0),disabled:!!g.disabled}));
       if(raw.goalProgress&&typeof raw.goalProgress==='object')for(const [key,value] of Object.entries(raw.goalProgress).slice(0,20000))if(/^[a-zA-Z0-9_-]{1,75}\|\d{4}-\d{2}-\d{2}$/.test(key))s.goalProgress[key]=clamp(Math.floor(Number(value)||0),0,9999);
       if(raw.goalClaims&&typeof raw.goalClaims==='object')for(const [key,value] of Object.entries(raw.goalClaims).slice(0,20000))if(/^[a-zA-Z0-9_-]{1,75}\|\d{4}-\d{2}-\d{2}$/.test(key)&&value&&typeof value==='object')s.goalClaims[key]={xp:clamp(Math.floor(Number(value.xp)||0),0,250),bits:clamp(Math.floor(Number(value.bits)||0),0,100)};
@@ -1232,6 +1294,18 @@ button.kx-report-row:hover{border-color:#a5ca74}
       if(raw.bossClaims&&typeof raw.bossClaims==='object')for(const [k,v] of Object.entries(raw.bossClaims).slice(0,3000))if(v&&typeof v==='object')s.bossClaims[k]={bits:clamp(Math.floor(Number(v.bits)||0),0,1000),xp:clamp(Math.floor(Number(v.xp)||0),0,1500),common:clamp(Math.floor(Number(v.common)||0),0,500),rare:clamp(Math.floor(Number(v.rare)||0),0,500),epic:clamp(Math.floor(Number(v.epic)||0),0,200),legendary:clamp(Math.floor(Number(v.legendary)||0),0,100)};
       if(raw.regionClaims&&typeof raw.regionClaims==='object')for(const [k,v] of Object.entries(raw.regionClaims).slice(0,3000))if(v&&typeof v==='object')s.regionClaims[k]={bits:clamp(Math.floor(Number(v.bits)||0),0,1000),xp:clamp(Math.floor(Number(v.xp)||0),0,1500),common:clamp(Math.floor(Number(v.common)||0),0,500),rare:clamp(Math.floor(Number(v.rare)||0),0,500),epic:clamp(Math.floor(Number(v.epic)||0),0,200),legendary:clamp(Math.floor(Number(v.legendary)||0),0,100)};
       if(raw.base&&typeof raw.base==='object')for(const track of baseTracks)s.base[track.id]=clamp(Math.floor(Number(raw.base[track.id])||0),0,track.costs.length);
+      if(s.meta.baseSchemaV2!==2){
+        let oldSpent=0;
+        for(const track of baseTracks){
+          const oldLevel=clamp(s.base[track.id],0,4);
+          oldSpent+=legacyBasePrices[track.id].slice(0,oldLevel).reduce((a,b)=>a+b,0);
+          // Preserve each old tier as five new levels, without changing earned BIT.
+          s.base[track.id]=oldLevel*5;
+        }
+        const newSpent=baseTracks.reduce((total,t)=>total+t.costs.slice(0,s.base[t.id]).reduce((a,b)=>a+b,0),0);
+        s.meta.baseCostOffset=oldSpent-newSpent;
+        s.meta.baseSchemaV2=2;
+      }
       if(raw.runner&&typeof raw.runner==='object')s.runner={distance:clamp(Math.floor(Number(raw.runner.distance)||0),0,9999999),loot:clamp(Math.floor(Number(raw.runner.loot)||0),0,999999),avoided:clamp(Math.floor(Number(raw.runner.avoided)||0),0,999999),bestZone:clamp(Math.floor(Number(raw.runner.bestZone)||1),1,99)};
       if(raw.knowledge && typeof raw.knowledge==='object'){
         if(raw.knowledge.variants && typeof raw.knowledge.variants==='object')for(const variant of ['tree','rush','mastery']){
@@ -1329,6 +1403,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
       try{
         storageBackend.db=await openIndexedDB();
         const saved=await readDatabase(storageBackend.db);
+        const upgradeMigrated=!!(saved && saved.values?.meta?.baseSchemaV2!==2);
         if(saved){
           state=cleanState(saved.values);
           storageBackend.manifest=saved.manifest;
@@ -1353,6 +1428,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
         }
         storageBackend.mode='indexeddb';
         storageBackend.verified=true;
+        if(upgradeMigrated){storageBackend.pending=true;savePending();}
         renderAll();
         window.dispatchEvent(new Event('devpulse-knowledge-imported'));
         if(storageBackend.pending){savePending();}
@@ -1468,12 +1544,53 @@ button.kx-report-row:hover{border-color:#a5ca74}
     };
     const getSeconds = session => session.segments.reduce((sum,p)=>sum+(p.end-p.start)/1000,0);
     const timerSeconds = () => !state.timer ? 0 : getSeconds(state.timer) + (state.timer.runningSince == null ? 0 : Math.max(0,Date.now()-state.timer.runningSince)/1000);
+    // Daily active-time union: overlapping manual/timer sessions must not create days longer than 24 hours.
     function dailyTotals() {
-      const byDay=new Map();
-      for(const session of state.sessions){for(const p of session.segments){let t=p.start, end=p.end;let guard=0;while(t<end && guard++<14){const d=new Date(t), key=dateKey(d), tomorrow=addDays(d,1).getTime(), n=Math.min(end,tomorrow);if(n<=t)break;byDay.set(key,(byDay.get(key)||0)+(n-t)/1000);t=n;}}}
-      return byDay;
+      const dayRanges=new Map(), totals=new Map();
+      for(const session of state.sessions)for(const p of session.segments){
+        let t=p.start,end=p.end,guard=0;
+        while(t<end && guard++<15){
+          const d=new Date(t),key=dateKey(d),midnight=addDays(d,1).getTime(),n=Math.min(end,midnight);
+          if(n<=t)break;
+          if(!dayRanges.has(key))dayRanges.set(key,[]);
+          dayRanges.get(key).push([t,n]);t=n;
+        }
+      }
+      for(const [key,ranges] of dayRanges){
+        ranges.sort((a,b)=>a[0]-b[0]);let seconds=0,from=-1,to=-1;
+        for(const [a,b] of ranges){if(a>to){if(to>from)seconds+=(to-from)/1000;from=a;to=b;}else to=Math.max(to,b);}
+        if(to>from)seconds+=(to-from)/1000;
+        totals.set(key,Math.min(86400,seconds));
+      }
+      return totals;
     }
     const totalSeconds = () => state.sessions.reduce((n,s)=>n+getSeconds(s),0);
+    function concentrationStats(){
+      const timerSessions=state.sessions.filter(s=>s.source==='timer');
+      let focused=0,paused=0,pauses=0,sprintCount=0,longest=0,interrupted=0,qualified=0;
+      const lengths=[];
+      for(const s of timerSessions){
+        const ordered=[...s.segments].filter(p=>p.end>p.start).sort((a,b)=>a.start-b.start);
+        if(!ordered.length)continue;
+        qualified++;
+        let end=ordered[0].end,sessionInterruptions=0;
+        for(let i=0;i<ordered.length;i++){
+          const p=ordered[i],len=(p.end-p.start)/1000;
+          if(i>0){const gap=Math.max(0,(p.start-end)/1000);if(gap>=5){paused+=gap;pauses++;sessionInterruptions++;}}
+          end=Math.max(end,p.end);
+          focused+=len;sprintCount++;longest=Math.max(longest,len);lengths.push(len);
+        }
+        if(sessionInterruptions)interrupted++;
+      }
+      const mean=sprintCount?focused/sprintCount:0;
+      return {focused,paused,pauses,sprintCount,longest,mean,interrupted,qualified,ratio:(focused+paused)>0?focused/(focused+paused)*100:100};
+    }
+    function renderFocusIntelligence(){
+      const target=$('focusIntelligence');if(!target)return;
+      const f=concentrationStats();
+      const info=f.qualified?f.ratio<45?'Длинные паузы занимают большую часть времени сессий. Попробуй завершать текущий блок перед длительным перерывом.':f.pauses>f.qualified*2?'Ты часто прерываешь сессии. Попробуй заранее выделять один достижимый отрезок работы.':'У тебя есть история реальных спринтов. Перерывы допустимы: важнее возвращаться к поставленной задаче.':'Запусти таймер и хотя бы раз заверши рабочую сессию — здесь появятся реальные данные о непрерывности.';
+      target.innerHTML=`<div class="k-bar"><div><span class="eyebrow">DEEP WORK / SPRINT ANALYTICS</span><h2 class="card-title" style="margin:7px 0">Непрерывность концентрации</h2><p class="card-subtitle">Только сессии таймера: ручные записи не позволяют определить паузы.</p></div></div><div class="v15-focus-stats"><div class="v15-focus-stat"><b>${duration(f.mean)}</b><span>Средний спринт</span></div><div class="v15-focus-stat"><b>${duration(f.longest)}</b><span>Лучший спринт</span></div><div class="v15-focus-stat"><b>${f.pauses}</b><span>Перерывы между спринтами</span></div><div class="v15-focus-stat"><b>${f.qualified?Math.round(f.ratio)+'%':'—'}</b><span>Доля работы от времени с паузами</span></div></div><div class="v15-focus-insight">✦ ${escape(info)} ${f.qualified?`<span style="color:#9fb49b">Завершено сессий таймера: ${f.qualified}. С паузами: ${f.interrupted}. Время в паузах: ${duration(f.paused)}.</span>`:''}</div>`;
+    }
     function streakData(byDay) {
       const days=Array.from(byDay.entries()).filter(([,s])=>s>=1).map(([k])=>dayNumber(k)).sort((a,b)=>a-b);
       if(!days.length)return {current:0,longest:0};
@@ -1525,7 +1642,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
     ];
     const median = list => { if(!list.length)return 0;const a=[...list].sort((x,y)=>x-y),i=Math.floor(a.length/2);return a.length%2?a[i]:(a[i-1]+a[i])/2;};
     function sessionsThisPeriod(days){ const cutoff=addDays(new Date(),-(days-1)).getTime();return state.sessions.filter(s=>s.endedAt>=cutoff); }
-    function weekdayTotals(){const a=Array(7).fill(0);for(const s of state.sessions)a[(new Date(s.startedAt).getDay()+6)%7]+=getSeconds(s);return a;}
+    function weekdayTotals(){const a=Array(7).fill(0);for(const [day,sec] of dailyTotals())a[(fromKey(day).getDay()+6)%7]+=sec;return a;}
     function hourBuckets(){const b=Array(6).fill(0);for(const s of state.sessions){const h=new Date(s.startedAt).getHours();b[h<6?0:h<10?1:h<14?2:h<18?3:h<22?4:5]+=getSeconds(s);}return b;}
     function daysGoalReached(m,days){return Array.from({length:days},(_,i)=>m.daily.get(dateKey(addDays(new Date(),-i)))||0).filter(v=>v>=state.profile.dailyGoal*60).length;}
     const claimedStats = ()=>Object.values(state.goalClaims).reduce((a,b)=>({xp:a.xp+(b.xp||0),bits:a.bits+(b.bits||0),count:a.count+1}),{xp:0,bits:0,count:0});
@@ -1534,7 +1651,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
     const extraRewardTotal=()=>{ const bags=[state.contractClaims||{},state.bossClaims||{},state.regionClaims||{}]; return bags.flatMap(Object.values).reduce((n,b)=>({bits:n.bits+(b.bits||0),xp:n.xp+(b.xp||0),count:n.count+1}),{bits:0,xp:0,count:0}); };
     const materialGain = rarity => ({common:2,rare:5,epic:10,legendary:18,mythic:28}[rarity]||0);
     const materialKeyByRarity = rarity => rarity==='mythic' ? 'legendary' : rarity;
-    const spentOnBase=()=>baseTracks.reduce((sum,t)=>sum+t.costs.slice(0,state.base[t.id]||0).reduce((a,b)=>a+b,0),0);
+    const spentOnBase=()=>Math.max(0,baseTracks.reduce((sum,t)=>sum+t.costs.slice(0,state.base[t.id]||0).reduce((a,b)=>a+b,0),0)+(state.meta.baseCostOffset||0));
     const skillMatchers={
       go:s=>/\bgo\b|golang/i.test((s.project||'')+' '+(s.note||''))||['Программирование','Пет-проект'].includes(s.category),
       algorithms:s=>s.category==='Алгоритмы'||/leetcode|алго|algorithm/i.test((s.project||'')+' '+(s.note||'')),
@@ -1620,7 +1737,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
       const medals=getAchievements(partial).filter(a=>a.unlocked),bonusXp=medals.reduce((n,a)=>n+a.xp,0),medalBits=medals.reduce((n,a)=>n+a.bits,0);
       const claimed=claimedStats(),bonus=bonusTotal(),extra=extraRewardTotal();
       const knowledge=Object.values(state.knowledge?.ledger||{}).reduce((a,v)=>({xp:a.xp+(v.xp||0),bits:a.bits+(v.bits||0)}),{xp:0,bits:0});
-      const xp=baseXp+bonusXp+claimed.xp+bonus.xp+extra.xp+knowledge.xp;
+      const xp=Math.max(state.meta?.xpFloor||0,baseXp+bonusXp+claimed.xp+bonus.xp+extra.xp+knowledge.xp);
       const earnedBits=Math.floor(total/1200)+medalBits+claimed.bits+bonus.bits+extra.bits+knowledge.bits;
       const spent=skins.filter(k=>state.pet.owned.includes(k.id)).reduce((n,k)=>n+k.cost,0)+state.caseRolls.reduce((n,r)=>n+r.cost-(r.refund||0),0)+spentOnBase();
       return {...partial,baseXp,bonusXp,questXp:claimed.xp,xp,level:levelData(xp),coins:Math.max(0,earnedBits-spent),medals,bonus,extra};
@@ -1775,6 +1892,58 @@ button.kx-report-row:hover{border-color:#a5ca74}
     }
     // V5: in-browser virtual cosmetics, no real-money payments.
     let gearFilter='all', selectedCase='starter', rollBusy=false;
+    function v15Shade(hex, shift){
+      if(!/^#[0-9a-f]{6}$/i.test(hex))return hex;
+      let rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16));
+      rgb=rgb.map(v=>Math.max(0,Math.min(255,Math.round(shift>=0?v+(255-v)*shift:v*(1+shift)))));
+      return '#'+rgb.map(v=>v.toString(16).padStart(2,'0')).join('');
+    }
+    function v15OuterArtwork(item){
+      if(!item)return '';
+      const c=item.color,light=v15Shade(c,.25),dark=v15Shade(c,-.35),mid=v15Shade(c,-.17),v=item.version;
+      const back=v>=6?`<path d="M111 163 Q91 183 69 237 L60 306 Q102 331 117 288 L140 234 L164 293 Q186 329 223 304 L211 225 Q197 170 169 160 Z" fill="${dark}" stroke="#273529" stroke-width="4"/>`:'';
+      const left=`<path d="M103 165 Q83 169 76 201 L60 258 Q57 269 70 273 Q84 276 89 264 L107 208 L120 174Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M62 258 L86 260 L82 270 Q67 279 58 269Z" fill="${dark}"/><path d="M83 195 Q77 220 70 247" fill="none" stroke="${light}" stroke-width="2" opacity=".4"/>`;
+      const right=`<path d="M177 165 Q198 169 205 201 L221 258 Q224 269 210 273 Q196 276 191 264 L173 208 L160 174Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M219 258 L195 260 L199 270 Q213 279 223 269Z" fill="${dark}"/><path d="M198 195 Q205 220 211 247" fill="none" stroke="${light}" stroke-width="2" opacity=".4"/>`;
+      const closed=`<path d="M102 164 Q140 156 178 164 L193 252 Q140 266 87 252 Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M93 246 Q140 257 187 246 L189 257 Q140 268 91 257Z" fill="${dark}"/>`;
+      const open=`<path d="M104 162 Q120 162 128 165 L130 253 Q107 263 90 256Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M152 165 Q172 160 180 163 L190 256 Q171 265 149 252Z" fill="${c}" stroke="${dark}" stroke-width="3"/>`;
+      let body='';
+      if(v===0){body=`<path d="M112 160 Q109 135 139 136 Q173 136 169 160 L158 175 Q143 184 139 185 Q124 180 118 173Z" fill="${dark}" stroke="${mid}" stroke-width="3"/>${closed}<path d="M118 167 Q128 186 140 189 Q154 184 163 168" fill="none" stroke="${light}" stroke-width="5" stroke-linecap="round"/><path d="M117 218 Q140 230 164 218 L170 244 L113 244Z" fill="${mid}" stroke="${dark}" stroke-width="2"/><path d="M139 190V223" stroke="${light}" stroke-width="2" stroke-dasharray="3 5"/>`;
+      }else if(v===1){body=open+`<path d="M125 166 L109 193 L125 207 L130 250 M155 166 L171 193 L155 207 L150 250" fill="none" stroke="${light}" stroke-width="6"/><path d="M91 245H131M150 245H189" stroke="${dark}" stroke-width="5"/><g fill="${dark}"><circle cx="128" cy="204" r="2.3"/><circle cx="128" cy="223" r="2.3"/><circle cx="128" cy="243" r="2.3"/></g>`;
+      }else if(v===2){body=closed+`<path d="M111 160 Q102 131 140 133 Q180 130 169 163 Q160 183 140 186 Q118 182 111 160" fill="${mid}" stroke="${light}" stroke-width="3"/><path d="M123 173 Q140 188 157 173" fill="none" stroke="${dark}" stroke-width="4"/><path d="M115 216 Q140 226 165 216 L170 245 L111 245Z" fill="${mid}" stroke="${dark}" stroke-width="2"/><path d="M140 192v24" stroke="${light}" stroke-width="2"/><circle cx="141" cy="206" r="3" fill="${light}"/>`;
+      }else if(v===3){body=closed+`<path d="M114 162 Q140 178 166 162 L173 181 Q140 196 107 181Z" fill="${dark}"/><path d="M139 185 V253" stroke="${light}" stroke-width="3"/><path d="M93 247H185" stroke="${dark}" stroke-width="7"/><path d="M101 202H124 M155 202H178" stroke="${light}" stroke-width="2.5"/><path d="M102 211H124 M155 211H178" stroke="${dark}" stroke-width="2"/><circle cx="140" cy="198" r="2" fill="#dae7ca"/>`;
+      }else if(v===4){body=closed+`<path d="M114 160 Q140 175 166 160" stroke="${light}" stroke-width="6" fill="none"/><path d="M98 201 L115 213 L128 203 L140 217 L153 203 L171 211 L183 198" fill="none" stroke="${light}" stroke-width="3" opacity=".8"/><path d="M103 230H176 M111 236H167" stroke="${dark}" stroke-width="2.5"/><path d="M131 224 L139 214 L148 224 L140 233Z" fill="${light}"/>`;
+      }else if(v===5){body=closed+`<path d="M105 165 Q117 176 140 183 Q164 174 176 164 L162 198 L141 188 L117 198Z" fill="${dark}" stroke="${light}" stroke-width="2"/><path d="M140 190v63" stroke="${light}" stroke-width="3"/><path d="M100 219h27v18h-27zM153 219h27v18h-27z" fill="${mid}" stroke="${dark}" stroke-width="2"/><path d="M102 219h24M154 219h24" stroke="${light}" stroke-width="3"/><path d="M142 204h3m-3 11h3m-3 11h3" stroke="#eaf0df" stroke-width="2"/>`;
+      }else if(v===6){body=`<path d="M100 159 Q140 174 180 159 L194 302 Q165 317 148 285 L141 240 L134 285 Q112 316 85 300Z" fill="${c}" stroke="${dark}" stroke-width="3"/>${open}<path d="M110 163 L123 198 L112 220 L137 256 M169 163L155 198L169 220L144 255" fill="none" stroke="${light}" stroke-width="5"/><path d="M103 272L90 291M181 272L192 291" stroke="${light}" stroke-width="3"/>`;
+      }else{body=`<path d="M102 164 Q140 144 178 164 L198 300 Q174 316 146 274 L140 240 L134 275 Q110 316 82 300Z" fill="${dark}" stroke="${light}" stroke-width="3"/>${closed}<path d="M113 169 L139 210 L167 169" fill="none" stroke="${light}" stroke-width="6"/><path d="M140 198V258" stroke="${light}" stroke-width="2"/><g fill="#f7ddae"><circle cx="113" cy="217" r="2"/><circle cx="167" cy="217" r="2"/><circle cx="122" cy="241" r="2"/><circle cx="155" cy="239" r="2"/><path d="M140 218l4 6-4 6-4-6Z"/></g>`;}
+      return `<g aria-label="${item.name}" stroke-linejoin="round">${back}${left}${right}${body}<path d="M93 171Q100 165 108 165M171 165Q183 166 188 174" stroke="${light}" stroke-width="2" opacity=".65" fill="none"/></g>`;
+    }
+    function v15ScarfArtwork(item){
+      if(!item)return '';
+      const c=item.color,light=v15Shade(c,.28),dark=v15Shade(c,-.32),v=item.version;
+      const ring=`<path d="M108 154 Q139 175 172 152 L171 171 Q138 190 108 173Z" fill="${c}" stroke="${dark}" stroke-width="3"/>`;
+      let tail='';
+      if(v===0)tail=`<path d="M162 169 Q180 191 167 241 L149 236 Q163 192 148 173Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M150 230l17 5m-13 2 14 5" stroke="${light}" stroke-width="2"/>`;
+      else if(v===1)tail=`<path d="M110 171 Q105 191 112 226 L132 223 L129 175Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M156 172Q176 195 164 245L145 238Q159 203 140 176Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M109 190l18 3m-16 14 18 3m21 3 18 3" stroke="${light}" stroke-width="4"/>`;
+      else if(v===2)tail=`<path d="M106 164 Q90 206 104 244 L126 235 Q109 197 124 170Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M161 167 Q174 190 157 218 L144 209 Q152 185 142 175Z" fill="${c}" stroke="${dark}" stroke-width="3"/>`;
+      else if(v===3)tail=`<path d="M111 156 Q139 179 170 155 L173 181 Q139 193 108 179Z" fill="${dark}" stroke="${light}" stroke-width="3"/>`;
+      else if(v===4)tail=`<path d="M161 170 Q187 197 165 243 L145 238 Q163 192 139 177Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M147 221L169 228m-22 3 19 5" stroke="#ffb07f" stroke-width="4"/>`;
+      else if(v===5)tail=`<path d="M104 159 Q139 186 176 159 L177 184 Q139 200 105 185Z" fill="${dark}" stroke="${light}" stroke-width="3"/><path d="M111 162q28 27 57 3" stroke="${light}" stroke-width="3" fill="none"/>`;
+      else if(v===6)tail=`<path d="M158 171 Q188 199 172 254 L147 245 Q168 205 142 177Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M152 217q17 8 16 26" stroke="#ffe09b" stroke-width="5" fill="none"/>`;
+      else tail=`<path d="M152 171 Q190 199 161 259 L139 244 Q168 206 133 178Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M151 184 Q177 214 147 251" fill="none" stroke="${light}" stroke-width="3"/><g fill="#f4e9bb"><circle cx="172" cy="201" r="2"/><circle cx="160" cy="234" r="2"/><circle cx="125" cy="163" r="2"/></g>`;
+      return `<g aria-label="${item.name}" stroke-linejoin="round">${tail}${ring}<path d="M117 168 Q138 181 163 165" fill="none" stroke="${light}" stroke-width="2" opacity=".65"/></g>`;
+    }
+    function v15HatArtwork(item){
+      if(!item)return '';
+      const c=item.color,light=v15Shade(c,.3),dark=v15Shade(c,-.35),v=item.version;
+      const crown=`<path d="M89 88 Q87 36 137 30 Q189 27 193 88Z" fill="${c}" stroke="${dark}" stroke-width="4"/>`;
+      if(v===1||v===3)return `<g>${crown}<path d="M87 86Q140 100 195 84" fill="none" stroke="${dark}" stroke-width="13"/><path d="M89 75Q141 84 189 75" fill="none" stroke="${light}" stroke-width="3"/><path d="M129 36l12-16 12 16" fill="${dark}"/><path d="M114 64v12M132 61v14M150 61v14M168 64v12" stroke="${dark}" stroke-width="2"/></g>`;
+      if(v===2)return `<g><path d="M96 62 Q140 28 184 62 L192 84H87Z" fill="${c}" stroke="${dark}" stroke-width="4"/><path d="M74 83Q139 102 209 83L201 98Q139 108 79 98Z" fill="${light}" stroke="${dark}" stroke-width="3"/><path d="M98 78H183" stroke="${dark}" stroke-width="6"/></g>`;
+      if(v===5)return `<g><path d="M92 88 Q86 38 119 27 L154 24 Q195 40 188 88Z" fill="${dark}" stroke="${light}" stroke-width="3"/><path d="M112 42L140 35L169 43L177 80H104Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M102 78H177" stroke="${light}" stroke-width="4"/><circle cx="140" cy="57" r="7" stroke="${light}" fill="none"/></g>`;
+      if(v===6)return `<g><path d="M88 82L101 37L124 62L139 15L155 62L177 35L192 82Z" fill="#edc96c" stroke="#8e6f31" stroke-width="4"/><rect x="87" y="78" width="106" height="15" rx="6" fill="#b58d37"/><circle cx="140" cy="69" r="7" fill="${c}"/></g>`;
+      if(v===7)return `<g><ellipse cx="140" cy="41" rx="53" ry="26" fill="none" stroke="${light}" stroke-width="6"/><path d="M90 87Q100 44 140 43Q180 43 191 87Z" fill="${c}" stroke="${dark}" stroke-width="3"/><path d="M98 81H181" stroke="${light}" stroke-width="4"/></g>`;
+      if(v===4)return `<g>${crown}<path d="M87 86Q140 104 192 86" fill="none" stroke="${dark}" stroke-width="12"/><path d="M122 44L140 35L157 44L140 69Z" fill="${light}"/><path d="M87 92Q146 112 205 91L215 103Q154 120 93 106Z" fill="${dark}"/></g>`;
+      return `<g>${crown}<path d="M90 88Q140 102 193 86" fill="none" stroke="${dark}" stroke-width="10"/><path d="M105 98Q146 108 208 96L212 105Q160 118 116 109Z" fill="${light}" stroke="${dark}" stroke-width="3"/><path d="M136 52v21" stroke="${light}" stroke-width="3"/></g>`;
+    }
     function characterSVG(equipped=state.inventory.equipped){
       const item=slot=>getGear(equipped[slot]); const col=(slot,fallback)=>item(slot)?.color||fallback;
       const hat=item('hat'), glasses=item('glasses'), scarf=item('scarf'), outer=item('outer'), accessory=item('accessory');
@@ -1789,14 +1958,14 @@ button.kx-report-row:hover{border-color:#a5ca74}
         <path d="M104 161q35-13 71 0l18 92-106 0z" fill="${topColor}" stroke="#27352d" stroke-width="4"/>
         <path d="M120 162l20 26 20-26" stroke="#ffffff" stroke-opacity=".38" stroke-width="4" fill="none"/>
         ${marks('top')}
-        ${outer?`<path d="M101 162c-19 10-25 54-26 78l25 5 17-55 5 63h18l-7-81zM179 162c21 10 27 54 29 78l-25 5-19-55-5 63h-19l8-81z" fill="${outerColor}" stroke="#29312c" stroke-width="3"/><path d="M140 181v65" stroke="#cfe0d6" stroke-width="2" stroke-dasharray="4 7"/>`:''}
+        ${v15OuterArtwork(outer)}
         <rect x="126" y="142" width="28" height="29" rx="9" fill="#e4b28b"/>
         <ellipse cx="139" cy="104" rx="50" ry="57" fill="#e4b28b" stroke="#9b7156" stroke-width="2"/>
         <path d="M91 103c-9-36 8-66 42-69 47-5 67 26 55 70-6-17-21-25-34-31-21 20-43 21-63 30Z" fill="#342a27"/>
         <path d="M119 113h10m23 0h10" stroke="#3d2b28" stroke-width="4" stroke-linecap="round"/><path d="M132 137q8 6 16 0" stroke="#9a5b4f" stroke-width="3" fill="none" stroke-linecap="round"/>
         ${glasses?`<g fill="${glasses.version>=4?'#263a59':'#14252d'}" fill-opacity="${glasses.version>=4?'.75':'.19'}" stroke="${glasses.color}" stroke-width="4"><rect x="104" y="103" width="32" height="22" rx="${glasses.version>=4?5:10}"/><rect x="143" y="103" width="32" height="22" rx="${glasses.version>=4?5:10}"/><path d="M136 109h7"/></g>`:''}
-        ${hat?`<path d="M87 87q0-62 53-63 55 1 53 63Z" fill="${hat.color}" stroke="#17211b" stroke-width="4"/><path d="M84 82q32 9 113 0l10 9q-58 17-128 1Z" fill="${hat.version>=6?'#f3cc5d':hat.color}" stroke="#213126" stroke-width="2"/>${hat.version===7?'<path d="M140 10v15m-18-11h36" stroke="#f5e2a2" stroke-width="5"/>':''}`:''}
-        ${scarf?`<path d="M111 158q27 16 59 1l-3 25-54 0Z" fill="${scarf.color}" stroke="#2b372f" stroke-width="3"/><path d="M159 169q14 18 4 56l-22-3q12-26 0-48Z" fill="${scarf.color}" stroke="#2b372f" stroke-width="3"/>`:''}
+        ${v15HatArtwork(hat)}
+        ${v15ScarfArtwork(scarf)}
         ${accessory?`<g><path d="M207 229q20-17 27 5t-16 31q-20-2-11-36" fill="${accessory.color}" stroke="#fff" stroke-opacity=".5" stroke-width="3"/><circle cx="220" cy="243" r="8" fill="#faf5ce"/></g>`:''}
         <path d="M84 255l-9 14m122-14 10 14" stroke="#dbac89" stroke-width="9" stroke-linecap="round"/>
       </svg>`;
@@ -1894,7 +2063,7 @@ button.kx-report-row:hover{border-color:#a5ca74}
       $('goalBreakdown').innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:end;"><strong style="font-size:36px;letter-spacing:-.06em;">${reached}<span style="font-size:17px;color:var(--muted);"> / 30</span></strong><span class="muted small-text">дней с выполненной целью</span></div><div class="progress-track" style="height:11px;margin:17px 0 22px;"><div class="progress-fill" style="width:${reached/30*100}%"></div></div><div style="display:grid;grid-template-columns:repeat(10,1fr);gap:7px;">${d30.map(d=>`<span title="${escape(d.date.toLocaleDateString('ru-RU'))}: ${duration(d.sec)}" style="aspect-ratio:1;border-radius:5px;background:${d.sec>=state.profile.dailyGoal*60?'#d8ff65':d.sec>0?'#698e46':'#2a352c'};"></span>`).join('')}</div><p class="small-text muted" style="line-height:1.6;margin-top:19px;">${active} ${plural(active,['активный день','активных дня','активных дней'])} за 30 дней · Цель ${state.profile.dailyGoal} мин/день</p>`;
       const lengths=state.sessions.map(getSeconds);
       const longest=lengths.length?Math.max(...lengths):0;
-      const bestDay=Math.max(0,...m.daily.values());const avg=m.activeDays?m.total/m.activeDays:0;
+      const bestDay=Math.max(0,...m.daily.values());const avg=m.activeDays?[...m.daily.values()].reduce((a,b)=>a+b,0)/m.activeDays:0;
       const avgSession=lengths.length?lengths.reduce((a,b)=>a+b,0)/lengths.length:0;
       const medSession=median(lengths);
       const sessions7=sessionsThisPeriod(7);
@@ -1917,8 +2086,8 @@ button.kx-report-row:hover{border-color:#a5ca74}
       const averageWeek = Array.from({length:4},(_,w)=>Array.from({length:7},(_,i)=>m.daily.get(dateKey(addDays(new Date(),-(w*7+i))))||0).reduce((a,b)=>a+b,0)).reduce((a,b)=>a+b,0)/4;
       const focusScore=Math.round(clamp(((consistency*0.42) + (Math.min(100,(avgSession/3600)*100)*0.26) + (Math.min(100,(m.streak.current/14)*100)*0.32)),0,100));
       const insights=[
-        [focusScore + '/100','Индекс фокуса','Сводный показатель по регулярности, длине сессий и текущему стрику.'],
-        [dayNames[bestWeekdayIndex]||'—','Лучший день недели',weekdays[bestWeekdayIndex]?`В среднем именно здесь ты сильнее всего. ${duration(weekdays[bestWeekdayIndex])} суммарно.`:'Пока не хватает данных.'],
+        [focusScore + '/100','Индекс регулярности','Сводный показатель по регулярности, длине сессий и текущему стрику.'],
+        [dayNames[bestWeekdayIndex]||'—','Лучший день недели',weekdays[bestWeekdayIndex]?`За все недели здесь больше всего фокуса: ${duration(weekdays[bestWeekdayIndex])} в сумме.`:'Пока не хватает данных.'],
         [parts[bestPartIndex]||'—','Пиковое время',hours[bestPartIndex]?`Чаще всего ты садишься за код именно в этом диапазоне.`:'Пока без выраженного паттерна.'],
         [favoriteProject?favoriteProject[0]:'—','Любимый проект',favoriteProject?`Больше всего времени ушло сюда: ${duration(favoriteProject[1])}.`:'Появится после первых сессий.'],
         [duration(recentBurst),'Объём за 7 дней',`Сравнение с усреднённой неделей: ${recentBurst>=averageWeek?'ты выше среднего':'есть запас для роста'}.`],
@@ -2000,17 +2169,254 @@ button.kx-report-row:hover{border-color:#a5ca74}
     }
     function renderForge(){ $('forgeMaterials').innerHTML=['common','rare','epic','legendary'].map(k=>`<span class="resource-pill">${rarityNames[k]}: <strong>${state.materials[k]||0}</strong></span>`).join(''); $('craftBoard').innerHTML=gearSets.map((set,idx)=>{const owned=wardrobeItems.filter(g=>g.version===idx && state.inventory.owned.includes(g.id)).length; const missing=wardrobeItems.filter(g=>g.version===idx && !state.inventory.owned.includes(g.id)); const can=missing.length && Object.entries(set.cost).every(([k,v])=>(state.materials[k]||0)>=v); return `<div class="forge-card"><div class="set-art">${set.emoji}</div><h3>${escape(set.name)}</h3><p>${escape(set.caption)}</p><div class="forge-cost">${Object.entries(set.cost).map(([k,v])=>`<span class="rarity-tag rarity-${k}">${rarityNames[k]} · ${v}</span>`).join('')}</div><div class="small-text muted">Собрано ${owned}/8 предметов</div><button class="button ${can?'button-primary':'button-secondary'} button-small" data-action="craft-set" data-id="${set.id}" ${!can||!missing.length?'disabled':''}>${missing.length?'Скрафтить предмет':'Сет собран'}</button></div>`;}).join(''); $('setCollection').innerHTML=gearSets.map((set,idx)=>{const all=wardrobeItems.filter(g=>g.version===idx); const owned=all.filter(g=>state.inventory.owned.includes(g.id)).length; const pct=Math.round(owned/all.length*100); return `<div class="set-row"><div class="set-art">${set.emoji}</div><div><strong>${escape(set.name)}</strong><span class="small-text muted">${owned}/8 предметов · ${escape(set.caption)}</span><div class="progress-track" style="height:8px;margin-top:8px"><div class="progress-fill" style="width:${pct}%"></div></div></div><span class="resource-pill">${pct}%</span></div>`;}).join(''); }
     function renderContracts(){ const contracts=activeContracts(); const list=[...contracts.daily,...contracts.weekly]; const claimedCount=list.filter(c=>contractState(c).claimed).length; $('contractStats').textContent=`${claimedCount}/${list.length} закрыто`; $('contractBoard').innerHTML=list.map(c=>{const st=contractState(c); return `<div class="contract-card ${st.claimed?'claimed':st.complete?'complete':''}"><div class="contract-head"><div style="min-width:0"><strong>${escape(c.name)}</strong><small>${escape(c.desc)} · ${c.type==='weekly'?'Неделя':'Сегодня'}</small></div><div class="contract-emoji">${c.emoji}</div></div><div class="goal-count-line"><div class="goal-current">${st.progress}</div><div class="goal-target">/ ${c.target}</div></div><div class="progress-track" style="height:9px"><div class="progress-fill" style="width:${st.progress/c.target*100}%"></div></div><div class="contract-rewards"><span>+${c.reward.xp} XP</span><span>+${c.reward.bits} BIT</span></div><button class="button ${st.complete&&!st.claimed?'button-primary':'button-secondary'} button-small" data-action="claim-contract" data-id="${c.id}" data-type="${c.type}" ${!st.complete||st.claimed?'disabled':''}>${st.claimed?'✓ Забрано':st.complete?'Забрать награду':'В процессе'}</button></div>`;}).join(''); }
-    function renderWorld(m){ const boss=weeklyBossInfo(m); $('worldBossFact').textContent=Math.round(boss.damage/boss.maxHp*100)+'%'; $('worldRegionFact').textContent=regionDefs.filter(r=>regionState(r).complete).length; const pet=petEvolutionInfo(m); $('worldPetFact').textContent='Stage '+pet.stage.id; $('bossWeekLabel').textContent='WEEK OF '+new Date(fromKey(currentWeekStart())).toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'}); $('bossIcon').textContent=boss.boss.emoji; $('bossName').textContent=boss.boss.name; $('bossDesc').textContent=boss.boss.desc; $('bossHp').textContent=`${boss.hp.toLocaleString('ru-RU')} / ${boss.maxHp.toLocaleString('ru-RU')} HP`; $('bossDamageNote').textContent=`Нанесено ${boss.damage.toLocaleString('ru-RU')} урона за ${boss.activeDays} дней. Сила урона уменьшается после длительной практики в один день.`; $('bossProgress').style.width=`${Math.min(100,boss.damage/boss.maxHp*100)}%`; $('bossRewards').innerHTML=`<span class="danger">Рейдовый босс</span><span>+${boss.reward.xp} XP</span><span>+${boss.reward.bits} BIT</span><span>Материалы: редкие ×${boss.reward.rare||0}${boss.reward.epic?`, эпик ×${boss.reward.epic}`:''}</span>`; const bbtn=$('bossClaimButton'); bbtn.disabled=!boss.defeated||boss.claimed; bbtn.textContent=boss.claimed?'✓ Награда забрана':boss.defeated?'Забрать награду':'Сначала победи босса'; $('baseSpent').textContent='Потрачено '+spentOnBase()+' BIT'; $('baseRoom').innerHTML=baseRoomSVG(); $('baseUpgradeGrid').innerHTML=baseTracks.map(track=>{const tier=state.base[track.id]||0, next=track.costs[tier]; return `<div class="upgrade-card"><div class="upgrade-title">${track.emoji} ${escape(track.name)}</div><div class="upgrade-tier">${tier?track.tiers[tier-1]:'Базовый уровень'} · ${tier}/${track.costs.length}</div><button class="button ${next&&m.coins>=next?'button-primary':'button-secondary'} button-small" data-action="buy-upgrade" data-id="${track.id}" ${!next||m.coins<next?'disabled':''}>${next?`Улучшить за ${next} BIT`:'Максимум'}</button></div>`;}).join(''); $('petEvolutionCard').innerHTML=`<div class="pet-stage"><div class="pet-stage-icon">${pet.stage.emoji}</div><div><div class="pet-stage-title">${escape(pet.stage.name)}</div><div class="pet-stage-sub">${escape(pet.stage.desc)}</div></div></div><div class="boss-hp-row"><strong>${pet.score} эволюционных очков</strong><span>${pet.next?`Следующая форма: ${pet.next.name}`:'Максимальная форма открыта'}</span></div><div class="progress-track" style="height:10px"><div class="progress-fill" style="width:${pet.progress}%"></div></div><div class="boss-badges"><span class="pet-stage-pill">Лучший комбо: ×${state.meta.petBestCombo||0}</span><span class="pet-stage-pill">Всего прыжков: ${(state.meta.totalDodges||0).toLocaleString('ru-RU')}</span></div>`; $('skillTree').innerHTML=skillTreeSVG(); $('worldMap').innerHTML=regionDefs.map((def,i)=>{
+    function renderWorld(m){ const boss=weeklyBossInfo(m); $('worldBossFact').textContent=Math.round(boss.damage/boss.maxHp*100)+'%'; $('worldRegionFact').textContent=regionDefs.filter(r=>regionState(r).complete).length; const pet=petEvolutionInfo(m); $('worldPetFact').textContent='Stage '+pet.stage.id; $('bossWeekLabel').textContent='WEEK OF '+new Date(fromKey(currentWeekStart())).toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'}); $('bossIcon').textContent=boss.boss.emoji; $('bossName').textContent=boss.boss.name; $('bossDesc').textContent=boss.boss.desc; $('bossHp').textContent=`${boss.hp.toLocaleString('ru-RU')} / ${boss.maxHp.toLocaleString('ru-RU')} HP`; $('bossDamageNote').textContent=`Нанесено ${boss.damage.toLocaleString('ru-RU')} урона за ${boss.activeDays} дней. Сила урона уменьшается после длительной практики в один день.`; $('bossProgress').style.width=`${Math.min(100,boss.damage/boss.maxHp*100)}%`; $('bossRewards').innerHTML=`<span class="danger">Рейдовый босс</span><span>+${boss.reward.xp} XP</span><span>+${boss.reward.bits} BIT</span><span>Материалы: редкие ×${boss.reward.rare||0}${boss.reward.epic?`, эпик ×${boss.reward.epic}`:''}</span>`; const bbtn=$('bossClaimButton'); bbtn.disabled=!boss.defeated||boss.claimed; bbtn.textContent=boss.claimed?'✓ Награда забрана':boss.defeated?'Забрать награду':'Сначала победи босса'; $('baseSpent').textContent='Потрачено '+spentOnBase()+' BIT'; $('baseRoom').innerHTML=baseRoomSVG();v15SyncWorkstation(); $('baseUpgradeGrid').innerHTML=baseTracks.map(track=>{const tier=state.base[track.id]||0, next=track.costs[tier]; const chapter=Math.min(4,Math.floor(Math.max(0,tier-1)/4));return `<div class="upgrade-card v152-upgrade"><div class="v152-upgrade-top"><span class="v152-upgrade-emoji">${track.emoji}</span><div><div class="upgrade-title">${escape(track.name)}</div><div class="upgrade-tier">${tier?escape(track.tiers[chapter]):'Стартовый уровень'} · ${tier}/20</div></div></div><div class="v152-small-rail"><i style="width:${tier*5}%"></i></div><div class="v152-upgrade-foot"><small>Следующий уровень ${Math.min(20,tier+1)} / 20</small><strong>${next?next+' BIT':'ГОТОВО'}</strong></div><button class="button ${next&&m.coins>=next?'button-primary':'button-secondary'} button-small" data-action="buy-upgrade" data-id="${track.id}" ${!next||m.coins<next?'disabled':''}>${next?`+1 улучшение · ${next} BIT`:'✓ Максимум'}</button></div>`;}).join(''); $('petEvolutionCard').innerHTML=`<div class="pet-stage"><div class="pet-stage-icon">${pet.stage.emoji}</div><div><div class="pet-stage-title">${escape(pet.stage.name)}</div><div class="pet-stage-sub">${escape(pet.stage.desc)}</div></div></div><div class="boss-hp-row"><strong>${pet.score} эволюционных очков</strong><span>${pet.next?`Следующая форма: ${pet.next.name}`:'Максимальная форма открыта'}</span></div><div class="progress-track" style="height:10px"><div class="progress-fill" style="width:${pet.progress}%"></div></div><div class="boss-badges"><span class="pet-stage-pill">Лучший комбо: ×${state.meta.petBestCombo||0}</span><span class="pet-stage-pill">Всего прыжков: ${(state.meta.totalDodges||0).toLocaleString('ru-RU')}</span></div>`; /* Legacy developer skill tree removed from the World UI; Knowledge DAGs are unchanged. */ $('worldMap').innerHTML=regionDefs.map((def,i)=>{
         const st=regionState(def), pct=Math.min(100,st.progress/def.target*100);
         const parts=[`${def.reward.xp} XP`,`${def.reward.bits} BIT`,...['common','rare','epic','legendary'].filter(k=>def.reward[k]).map(k=>`${rarityNames[k]} ×${def.reward[k]}`)];
         return `<article class="region-card ${!st.unlocked?'locked':''} ${st.complete?'complete':''}"><div class="region-index">${String(i+1).padStart(2,'0')}</div><div class="region-art">${def.emoji}</div><div class="region-body"><div class="region-header"><h3>${escape(def.name)}</h3><span class="region-state">${st.claimed?'ОСВОЕНО':st.complete?'НАГРАДА':'ИССЛЕДОВАНИЕ'}</span></div><p>${escape(def.desc)}</p><div class="region-details">${escape(def.require)} · ${parts.join(' / ')}</div><div class="region-progress"><div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div><strong>${Math.floor(st.progress)} / ${def.target} мин</strong></div></div><button class="button ${st.complete&&!st.claimed?'button-primary':'button-secondary'} button-small" data-action="claim-region" data-id="${def.id}" ${!st.complete||st.claimed?'disabled':''}>${st.claimed?'✓ Забрано':st.complete?'Забрать':'В процессе'}</button></article>`;
       }).join(''); }
     function renderReports(){ const w=wrappedData(); $('reportMainHours').textContent=shortDuration(w.curSec); $('reportMainSessions').textContent=w.cur.length; $('reportMainTitle').textContent=w.title; $('reportHeroTitle').textContent=w.title; $('reportHeroSubtitle').textContent=w.curSec?`За последние 7 дней у тебя ${duration(w.curSec)}, ${w.cur.length} ${plural(w.cur.length,['сессия','сессии','сессий'])} и ${w.topProj?`главный проект — ${w.topProj[0]}.`:'новые следы прогресса.'}`:'Сделай несколько сессий, и тут появится красивый weekly wrapped.'; const activeDays=w.curDaily.filter(d=>d.sec>0).length, best=w.curDaily.reduce((a,b)=>a.sec>b.sec?a:b,{label:'—',sec:0}), avg=w.cur.length?Math.round(w.curSec/w.cur.length):0, deltaLabel=w.deltaSec===0?'без изменений':(w.deltaSec>0?`+${duration(w.deltaSec)}`:`-${duration(Math.abs(w.deltaSec))}`); $('reportStats').innerHTML=[[''+activeDays,'Активных дней'],[duration(avg),'Средняя сессия'],[best.sec?`${best.label} · ${duration(best.sec)}`:'—','Лучший день'],[deltaLabel,'Против прошлой недели']].map(([v,l])=>`<div class="wrapped-stat"><b>${escape(v)}</b><span>${escape(l)}</span></div>`).join(''); const max=Math.max(1,...w.curDaily.map(d=>d.sec)); $('reportWeekBars').innerHTML=w.curDaily.map(d=>`<div class="week-bar-row"><strong>${d.label}</strong><div class="week-bar"><div style="width:${d.sec/max*100}%"></div></div><span class="small-text muted">${d.sec?shortDuration(d.sec):'—'}</span></div>`).join(''); $('reportComparison').innerHTML=[['Всего времени',`${duration(w.curSec)}`,w.deltaSec===0?'Неделя в неделю — одинаково':w.deltaSec>0?`Больше на ${duration(w.deltaSec)}`:`Меньше на ${duration(Math.abs(w.deltaSec))}`],['Сессии',`${w.cur.length}`,`${w.cur.length-w.prev.length>=0?'+':''}${w.cur.length-w.prev.length} к прошлой неделе`],['Активные дни',`${activeDays}`, activeDays>=4?'Очень устойчивый ритм':'Есть пространство для большего постоянства']].map(([a,b,c])=>`<div class="report-row"><div><strong>${escape(a)}</strong><span>${escape(c)}</span></div><b>${escape(b)}</b></div>`).join(''); const projectMap=new Map(); for(const s of w.cur){const name=s.project||s.category; projectMap.set(name,(projectMap.get(name)||0)+getSeconds(s));} const projs=[...projectMap.entries()].sort((a,b)=>b[1]-a[1]).slice(0,5); $('reportProjects').innerHTML=(projs.length?projs:[['Пока нет данных',0]]).map(([name,sec])=>`<div class="report-row"><div><strong>${escape(name)}</strong><span>${sec?`Время за неделю: ${duration(sec)}`:'Добавь пару сессий, чтобы увидеть лидеров недели.'}</span></div><b>${sec?shortDuration(sec):'—'}</b></div>`).join(''); const boss=weeklyBossInfo(); const contracts=activeContracts(); const all=[...contracts.daily,...contracts.weekly]; const claimed=all.filter(c=>contractState(c).claimed).length; $('reportHighlights').innerHTML=[['Контракты',`${claimed}/${all.length}`,claimed?`Получено наград: ${claimed}`:'Пока ничего не забрано'],['Рейдовый босс',boss.claimed?'Убит':'В процессе',`${Math.round(boss.damage/boss.maxHp*100)}% урона`],['Новые предметы',`${state.inventory.owned.length}`,`Всего собрано вещей: ${state.inventory.owned.length}`],['Эволюция питомца',petEvolutionInfo().stage.name,`Лучшая зона: ${state.runner?.bestZone||1}`]].map(([a,b,c])=>`<div class="report-row"><div><strong>${escape(a)}</strong><span>${escape(c)}</span></div><b>${escape(String(b))}</b></div>`).join(''); }
+    // Animated workstation uses only a few visible lines and does not persist rendered characters.
+    const v15Snippets=[
+`package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, Go!")
+}`,
+`package main
+
+func sum(nums []int) int {
+    total := 0
+    for _, n := range nums {
+        total += n
+    }
+    return total
+}`,
+`func handler(w http.ResponseWriter, r *http.Request) {
+    id := r.PathValue("id")
+    if id == "" {
+        http.Error(w, "missing id", 400)
+        return
+    }
+    fmt.Fprintln(w, id)
+}`,
+`func worker(ctx context.Context, jobs <-chan Job) {
+    for {
+        select {
+        case <-ctx.Done():
+            return
+        case job, ok := <-jobs:
+            if !ok { return }
+            process(job)
+        }
+    }
+}`,
+`SELECT u.id, u.email, COUNT(o.id) AS orders
+FROM users AS u
+LEFT JOIN orders AS o ON o.user_id = u.id
+WHERE u.active = TRUE
+GROUP BY u.id, u.email
+ORDER BY orders DESC
+LIMIT 20;`,
+`func transfer(ctx context.Context, db *sql.DB, from, to int64, amount int) error {
+    tx, err := db.BeginTx(ctx, nil)
+    if err != nil { return err }
+    defer tx.Rollback()
+    _, err = tx.ExecContext(ctx,
+        "UPDATE accounts SET balance = balance - $1 WHERE id = $2", amount, from)
+    if err != nil { return err }
+    _, err = tx.ExecContext(ctx,
+        "UPDATE accounts SET balance = balance + $1 WHERE id = $2", amount, to)
+    if err != nil { return err }
+    return tx.Commit()
+}`,
+`func reserve(ctx context.Context, tx pgx.Tx, id int64) error {
+    var left int
+    err := tx.QueryRow(ctx,
+        "SELECT remaining FROM stock WHERE id=$1 FOR UPDATE", id).Scan(&left)
+    if err != nil { return err }
+    if left < 1 { return ErrOutOfStock }
+    _, err = tx.Exec(ctx,
+        "UPDATE stock SET remaining=remaining-1 WHERE id=$1", id)
+    return err
+}`,
+`-- transactional outbox
+BEGIN;
+UPDATE orders SET status='paid' WHERE id=$1;
+INSERT INTO outbox (aggregate_id, event_type, payload)
+VALUES ($1, 'OrderPaid', $2);
+COMMIT;
+
+-- background worker
+SELECT id, payload FROM outbox
+WHERE processed_at IS NULL
+ORDER BY id FOR UPDATE SKIP LOCKED
+LIMIT 100;`
+    ];
+    // V15.2: one hundred upgrades, grouped into FIVE visual coding eras.
+    // Speed grows progressively and caps at 100 actual characters per second.
+    const v15SpeedPoints=[[0,.5],[1,.7],[2,.9],[3,1.2],[4,1.6],[5,2],[10,3.1],[20,5],[30,8],[40,12],[50,18],[60,27],[70,40],[80,58],[90,78],[100,100]];
+    function v15SpeedAt(count){
+      const n=Math.max(0,Math.min(100,count));
+      for(let i=1;i<v15SpeedPoints.length;i++){
+        const [x,y]=v15SpeedPoints[i], [px,py]=v15SpeedPoints[i-1];
+        if(n<=x)return py+(y-py)*(n-px)/(x-px);
+      }
+      return 100;
+    }
+    // Each epoch adds complexity, but keeps the code meaningful (not randomly assembled identifiers).
+    v15Snippets.push(
+`func findByID(ctx context.Context, db *sql.DB, id int64) (User, error) {
+    var u User
+    err := db.QueryRowContext(ctx,
+        "SELECT id, email FROM users WHERE id=$1", id,
+    ).Scan(&u.ID, &u.Email)
+    return u, err
+}`,
+`INSERT INTO users (email, created_at)
+VALUES ($1, NOW())
+ON CONFLICT (email)
+DO UPDATE SET updated_at = NOW()
+RETURNING id;`,
+`func retry(ctx context.Context, action func() error) error {
+    for attempt := 0; attempt < 3; attempt++ {
+        if err := action(); err == nil { return nil }
+        select {
+        case <-ctx.Done(): return ctx.Err()
+        case <-time.After(time.Second):
+        }
+    }
+    return ErrRetryExhausted
+}`,
+`CREATE INDEX CONCURRENTLY idx_orders_user_created
+ON orders (user_id, created_at DESC)
+WHERE deleted_at IS NULL;`,
+`func publishOutbox(ctx context.Context, tx pgx.Tx, orderID int64) error {
+    _, err := tx.Exec(ctx,
+        "INSERT INTO outbox (topic, entity_id) VALUES ($1, $2)",
+        "orders.created", orderID,
+    )
+    return err
+}`,
+`SELECT id, payload
+FROM jobs
+WHERE status = 'queued'
+ORDER BY priority DESC, id
+FOR UPDATE SKIP LOCKED
+LIMIT 50;`,
+`func serve(ctx context.Context, pool *pgxpool.Pool) error {
+    rows, err := pool.Query(ctx,
+        "SELECT id, state FROM orders WHERE state=$1", "pending")
+    if err != nil { return err }
+    defer rows.Close()
+    for rows.Next() {
+        var o Order
+        if err := rows.Scan(&o.ID, &o.State); err != nil { return err }
+        process(o)
+    }
+    return rows.Err()
+}`,
+`EXPLAIN (ANALYZE, BUFFERS)
+SELECT o.id, o.created_at
+FROM orders AS o
+WHERE o.user_id = $1
+  AND o.created_at < $2
+ORDER BY o.created_at DESC
+LIMIT 50;`
+    );
+    const v15StageSnippets=[[0,1],[1,2,3],[2,3,4,8,9],[3,4,5,6,8,9,10,11],[5,6,7,10,11,12,13,14,15]];
+    const v15Writer={preview:null,offset:0,index:0,last:0,buffer:'',pause:false,stage:-1,loop:0,totalTyped:0,lineCarry:'',dirty:false};
+    function v15Purchased(){return baseTracks.reduce((n,t)=>n+(state.base[t.id]||0),0);}
+    function v15Stage(){return Math.min(4,Math.floor((v15Writer.preview===null?v15Purchased():v15Writer.preview*20)/20));}
+    function v15CurrentSpeed(){return v15SpeedAt(v15Writer.preview===null?v15Purchased():Math.min(100,(v15Writer.preview+1)*20));}
+    function v15StatDisplay(){
+      const stats=state.workstation;
+      const p=$('v15WriterTotalChars'),l=$('v15WriterTotalLines');
+      if(p)p.textContent=stats.chars.toLocaleString('ru-RU');
+      if(l)l.textContent=stats.lines.toLocaleString('ru-RU');
+      const detail=$('v15WriterEraStats');
+      if(detail)detail.innerHTML=stats.byStage.map((n,i)=>`<div class="v152-era-row"><span>Эпоха ${i+1}</span><span>${n.toLocaleString('ru-RU')} симв.</span></div>`).join('');
+    }
+    function v15SyncWorkstation(){
+      const stage=v15Stage(),purchased=v15Purchased(),badge=$('v15WriterStage'),speed=$('v15WriterSpeed'),mode=$('v15WriterMode');
+      if(!badge)return;
+      badge.textContent='ЭПОХА '+(stage+1)+' / 5';
+      speed.textContent=Number(v15CurrentSpeed().toFixed(2)).toLocaleString('ru-RU',{maximumFractionDigits:2})+' симв./с';
+      $('v15Workstation')?.classList.toggle('v15-turbo',stage>=3);
+      if(mode)mode.textContent=['Go · Основы','Go · Функции и типы','HTTP и SQL','Go · Concurrency','Go + PostgreSQL · Production'][stage];
+      $('v15PreviewBack').disabled=(v15Writer.preview===null?stage===0:v15Writer.preview===0);
+      $('v15PreviewForward').disabled=stage===4;
+      $('v15PreviewNote').textContent=v15Writer.preview===null
+        ?`Реальная прокачка ${purchased}/100 · следующая эпоха через ${20-purchased%20} улучшений${purchased===100?' · достигнут максимум':''}. Только реальная печать учитывается в статистике.`
+        :`Предпросмотр эпохи ${stage+1}: конечная скорость ${v15CurrentSpeed().toFixed(1)} симв./с. BIT не тратятся, статистика не накручивается.`;
+      const level=$('v15WriterLevel'),p=$('v15WriterProgress');
+      if(level)level.textContent=purchased+' / 100';
+      if(p)p.style.width=purchased+'%';
+      if(v15Writer.stage!==stage){v15Writer.stage=stage;v15Writer.offset=0;v15Writer.buffer='';v15Writer.last=0;v15Writer.index=0;v15Writer.loop=0;v15Writer.lineCarry='';}
+      v15StatDisplay();v15RenderCode();
+    }
+    function v15RenderCode(){
+      const pre=$('v15WriterText');if(!pre)return;
+      const lines=v15Writer.buffer.split('\n').slice(-12);
+      if(!v15Writer.buffer){pre.innerHTML='<span class="v15-syntax-comment">// Запускаем терминал...</span>';return;}
+      const syntax=/((?:\/\/|--)[^\n]*|"(?:\\.|[^"\n])*"|\b(?:package|import|func|return|if|else|for|range|select|case|defer|go|var|const|type|struct|interface|SELECT|FROM|WHERE|JOIN|LEFT|RIGHT|ON|GROUP|BY|ORDER|LIMIT|UPDATE|SET|INSERT|INTO|VALUES|BEGIN|COMMIT|ROLLBACK|FOR|SKIP|LOCKED|NULL|TRUE|FALSE|AS|AND|OR|NOT|CREATE|INDEX|CONCURRENTLY|EXPLAIN|ANALYZE|BUFFERS|DO|CONFLICT|NOW)\b|\b\d+\b)/g;
+      pre.innerHTML=lines.map(line=>{let out='',last=0,m;syntax.lastIndex=0;while((m=syntax.exec(line))){out+=escape(line.slice(last,m.index));const tok=m[0],cls=tok.startsWith('//')||tok.startsWith('--')?'comment':tok[0]==='"'?'str':/^\d/.test(tok)?'num':'key';out+=`<span class="v15-syntax-${cls}">${escape(tok)}</span>`;last=syntax.lastIndex;}return out+escape(line.slice(last));}).join('\n');
+    }
+    function v15CountTyped(part,finished=false){
+      const ws=state.workstation;
+      ws.chars+=part.length;
+      ws.byStage[v15Stage()]+=part.length;
+      const lines=(v15Writer.lineCarry+part).split('\n');
+      for(let i=0;i<lines.length-1;i++)if(lines[i].trim())ws.lines++;
+      v15Writer.lineCarry=lines.at(-1);
+      if(finished){if(v15Writer.lineCarry.trim())ws.lines++;v15Writer.lineCarry='';}
+      v15Writer.dirty=true;
+    }
+    function v15WriteTick(){
+      if(view!=='world'||document.hidden||v15Writer.pause){v15Writer.last=0;return;}
+      if(!$('v15WriterText')){v15Writer.last=0;return;}
+      const now=performance.now();
+      if(!v15Writer.last){v15Writer.last=now;return;}
+      const diff=Math.min(200,Math.max(0,now-v15Writer.last));v15Writer.last=now;
+      v15Writer.offset+=diff*v15CurrentSpeed()/1000;
+      const add=Math.min(100,Math.floor(v15Writer.offset));
+      if(!add)return;
+      v15Writer.offset-=add;
+      let remaining=add,real=v15Writer.preview===null;
+      const pool=v15StageSnippets[v15Stage()];
+      while(remaining>0){
+        const snippet=v15Snippets[pool[v15Writer.loop%pool.length]];
+        if(v15Writer.index>=snippet.length){
+          if(real)v15CountTyped('',true);
+          v15Writer.buffer+='\n\n';v15Writer.index=0;v15Writer.loop++;
+          if(v15Writer.buffer.length>4500)v15Writer.buffer=v15Writer.buffer.slice(-2500);
+          continue;
+        }
+        const amount=Math.min(remaining,snippet.length-v15Writer.index);
+        const part=snippet.slice(v15Writer.index,v15Writer.index+amount);
+        v15Writer.buffer+=part;v15Writer.index+=amount;
+        v15Writer.totalTyped+=amount;
+        if(real)v15CountTyped(part);
+        remaining-=amount;
+      }
+      v15StatDisplay();v15RenderCode();
+    }
+    function v15FlushStats(){if(!v15Writer.dirty)return;v15Writer.dirty=false;store();}
+    setInterval(v15FlushStats,3000);
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){v15FlushStats();v15Writer.last=0;}});
+    window.addEventListener('pagehide',v15FlushStats);
+    function v15SetPreview(delta){
+      const stage=Math.max(0,Math.min(4,(v15Writer.preview===null?v15Stage():v15Writer.preview)+delta));
+      v15Writer.preview=stage;v15SyncWorkstation();
+    }
+    function v15WorkstationHTML(){return `<div class="v15-workstation" id="v15Workstation"><div class="v15-work-head"><div><div class="eyebrow">LIVE CODE / 100 UPGRADES</div><strong>Твой разработчик растёт с каждым улучшением</strong><div class="v15-work-sub">100 последовательных покупок · 5 эпох сложности по 20 улучшений · от 0,5 до 100 символов в секунду.</div></div><span class="coin-tag" id="v15WriterStage">ЭПОХА 1 / 5</span></div><div class="v152-progress-head"><b id="v15WriterLevel">0 / 100</b><small>Путь к мастерству написания кода</small></div><div class="v152-small-rail v152-main-rail"><i id="v15WriterProgress" style="width:0%"></i></div><div class="v15-code-window"><div class="v15-code-header"><div style="display:flex;align-items:center;gap:10px"><span class="v15-code-dots"><i></i><i></i><i></i></span><span id="v15WriterMode">Go · Основы</span></div><span>● LIVE EDITOR</span></div><div class="v15-code-viewport"><pre id="v15WriterText">// Запускаем терминал...</pre></div></div><div class="v15-work-stats v152-work-stats"><div><b id="v15WriterSpeed">0,5 симв./с</b><small>Скорость набора</small></div><div><b id="v15WriterTotalChars">0</b><small>Символов напечатано</small></div><div><b id="v15WriterTotalLines">0</b><small>Строк кода завершено</small></div></div><details class="v152-era-detail"><summary>Статистика печати по эпохам</summary><div id="v15WriterEraStats"></div><p>Считается только фактически показанный код при реальном уровне сетапа. Просмотр будущего не увеличивает показатели.</p></details><div class="v15-work-buttons"><button id="v15PreviewBack" data-action="v15-preview-back" title="Предыдущая эпоха">← Эпоха</button><button id="v15PreviewForward" data-action="v15-preview-forward" title="Следующая эпоха">Следующая эпоха →</button><button data-action="v15-preview-live">Мой сетап</button><button data-action="v15-writer-pause" id="v15WriterPause">Пауза анимации</button></div><p class="v15-work-note" id="v15PreviewNote">Настоящая скорость твоего сетапа</p></div>`;}
+    setInterval(v15WriteTick,50);
     function baseRoomSVG(){
       const purchased=baseTracks.reduce((n,t)=>n+(state.base[t.id]||0),0);
       const max=baseTracks.reduce((n,t)=>n+t.costs.length,0);
       const list=baseTracks.map(t=>{const n=state.base[t.id]||0;return `<span class="setup-slot"><span>${t.emoji}</span> ${escape(t.name)} <b>${n}/${t.costs.length}</b></span>`;}).join('');
-      return `<div class="setup-header"><div><div class="eyebrow">MY WORKSPACE / UPGRADE SYSTEM</div><div class="setup-title">Твой сетап растёт с опытом<span class="brand-decor">.</span></div><p>Без декоративной псевдо-3D сцены: только реальные уровни улучшений и понятный прогресс.</p></div><div class="setup-level">${purchased}<small>из ${max} улучшений</small></div></div><div class="progress-track" style="height:9px;margin:17px 0 16px"><div class="progress-fill" style="width:${max?100*purchased/max:0}%"></div></div><div class="setup-slots">${list}</div>`;
+      return `<div class="setup-header"><div><div class="eyebrow">MY WORKSPACE / UPGRADE SYSTEM</div><div class="setup-title">Твой сетап растёт с опытом<span class="brand-decor">.</span></div><p>Без декоративной псевдо-3D сцены: только реальные уровни улучшений и понятный прогресс.</p></div><div class="setup-level">${purchased}<small>из ${max} улучшений</small></div></div><div class="progress-track" style="height:9px;margin:17px 0 16px"><div class="progress-fill" style="width:${max?100*purchased/max:0}%"></div></div><div class="setup-slots">${list}</div>${v15WorkstationHTML()}`;
     }
     function skillTreeSVG(){
       const skills=allSkillData();
@@ -2024,15 +2430,15 @@ button.kx-report-row:hover{border-color:#a5ca74}
     }
     function claimContract(id,type){const contract=[...activeContracts().daily,...activeContracts().weekly].find(c=>c.id===id&&c.type===type); if(!contract)return; const key=contractKey(contract), st=contractState(contract); if(st.claimed||!st.complete)return; const prev=new Set(metrics().medals.map(a=>a.id)); state.contractClaims[key]={xp:contract.reward.xp,bits:contract.reward.bits}; store(); renderAll(); celebrate(); showMilestones(prev); toast(`Контракт закрыт: +${contract.reward.xp} XP и +${contract.reward.bits} BIT.`);} 
     function claimBoss(){const info=weeklyBossInfo(); if(info.claimed||!info.defeated)return; const prev=new Set(metrics().medals.map(a=>a.id)); state.bossClaims[info.key]=info.reward; for(const k of ['common','rare','epic','legendary']) state.materials[k]=(state.materials[k]||0)+(info.reward[k]||0); store(); renderAll(); celebrate(); showMilestones(prev); toast('Босс повержен! Награда получена.');}
-    function buyUpgrade(id){const t=baseTracks.find(x=>x.id===id); if(!t)return; const tier=state.base[id]||0, cost=t.costs[tier]; if(!cost||metrics().coins<cost)return; state.base[id]=tier+1; store(); renderAll(); toast(`${t.name} улучшен.`);} 
+    function buyUpgrade(id){const t=baseTracks.find(x=>x.id===id); if(!t)return; const tier=state.base[id]||0, cost=t.costs[tier]; if(!cost||metrics().coins<cost)return; v15FlushStats();state.base[id]=tier+1;v15Writer.preview=null;store(); renderAll(); toast(`${t.name} улучшен. Скорость терминала выросла!`);} 
     function claimRegion(id){const def=regionDefs.find(r=>r.id===id); if(!def)return; const st=regionState(def); if(st.claimed||!st.complete)return; const prev=new Set(metrics().medals.map(a=>a.id)); state.regionClaims[st.key]=def.reward; for(const k of ['common','rare','epic','legendary']) state.materials[k]=(state.materials[k]||0)+(def.reward[k]||0); store(); renderAll(); celebrate(); showMilestones(prev); toast(`Регион «${def.name}» освоен!`);} 
     function dismantleGear(id){const g=getGear(id); if(!g||!state.inventory.owned.includes(id))return; if(!confirm(`Разобрать «${g.name}» на материалы?`))return; state.inventory.owned=state.inventory.owned.filter(x=>x!==id); if(!state.inventory.scrapped.includes(id))state.inventory.scrapped.push(id); if(state.inventory.equipped[g.slot]===id)delete state.inventory.equipped[g.slot]; const key=materialKeyByRarity(g.rarity); state.materials[key]=(state.materials[key]||0)+materialGain(g.rarity); store(); renderAll(); toast(`Получены материалы: ${rarityNames[key]} +${materialGain(g.rarity)}`);} 
     function craftSet(setId){const idx=gearSets.findIndex(s=>s.id===setId), set=gearSets[idx]; if(idx<0)return; const missing=wardrobeItems.filter(g=>g.version===idx && !state.inventory.owned.includes(g.id)); if(!missing.length)return; if(!Object.entries(set.cost).every(([k,v])=>(state.materials[k]||0)>=v))return; for(const [k,v] of Object.entries(set.cost)) state.materials[k]-=v; const pick=missing[Math.floor(cryptoRand()*missing.length)]; state.inventory.owned.push(pick.id); state.inventory.scrapped=state.inventory.scrapped.filter(x=>x!==pick.id); store(); renderAll(); celebrate(); toast(`Скрафчен предмет: ${pick.name}`);} 
     const runnerState={objs:[],last:performance.now(),spawn:performance.now(),dirty:false};
     function updateRunner(){const wrap=$('runnerObjects'); if(!wrap)return; const now=performance.now(), dt=Math.min(80,now-runnerState.last||16); runnerState.last=now; const active=!!(state.timer&&state.timer.runningSince!=null); if(document.hidden||view!=='world')return; if(active){ state.runner.distance+=(dt*0.02); const zone=1+Math.floor((state.runner.distance/1000)); state.runner.bestZone=Math.max(state.runner.bestZone||1,zone); if(now-runnerState.spawn>1700){ runnerState.spawn=now; const reward=Math.random()<0.28; const el=document.createElement('span'); el.className=reward?'runner-reward':'runner-obstacle'; el.textContent=reward?'✦':['🐞','</>','{}',';','⚠'][Math.floor(Math.random()*5)]; const obj={x:100, el, reward}; el.style.left='100%'; wrap.appendChild(el); runnerState.objs.push(obj);} } for(const obj of runnerState.objs){ obj.x -= dt*(active?0.06:0.02); obj.el.style.left=obj.x+'%'; if(active && obj.x<18 && !obj.hit){ obj.hit=true; if(obj.reward){state.runner.loot=(state.runner.loot||0)+1; runnerState.dirty=true;} else {state.runner.avoided=(state.runner.avoided||0)+1; const dog=$('runnerDog'); if(dog){dog.classList.remove('jump'); void dog.offsetWidth; dog.classList.add('jump');} runnerState.dirty=true;} } if(obj.x<-10){obj.el.remove(); obj.remove=true;} } runnerState.objs=runnerState.objs.filter(o=>!o.remove); const zone=1+Math.floor((state.runner.distance/1000)); $('runnerZone').textContent='Zone '+zone; $('runnerDistance').textContent=`${Math.floor(state.runner.distance)} м фокус-пути`; $('runnerLoot').textContent=`${state.runner.loot||0} ресурсов собрано`; $('runnerAvoided').textContent=`${state.runner.avoided||0} преград пройдено`; $('runnerNote').textContent=active?`Экспедиция активна. До следующей зоны осталось ${Math.max(0,1000-(state.runner.distance%1000)).toFixed(0)} м.`:'Запусти таймер, чтобы питомец отправился в автоматический раннер-забег.'; }
     function resetPet(){petGame.combo=0;petGame.dodges=0;petGame.lastSpawn=performance.now();for(const ob of petGame.obstacles)ob.el.remove();petGame.obstacles=[];petGame.lastComment='';}
-    function renderAll(){const m=metrics();renderIdentity(m);renderKpis(m);renderTimer();renderGoal(m);renderQuests(m);renderGoals(m);renderWeek(m);renderHeatmap(m);renderBadges(m);renderAnalytics(m);renderHistory();renderPet(m);renderWardrobe(m);renderCases(m);renderBonuses(m);renderDashboardAvatar();renderContracts();renderForge();renderWorld(m);renderReports();scheduleStorageMeter();const certified=Object.values(state.knowledge?.variants?.tree?.certs||{}).filter(c=>c?.passed).length;if(certified){$('characterAvatar')?.classList.add('knowledge-certified');$('characterRank').textContent+=' · ✦ Certified';$('outfitSummary').insertAdjacentHTML('beforeend',`<span class="outfit-pill">✦ Go сертификаты: ${certified}</span>`);}else $('characterAvatar')?.classList.remove('knowledge-certified');}
-    function navigate(next){if(!['dashboard','world','knowledge','analytics','goals','achievements','wardrobe','cases','reports','history','settings'].includes(next))return;
+    function renderAll(){const m=metrics();renderIdentity(m);renderKpis(m);renderTimer();renderGoal(m);renderQuests(m);renderGoals(m);renderWeek(m);renderHeatmap(m);renderBadges(m);renderAnalytics(m);renderHistory();renderPet(m);renderWardrobe(m);renderCases(m);renderBonuses(m);renderDashboardAvatar();renderContracts();renderForge();renderWorld(m);renderReports();renderFocusIntelligence();scheduleStorageMeter();const certified=Object.values(state.knowledge?.variants?.tree?.certs||{}).filter(c=>c?.passed).length;if(certified){$('characterAvatar')?.classList.add('knowledge-certified');$('characterRank').textContent+=' · ✦ Certified';$('outfitSummary').insertAdjacentHTML('beforeend',`<span class="outfit-pill">✦ Go сертификаты: ${certified}</span>`);}else $('characterAvatar')?.classList.remove('knowledge-certified');}
+    function navigate(next){if(view==='world'&&next!=='world')v15FlushStats();if(!['dashboard','world','knowledge','analytics','goals','achievements','wardrobe','cases','reports','history','settings'].includes(next))return;
       view=next;for(const name of ['dashboard','world','knowledge','analytics','goals','achievements','wardrobe','cases','reports','history','settings']){$(`view-${name}`).hidden=name!==next;}
       document.querySelectorAll('[data-nav]').forEach(el=>el.classList.toggle('active',el.classList.contains('nav-button')&&el.dataset.nav===next));
       const titles={dashboard:['PERSONAL WORKSPACE','Твой путь в коде.','Отслеживай фокус. Собирай стрики. Становись сильнее каждый день.'],world:['CODING WORLD','Игровой мир разработчика.','Боссы, база, карта, дерево навыков и эволюция питомца в одном месте.'],knowledge:['KNOWLEDGE SYSTEM','Центр знаний.','Деревья технологий, проверочные вопросы и тренировки с аналитикой.'],analytics:['INSIGHTS & GROWTH','Аналитика прогресса.','Все цифры твоего пути — в одной красивой картине.'],goals:['MISSION CONTROL','Твои ежедневные миссии.','Ставь свои цели, следи за прогрессом и забирай награды.'],achievements:['QUESTS & REWARDS','Трофеи и достижения.','Каждая награда — подтверждение твоей дисциплины.'],wardrobe:['CHARACTER STUDIO','Профиль персонажа.','Твой образ разработчика, одежда, крафт и коллекция сетов.'],cases:['CODE LOOT / CASE OPENING','Кейсы и награды.','Редкие вещи, настоящая рулетка и новая мотивация.'],reports:['DEVELOPER WRAPPED','Итоги недели.','Красивый отчёт о том, как ты рос и где был особенно силён.'],history:['FOCUS LOG','История сессий.','Каждая минута практики оставляет след.'],settings:['PERSONAL SPACE','Твои настройки.','Управляй целями, профилем и локальными данными.']};
@@ -2052,9 +2458,9 @@ button.kx-report-row:hover{border-color:#a5ca74}
       openModal('Добавить фокус-сессию',`<form id="manualForm"><div class="form-grid">${field('Дата','manualDate',`<input class="input" id="manualDate" type="date" max="${d}" value="${d}" required>`)}${field('Время окончания','manualTime',`<input class="input" id="manualTime" type="time" value="${hour}" required>`)}</div><div class="form-grid">${field('Длительность (мин)','manualDuration','<input class="input" id="manualDuration" type="number" min="1" max="1440" value="60" required>')}${field('Активность','manualCategory',`<select class="select" id="manualCategory">${categories.map(x=>`<option>${x}</option>`).join('')}</select>`)}</div>${field('Проект или задача','manualProject','<input class="input" id="manualProject" maxlength="50" placeholder="Например, Go / алгоритмы">')}${field('Заметка (необязательно)','manualNote','<textarea class="textarea" id="manualNote" maxlength="300" placeholder="Что успел сделать за сессию?"></textarea>')}<div class="modal-actions"><button type="button" class="button button-ghost" data-action="modal-close">Отмена</button><button type="submit" class="button button-primary">${icon('plus')} Сохранить</button></div></form>`,()=>{const date=$('manualDate').value,time=$('manualTime').value,mins=Number($('manualDuration').value),cat=$('manualCategory').value;
         const end=new Date(`${date}T${time}:00`).getTime();if(!date||!time||!Number.isFinite(end)||end>Date.now()+1000||!Number.isFinite(mins)||mins<1||mins>1440){toast('Проверь дату, время и длительность.');return;}const start=end-mins*60000;const previousMedals=new Set(metrics().medals.map(a=>a.id));
         state.sessions.push({id:`m-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,startedAt:start,endedAt:end,segments:[{start,end}],category:cat,project:$('manualProject').value.trim(),note:$('manualNote').value.trim(),source:'manual'});store();closeModal();renderAll();toast(`Добавлено: ${duration(mins*60)}.`);showMilestones(previousMedals);});}
-    function deleteSession(id){const s=state.sessions.find(x=>x.id===id);if(!s)return;if(!confirm(`Удалить сессию «${s.project||s.category}» (${duration(getSeconds(s))})?`))return;state.sessions=state.sessions.filter(x=>x.id!==id);store();renderAll();toast('Сессия удалена.');}
+    function deleteSession(id){const s=state.sessions.find(x=>x.id===id);if(!s)return;if(!confirm(`Удалить сессию «${s.project||s.category}» (${duration(getSeconds(s))})?`))return;state.meta.xpFloor=Math.max(state.meta.xpFloor||0,metrics().xp);state.sessions=state.sessions.filter(x=>x.id!==id);store();renderAll();toast('Сессия удалена; достигнутый уровень сохранён.');}
     function exportData(){const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`devpulse-backup-${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);noteBackupExport().catch(err=>console.warn('Не сохранилась дата экспорта',err));toast('Экспорт JSON запущен. Сохрани файл в надёжном месте.');}
-    function reset(){if(!confirm('Удалить ВСЮ статистику, миссии, трофеи и покупки? Это действие нельзя отменить. Сначала можно экспортировать данные.'))return;state.sessions=[];state.timer=null;state.meta={petBestCombo:0,totalDodges:0};state.goals=starterGoals();state.goalProgress={};state.goalClaims={};state.pet={skin:'classic',owned:['classic']};state.inventory={owned:[],equipped:{},scrapped:[]};state.caseRolls=[];state.bonusClaims={};state.materials={common:0,rare:0,epic:0,legendary:0};state.contractClaims={};state.bossClaims={};state.regionClaims={};state.base={desk:0,screens:0,light:0,server:0,decor:0};state.runner={distance:0,loot:0,avoided:0,bestZone:1};state.knowledge={variants:{},ledger:{}};resetPet();store();renderAll();window.dispatchEvent(new Event('devpulse-knowledge-imported'));toast('Статистика очищена.');}
+    function reset(){if(!confirm('Удалить ВСЮ статистику, миссии, трофеи и покупки? Это действие нельзя отменить. Сначала можно экспортировать данные.'))return;state.sessions=[];state.timer=null;state.meta={petBestCombo:0,totalDodges:0,xpFloor:0,baseSchemaV2:2,baseCostOffset:0};state.workstation={chars:0,lines:0,byStage:[0,0,0,0,0]};state.goals=starterGoals();state.goalProgress={};state.goalClaims={};state.pet={skin:'classic',owned:['classic']};state.inventory={owned:[],equipped:{},scrapped:[]};state.caseRolls=[];state.bonusClaims={};state.materials={common:0,rare:0,epic:0,legendary:0};state.contractClaims={};state.bossClaims={};state.regionClaims={};state.base={desk:0,screens:0,light:0,server:0,decor:0};state.runner={distance:0,loot:0,avoided:0,bestZone:1};state.knowledge={variants:{},ledger:{}};resetPet();store();renderAll();window.dispatchEvent(new Event('devpulse-knowledge-imported'));toast('Статистика очищена.');}
     function clearDemo(){const count=state.sessions.filter(s=>s.source==='demo').length;if(!count)return;state.sessions=state.sessions.filter(s=>s.source!=='demo');store();renderAll();toast(`Удалено демо-сессий: ${count}.`);}
     function insertDemo(){if(state.sessions.some(s=>s.source==='demo')){toast('Демо-данные уже добавлены.');return;}
       const now=new Date();let count=0;
@@ -2078,10 +2484,13 @@ button.kx-report-row:hover{border-color:#a5ca74}
       try{if(storageBackend.mode==='indexeddb'){await drainWrites();await verifyStorage();}toast('Резервная копия восстановлена и сохранена.');}
       catch(err){console.error(err);toast('Проверь сохранение! Сделай экспорт JSON.');}
     }catch(e){console.error('Ошибка импорта',e);toast('Ошибка импорта: нужен корректный JSON DEV//PULSE.');}};reader.readAsText(file);}
-    document.addEventListener('click',e=>{const nav=e.target.closest('[data-nav]');if(nav){navigate(nav.dataset.nav);return;}const button=e.target.closest('[data-action]');if(!button)return;switch(button.dataset.action){case 'dismiss-storage-hint':$('storageFirstVisit').hidden=true;break;case 'storage-verify':verifyStorage().then(()=>toast('Проверка IndexedDB пройдена ✓')).catch(err=>toast('Проверка не прошла: '+err.message));break;case 'storage-refresh':updateStorageMeter();toast('Данные хранилища обновлены.');break;case 'timer-main':timerMain();break;case 'timer-stop':timerStop();break;case 'profile':openProfile();break;case 'new-goal':openGoalModal();break;case 'goal-add':changeGoal(button.dataset.id);break;case 'goal-minus':changeGoal(button.dataset.id,-1);break;case 'claim-goal':claimGoal(button.dataset.id);break;case 'archive-goal':archiveGoal(button.dataset.id);break;case 'shop-skin':shopSkin(button.dataset.id);break;case 'open-case':openCase(button.dataset.id);break;case 'equip-gear':equipGear(button.dataset.id);break;case 'dismantle-gear':dismantleGear(button.dataset.id);break;case 'craft-set':craftSet(button.dataset.id);break;case 'unequip-all':unequipAll();break;case 'claim-bonus':claimBonus(button.dataset.id);break;case 'claim-contract':claimContract(button.dataset.id,button.dataset.type);break;case 'buy-upgrade':buyUpgrade(button.dataset.id);break;case 'claim-boss':claimBoss();break;case 'claim-region':claimRegion(button.dataset.id);break;case 'manual':openManual();break;case 'modal-close':closeModal();break;case 'delete-session':deleteSession(button.dataset.id);break;case 'history-more':historyLimit+=80;renderHistory();break;case 'export':exportData();break;case 'import':$('importFile').click();break;case 'reset':reset();break;case 'demo':insertDemo();break;case 'clear-demo':clearDemo();break;}});
+    document.addEventListener('click',e=>{const nav=e.target.closest('[data-nav]');if(nav){navigate(nav.dataset.nav);return;}const button=e.target.closest('[data-action]');if(!button)return;switch(button.dataset.action){case 'dismiss-storage-hint':$('storageFirstVisit').hidden=true;break;case 'storage-verify':verifyStorage().then(()=>toast('Проверка IndexedDB пройдена ✓')).catch(err=>toast('Проверка не прошла: '+err.message));break;case 'storage-refresh':updateStorageMeter();toast('Данные хранилища обновлены.');break;case 'timer-main':timerMain();break;case 'timer-stop':timerStop();break;case 'profile':openProfile();break;case 'new-goal':openGoalModal();break;case 'goal-add':changeGoal(button.dataset.id);break;case 'goal-minus':changeGoal(button.dataset.id,-1);break;case 'claim-goal':claimGoal(button.dataset.id);break;case 'archive-goal':archiveGoal(button.dataset.id);break;case 'shop-skin':shopSkin(button.dataset.id);break;case 'open-case':openCase(button.dataset.id);break;case 'equip-gear':equipGear(button.dataset.id);break;case 'dismantle-gear':dismantleGear(button.dataset.id);break;case 'craft-set':craftSet(button.dataset.id);break;case 'unequip-all':unequipAll();break;case 'claim-bonus':claimBonus(button.dataset.id);break;case 'claim-contract':claimContract(button.dataset.id,button.dataset.type);break;case 'buy-upgrade':buyUpgrade(button.dataset.id);break;case 'v15-preview-back':v15SetPreview(-1);break;case 'v15-preview-forward':v15SetPreview(1);break;case 'v15-preview-live':v15Writer.preview=null;v15SyncWorkstation();break;case 'v15-writer-pause':v15Writer.pause=!v15Writer.pause;v15Writer.last=0;button.textContent=v15Writer.pause?'Продолжить анимацию':'Пауза анимации';break;case 'claim-boss':claimBoss();break;case 'claim-region':claimRegion(button.dataset.id);break;case 'manual':openManual();break;case 'modal-close':closeModal();break;case 'delete-session':deleteSession(button.dataset.id);break;case 'history-more':historyLimit+=80;renderHistory();break;case 'export':exportData();break;case 'import':$('importFile').click();break;case 'reset':reset();break;case 'demo':insertDemo();break;case 'clear-demo':clearDemo();break;}});
     document.addEventListener('click',e=>{const f=e.target.closest('[data-gear-filter]');if(f){gearFilter=f.dataset.gearFilter;renderWardrobe(metrics());} const c=e.target.closest('[data-case-select]');if(c){selectedCase=c.dataset.caseSelect;renderCases(metrics());} const t=e.target.closest('[data-roadmap-group]');if(t){roadmapGroup=t.dataset.roadmapGroup;renderBadges(metrics());}});
     document.addEventListener('click',e=>{const el=e.target.closest('[data-preset]');if(el)addPreset(el.dataset.preset);const r=e.target.closest('[data-range]');if(r){trendDays=Number(r.dataset.range)||14;document.querySelectorAll('[data-range]').forEach(b=>b.classList.toggle('active',b===r));renderTrend(metrics());}});
-    $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal();});
+    let modalOutsidePointer=null;
+    $('modalBackdrop').addEventListener('pointerdown',e=>{modalOutsidePointer=e.target===$('modalBackdrop')?e.pointerId:null;});
+    $('modalBackdrop').addEventListener('pointercancel',()=>{modalOutsidePointer=null;});
+    $('modalBackdrop').addEventListener('click',e=>{if(e.detail===0&&e.target===$('modalBackdrop')){closeModal();return;}if(e.target===$('modalBackdrop')&&modalOutsidePointer!==null)closeModal();modalOutsidePointer=null;});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal)closeModal();});
     document.addEventListener('submit',e=>{if(['manualForm','profileForm','goalForm'].includes(e.target.id)){e.preventDefault();if(modal?.submit)modal.submit();}});
     for(const id of ['historySearch','historyCategory','historyPeriod'])$(id).addEventListener(id==='historySearch'?'input':'change',renderHistory);
@@ -2239,7 +2648,7 @@ function choose(pool,n){
   for(const q of pool){const key=q.concept||q.id;if(!byConcept.has(key))byConcept.set(key,[]);byConcept.get(key).push(q);}
   return mix([...byConcept.values()]).slice(0,Math.min(n,byConcept.size)).map(group=>mix(group)[0]);
 }
-function begin(scope,size,seconds,filter){if(scope.startsWith('exam:')){if(!examAccessible(scope)){toast(examStatusMessage(scope));return;}const [,tid,nid]=scope.split(':');const m=nodeMastery(tid,nid);size=String(m.examCount);seconds='45';filter='mixed';}if(scope.includes(':')&&!scope.startsWith('exam:')&&!scope.startsWith('arena:')&&!scope.startsWith('cert:')&&!scope.startsWith('hard:')&&!scope.startsWith('codes:')){const [tid,nid]=scope.split(':');if(!topicUnlocked(tid,nid)){toast('Подтема ещё закрыта.');return;}}if(data.active){toast('Сначала заверши текущую тренировку.');page='quiz';render();return;}if(scope.startsWith('cert:')){const c=KV_CERTS.find(z=>z.id===scope.split(':')[1]);if(!c||!kvCertStatus(c).ready){toast('Сначала закрой тематические зачёты.');return;}size='20';seconds='45';filter='mixed';}const candidates=eligible(scope,filter);if(!candidates.length){toast('В выбранном режиме пока нет подходящих вопросов.');return;}const maximum=uniqueConceptCount(candidates);const amount=size==='all'?maximum:clamp(parseInt(size,10),1,100);const picked=choose(candidates,Math.min(amount,maximum));if(amount>maximum)toast(`В этом разделе ${maximum} уникальных задач: тест ограничен ими, без дублей.`);const opts={},variants={},phrasing={};for(const q of picked){opts[q.id]=mix([0,1,2,3]);if(q.codeVariants?.length)variants[q.id]=Math.floor(rnd()*q.codeVariants.length);else phrasing[q.id]=q.phrasings?.length?q.phrasings[Math.floor(rnd()*q.phrasings.length)]:kvPhrase(q);}const now=Date.now();data.active={scope,ids:picked.map(q=>q.id),index:0,seconds:Number(seconds)||0,filter,started:now,deadline:Number(seconds)>0?now+Number(seconds)*1000:0,options:opts,variants,phrasing,answers:[],feedback:null,mode:scope.startsWith('cert:')?'cert':scope.startsWith('arena:')?'arena':scope.startsWith('hard:')?'hardcore':scope.startsWith('exam:')?'exam':data.settings.mode==='hardcore'?'hardcore':'practice',strict:scope.startsWith('cert:')||scope.startsWith('arena:')||scope.startsWith('hard:')||(scope.startsWith('codes:')&&data.settings.mode==='hardcore')||data.settings.mode==='hardcore',threshold:scope.startsWith('cert:')?(KV_CERTS.find(z=>z.id===scope.split(':')[1])?.pass||85):scope.startsWith('hard:')?Number(data.hardThreshold||85):scope.startsWith('arena:')?(data.arenaHardcore?90:80):80,totalDeadline:scope.startsWith('arena:')?now+Math.max(5,picked.length*(Number(seconds)||45))*1000:0,totalMinutes:0};save();page='quiz';render();}
+function begin(scope,size,seconds,filter){if(scope.startsWith('exam:')){if(!examAccessible(scope)){toast(examStatusMessage(scope));return;}const [,tid,nid]=scope.split(':');const m=nodeMastery(tid,nid);size=String(m.examCount);seconds='45';filter='mixed';}if(scope.includes(':')&&!scope.startsWith('exam:')&&!scope.startsWith('arena:')&&!scope.startsWith('cert:')&&!scope.startsWith('hard:')&&!scope.startsWith('codes:')){const [tid,nid]=scope.split(':');if(!topicUnlocked(tid,nid)){toast('Подтема ещё закрыта.');return;}}if(data.active){toast('Сначала заверши текущую тренировку.');page='quiz';render();return;}if(scope.startsWith('cert:')){const c=KV_CERTS.find(z=>z.id===scope.split(':')[1]);if(!c||!kvCertStatus(c).ready){toast('Сначала закрой тематические зачёты.');return;}size='20';seconds='45';filter='mixed';}let candidates=eligible(scope,filter);if(v15FreeRun&&scope==='all'&&data.lastResult?.mode==='free'){const recent=new Set((data.lastResult.ids||[]).map(id=>{const q=Q.get(id);return q?.concept||id;}));const fresh=candidates.filter(q=>!recent.has(q.concept||q.id));if(uniqueConceptCount(fresh)>=20)candidates=fresh;}if(!candidates.length){toast('В выбранном режиме пока нет подходящих вопросов.');return;}const maximum=uniqueConceptCount(candidates);const amount=size==='all'?maximum:clamp(parseInt(size,10),1,100);const picked=choose(candidates,Math.min(amount,maximum));if(amount>maximum)toast(`В этом разделе ${maximum} уникальных задач: тест ограничен ими, без дублей.`);const opts={},variants={},phrasing={};for(const q of picked){opts[q.id]=mix([0,1,2,3]);if(q.codeVariants?.length)variants[q.id]=Math.floor(rnd()*q.codeVariants.length);else phrasing[q.id]=q.phrasings?.length?q.phrasings[Math.floor(rnd()*q.phrasings.length)]:kvPhrase(q);}const now=Date.now();data.active={scope,ids:picked.map(q=>q.id),index:0,seconds:Number(seconds)||0,filter,started:now,deadline:Number(seconds)>0?now+Number(seconds)*1000:0,options:opts,variants,phrasing,answers:[],feedback:null,mode:v15FreeRun&&scope==='all'?'free':scope.startsWith('cert:')?'cert':scope.startsWith('arena:')?'arena':scope.startsWith('hard:')?'hardcore':scope.startsWith('exam:')?'exam':data.settings.mode==='hardcore'?'hardcore':'practice',strict:scope.startsWith('cert:')||scope.startsWith('arena:')||scope.startsWith('hard:')||(scope.startsWith('codes:')&&data.settings.mode==='hardcore')||data.settings.mode==='hardcore',threshold:scope.startsWith('cert:')?(KV_CERTS.find(z=>z.id===scope.split(':')[1])?.pass||85):scope.startsWith('hard:')?Number(data.hardThreshold||85):scope.startsWith('arena:')?(data.arenaHardcore?90:80):80,totalDeadline:scope.startsWith('arena:')?now+Math.max(5,picked.length*(Number(seconds)||45))*1000:0,totalMinutes:0};save();page='quiz';render();}
 function active(){return data.active;}
 function current(){const a=active();return a?Q.get(a.ids[a.index]):null;}
 function answer(index,timeout=false){
@@ -2287,7 +2696,7 @@ function resultPage(){
  const l=data.lastResult;if(!l)return overview();
  const score=pct(l.correct,l.total),isExam=l.scope.startsWith('exam:'),isCert=l.scope.startsWith('cert:'),strict=l.mode==='hardcore'||l.mode==='arena'||l.mode==='cert',pass=score>=(l.threshold||80),review=l.items||[];
  let note='';if(isExam){const [,tid,nid]=l.scope.split(':'),def=nodeDef(tid,nid);if(def)note=`${score>=def.pass?'✓ Зачёт сдан. Связанные темы разблокированы.':`Для зачёта требуется ${def.pass}% правильных ответов.`}`;}else if(isCert){const cert=KV_CERTS.find(c=>c.id===l.scope.split(':')[1]);note=cert?`Сертификация ${score>=cert.pass?'сдана':'не сдана'}. Порог: ${cert.pass}%.`:'';}else if(strict){note=pass?'Испытание пройдено.':'Испытание не пройдено — разбор ошибок ниже.';}
- return `${masthead('Результаты / разбор',scopeName(l.scope),`${score}%`)}${tabs()}<section class="k-panel k-result"><div class="k-result-emblem">${pass?'🏆':'✦'}</div><h2>${pass?'Сильная попытка':'Есть что закрепить'}</h2><div class="k-score">${l.correct}/${l.total}</div><p>${l.wrong} ошибок · ${l.timeouts||0} тайм-аутов · ${Math.ceil(l.ms/60000)} минут. Все ответы сохранены в аналитике.</p><p class="k-sub">${note}</p><div class="kx-actions kx-center">${btn('Повторить ошибки','result-errors','','button-primary')}${btn('Назад к знаниям','return-scope')}</div></section>${review.length?`<section class="kv-card"><h3>Разбор попытки · ${review.length} вопросов</h3><p>Эталонные ответы на задания с кодом и краткие объяснения. Результат задания сохраняется отдельно от его формулировки.</p>${review.map((item,i)=>{const original=Q.get(item.id);if(!original)return '';const q=item.variant!=null&&original.codeVariants?.length?{...original,...original.codeVariants[item.variant]}:original;const your=item.chosen>=0?q.opts[item.chosen]:'Нет ответа';return `<div class="kv-result-answer"><div class="kv-chip-row"><span>${i+1}/${review.length}</span><span class="${item.correct?'kv-good':'kv-weak'}">${item.correct?'✓ Верно':'✕ Ошибка'}</span></div><h4>${esc(q.q)}</h4>${q.code?kvCode(q.code,false):''}<p><b>Твой ответ:</b> ${esc(your)}</p><p><b>Правильно:</b> ${esc(q.opts[0])}</p><p>${esc(q.why)}</p></div>`;}).join('')}</section>`:''}`;
+ return `${masthead('Результаты / разбор',scopeName(l.scope),`${score}%`)}${tabs()}<section class="k-panel k-result"><div class="k-result-emblem">${pass?'🏆':'✦'}</div><h2>${pass?'Сильная попытка':'Есть что закрепить'}</h2><div class="k-score">${l.correct}/${l.total}</div><p>${l.wrong} ошибок · ${l.timeouts||0} тайм-аутов · ${Math.ceil(l.ms/60000)} минут. Все ответы сохранены в аналитике.</p><p class="k-sub">${note}</p><div class="kx-actions kx-center">${btn('Повторить ошибки','result-errors','','button-primary')}${l.mode==='free'?btn('∞ Ещё 20 вопросов','v15-next-free','','button-primary'):''}${btn('Назад к знаниям','return-scope')}</div></section>${review.length?`<section class="kv-card"><h3>Разбор попытки · ${review.length} вопросов</h3><p>Эталонные ответы на задания с кодом и краткие объяснения. Результат задания сохраняется отдельно от его формулировки.</p>${review.map((item,i)=>{const original=Q.get(item.id);if(!original)return '';const q=item.variant!=null&&original.codeVariants?.length?{...original,...original.codeVariants[item.variant]}:original;const your=item.chosen>=0?q.opts[item.chosen]:'Нет ответа';return `<div class="kv-result-answer"><div class="kv-chip-row"><span>${i+1}/${review.length}</span><span class="${item.correct?'kv-good':'kv-weak'}">${item.correct?'✓ Верно':'✕ Ошибка'}</span></div><h4>${esc(q.q)}</h4>${q.code?kvCode(q.code,false):''}<p><b>Твой ответ:</b> ${esc(your)}</p><p><b>Правильно:</b> ${esc(q.opts[0])}</p><p>${esc(q.why)}</p></div>`;}).join('')}</section>`:''}`;
 }
 function reviewPage(){const errors=questions.filter(qWrong),due=questions.filter(qDue);return `${masthead('Ошибки и повторение','Тут живут только действительно проблемные вопросы. Повторяй слабые темы — и они будут исчезать из списка активных ошибок.',`${errors.length}`)}${tabs()}${smallStats()}<div class="kx-review-head"><section class="k-panel"><span class="eyebrow">НАД ЧЕМ ПОРАБОТАТЬ</span><h3>${errors.length} вопросов с последней ошибкой</h3><p class="k-sub">Вопрос исчезает из этого списка после правильного ответа на новую попытку.</p><div class="kx-actions">${btn('Тест из ошибок','open-config','mistakes','button-primary')}${btn('Повторить по сроку','open-config','due')}</div></section><section class="k-panel"><span class="eyebrow">INTERVAL REVIEW</span><h3>${due.length} вопросов пора повторить</h3><p class="k-sub">После правильного ответа повторение откладывается на 1, 3, 7, 14 или 30 дней — в зависимости от серии успехов.</p></section></div><section class="k-panel"><h3 class="k-section-h">Твои слабые темы</h3><div class="k-list">${weakTopics().length?weakTopics().slice(0,16).map(({t,n,s})=>`<div class="k-topic"><div class="k-topic-info"><strong>${esc(t.name)} / ${esc(n.name)}</strong><small>${s.wrong} проблемных · точность ${s.accuracy}% · решено ${s.progress}%</small>${progressHTML(s,false)}</div>${btn('Тест','open-config',`${t.id}:${n.id}`,'button-secondary')}</div>`).join(''):'<div class="k-empty">Отлично! Пока нет слабых тем, которые удалось выявить. Начни тренировку.</div>'}</div></section>`;}
 function analyticsPage(){const rows=techs.map(t=>({t,s:techSummary(t)})),gs=T.get('t0').branches.map(b=>({b,s:branchSummary(T.get('t0'),b)}));const recent=data.logs.slice(-10).reverse();const days=Array.from({length:28},(_,i)=>{const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()-27+i);const n=questions.reduce((acc,q)=>acc+(rec(q.id).history||[]).filter(h=>dkey(h.at)===dkey(d.getTime())).length,0);return {day:d.getDate(),n,date:dkey(d.getTime())}});
@@ -2417,37 +2826,44 @@ const v11TabFor=p=>['trees','tech','topic','theory','editor','pg-editor'].includ
 tabs=function(){const chosen=v11TabFor(page);return `<nav class="k-tabs v11-tabs" aria-label="Навигация по знаниям">${v11MainTabs.map(([id,label])=>`<button class="k-tab ${chosen===id?'active':''}" data-action-k="tab" data-id="${id}">${label}</button>`).join('')}</nav>`;};
 
 function v11HomePage(){
- const all=summary(questions),go=techSummary(T.get('t0')),pg=techSummary(T.get('t1')),weak=weakTopics().filter(x=>topicUnlocked(x.t.id,x.n.id)).slice(0,5),due=questions.filter(q=>qDue(q)&&topicUnlocked(q.tech,q.node)).length, wrong=questions.filter(q=>qWrong(q)&&topicUnlocked(q.tech,q.node)).length;
- const plan=data.plan||{},started=!!plan.started,tasks=started?kvPlanTasks():[],done=tasks.filter(t=>t.value>=t.target).length;
- const currentGo=dagAllRows('t0').find(m=>m.unlocked&&!m.passed),currentPg=dagAllRows('t1').find(m=>m.unlocked&&!m.passed);
- return `${masthead('Центр знаний','Один маршрут: учись → закрепляй → проверяй себя → смотри результат. Все твои технологии и прогресс в одном месте.',`${all.progress}%`)}${tabs()}
- <div class="v11-kpi-strip">${[
- [`${go.progress}%`,'Go изучено','🐹'],[`${pg.progress}%`,'PostgreSQL изучено','🐘'],[`${due}`,'К повторению','↻'],[`${wrong}`,'Нужны исправления','⚑']].map(([n,t,ic])=>`<div class="v11-kpi"><span>${ic}</span><strong>${n}</strong><small>${t}</small></div>`).join('')}</div>
- <div class="v11-home-feature"><div><div class="eyebrow">YOUR NEXT MOVE / УЧЕБНАЯ ТРАЕКТОРИЯ</div><h3>Продолжай с того места, где остановился.</h3><p>Переход к каждой теме зависит от сданных зачётов. Повторы доступны прямо здесь, а за сертификатами не нужно искать отдельную вкладку.</p><div class="kv-actions">${currentGo?btn('🐹 '+esc(currentGo.topic.name)+' →','open-topic',`t0:${currentGo.def.id}`,'button-primary'):btn('Дерево Go','open-tech','t0','button-primary')}${currentPg?btn('🐘 '+esc(currentPg.topic.name)+' →','open-topic',`t1:${currentPg.def.id}`,'button-secondary'):btn('Дерево PostgreSQL','open-tech','t1')}</div></div><div class="v11-home-ring"><strong>${all.progress}%</strong><span>ЗНАНИЙ ОСВОЕНО</span></div></div>
- <div class="kv-panels v11-main-columns"><section class="kv-card"><div class="k-bar"><div><span class="eyebrow">DAILY ROUTINE</span><h3>План подготовки</h3></div><span class="kv-badge">${started?`${done}/${tasks.length} готово`:'Не настроен'}</span></div>
- ${started?`${kvBar(tasks.length?done/tasks.length*100:0)}${tasks.map(t=>`<div class="kv-item"><div class="kv-item-main"><strong>${t.value>=t.target?'✓':'◉'} ${esc(t.title)}</strong><small>${esc(t.subtitle)} · ${t.value}/${t.target}</small></div>${t.value>=t.target?'<span class="kv-step">Готово</span>':btn('Начать','plan-run',t.scope,'button-secondary')}</div>`).join('')}`:'<p>Выбери цель и темп, а приложение предложит ежедневные задания на основе доступных ветвей Go.</p>'}
- <details class="v11-fold" ${!started?'open':''}><summary>⚙ ${started?'Изменить план':'Создать план'}</summary><div class="kv-form"><label>Цель<select id="kvPlanGoal"><option value="middle" ${plan.goal==='middle'?'selected':''}>Middle Backend</option><option value="junior" ${plan.goal==='junior'?'selected':''}>Junior+</option><option value="senior" ${plan.goal==='senior'?'selected':''}>Senior Backend</option></select></label><label>Дней до цели<select id="kvPlanDays">${[14,30,45,60,90].map(v=>`<option value="${v}" ${Number(plan.days||30)===v?'selected':''}>${v} дней</option>`).join('')}</select></label><label>Минут в день<select id="kvPlanMinutes">${[30,45,60,90,120,180].map(v=>`<option value="${v}" ${Number(plan.minutes||60)===v?'selected':''}>${v} минут</option>`).join('')}</select></label><label>Фокус<select id="kvPlanFocus"><option value="all">Все темы</option><option value="weak" ${plan.focus==='weak'?'selected':''}>Ошибки и слабые темы</option><option value="interview" ${plan.focus==='interview'?'selected':''}>Под собеседование</option></select></label></div><div class="kv-actions">${btn('Сохранить план','save-plan','','button-primary')}</div></details></section>
- <section class="kv-card"><div class="k-bar"><div><span class="eyebrow">REVIEW QUEUE</span><h3>Повторы и ошибки</h3></div><span class="kv-badge">${wrong} ошибок</span></div><div class="v11-review-counts"><div><strong>${due}</strong><span>созрели к повторению</span></div><div><strong>${wrong}</strong><span>с последней ошибкой</span></div></div><div class="kv-actions">${btn('Решить ошибки','open-config','mistakes','button-primary')}${btn('Повторить по сроку','open-config','due')}</div><h3 class="v11-minor-title">Твои слабые темы</h3>${weak.length?weak.map(({t,n,s})=>`<div class="kv-item"><div class="kv-item-main"><strong>${esc(t.name)} / ${esc(n.name)}</strong><small>Точность ${s.accuracy}% · ${s.wrong} проблемных</small></div>${btn('Разобрать','open-topic',`${t.id}:${n.id}`,'button-ghost')}</div>`).join(''):'<div class="k-empty">Пока нет ошибок. Пройди несколько тестов, чтобы здесь появились рекомендации.</div>'}</section></div>`;
+ const all=summary(questions),go=techSummary(T.get('t0')),pg=techSummary(T.get('t1'));
+ const due=questions.filter(q=>qDue(q)&&topicUnlocked(q.tech,q.node)).length;
+ const wrong=questions.filter(q=>qWrong(q)&&topicUnlocked(q.tech,q.node)).length;
+ const g=dagAllRows('t0').find(m=>m.unlocked&&!m.passed),p=dagAllRows('t1').find(m=>m.unlocked&&!m.passed);
+ const plan=data.plan||{}, started=!!plan.started, tasks=started?kvPlanTasks():[], done=tasks.filter(t=>t.value>=t.target).length;
+ const weak=weakTopics().filter(x=>topicUnlocked(x.t.id,x.n.id)).slice(0,3);
+ return `${tabs()}<section class="v15-hero"><div><span class="eyebrow">KNOWLEDGE / ТВОЙ СЛЕДУЮЩИЙ ШАГ</span><h2>Учись без лишних настроек.</h2><p>Выбери, что нужно сейчас. Теория, карты, контрольные зачёты, Code Lab, история и сертификаты остались внутри.</p><div class="v15-start-actions">${g?btn('🐹 '+esc(g.topic.name),'open-topic',`t0:${g.def.id}`,'button-primary'):btn('🐹 Дерево Go','open-tech','t0','button-primary')}${p?btn('🐘 '+esc(p.topic.name),'open-topic',`t1:${p.def.id}`,'button-secondary'):btn('🐘 Дерево PostgreSQL','open-tech','t1')}</div></div><div class="v15-hero-kpi">${all.progress}%<small>ОСВОЕНО</small></div></section>
+ <div class="v15-quick-grid">
+ <button class="v15-quick-card" data-action-k="tab" data-id="trees"><span class="v15-quick-ico">📚</span><strong>Изучить тему</strong><small>Теория, короткие примеры, карта связей и зачёт по теме.</small><em>К деревьям →</em></button>
+ <button class="v15-quick-card" data-action-k="v15-errors"><span class="v15-quick-ico">🔁</span><strong>Исправить ошибки</strong><small>${wrong} ошибок · ${due} повторений по сроку. Разберись в том, что пока не получается.</small><em>Начать повторение →</em></button>
+ <button class="v15-quick-card" data-action-k="v15-interview"><span class="v15-quick-ico">⚔️</span><strong>Тренировка собеседования</strong><small>Junior, Middle, Senior. Вопросы разных технологий и режим экзамена.</small><em>Выбрать уровень →</em></button>
+ <button class="v15-quick-card" data-action-k="v15-free"><span class="v15-quick-ico">∞</span><strong>Свободная практика</strong><small>Без таймера. Новая подборка каждые 20 вопросов. Продолжай сколько хочешь.</small><em>Играть без ограничений →</em></button></div>
+ <details class="v15-advanced"><summary>Мой план, быстрые повторы и слабые темы</summary><div class="kv-panels" style="margin-top:12px"><section class="kv-card"><h3>Личный план ${started?'· '+done+'/'+tasks.length:''}</h3>${started?tasks.map(t=>`<div class="kv-item"><div class="kv-item-main"><strong>${esc(t.title)}</strong><small>${t.value}/${t.target} · ${esc(t.subtitle)}</small></div>${t.value>=t.target?'<span class="kv-step">✓</span>':btn('Начать','plan-run',t.scope)}</div>`).join(''):'<p>План необязателен: без него все тесты и деревья полностью доступны.</p>'}<div class="kv-form"><label>Уровень<select id="kvPlanGoal"><option value="junior" ${plan.goal==='junior'?'selected':''}>Junior</option><option value="middle" ${plan.goal!=='senior'&&plan.goal!=='junior'?'selected':''}>Middle</option><option value="senior" ${plan.goal==='senior'?'selected':''}>Senior</option></select></label><label>Срок<select id="kvPlanDays">${[14,30,45,60,90].map(v=>`<option value="${v}" ${Number(plan.days||30)===v?'selected':''}>${v} дней</option>`).join('')}</select></label><label>В день<select id="kvPlanMinutes">${[30,45,60,90,120,180].map(v=>`<option value="${v}" ${Number(plan.minutes||60)===v?'selected':''}>${v} минут</option>`).join('')}</select></label><label>Фокус<select id="kvPlanFocus"><option value="all">Все темы</option><option value="weak" ${plan.focus==='weak'?'selected':''}>Слабые темы</option><option value="interview" ${plan.focus==='interview'?'selected':''}>Собеседование</option></select></label></div>${btn('Сохранить план','save-plan','','button-primary')}</section><section class="kv-card"><h3>Повторение и аналитика</h3><p>${wrong} незакрытых ошибок, ${due} вопросов к повторению.</p><div class="kv-actions">${btn('Повторить ошибки','v15-errors','','button-primary')}${btn('По сроку','open-config','due')}${btn('История и сертификаты','tab','progress')}</div>${weak.map(({t,n,s})=>`<div class="kv-item"><div class="kv-item-main"><strong>${esc(t.name)} / ${esc(n.name)}</strong><small>Точность ${s.accuracy}%</small></div>${btn('Открыть','open-topic',`${t.id}:${n.id}`)}</div>`).join('')}</section></div></details>`;
 }
+let v15FreeRun=false;
 let v11PracticeKind='mixed',v11PracticeTech='t0',v11PracticeTopic='all';
 function v11PracticePage(){
- const t=T.get(v11PracticeTech)||T.get('t0'),available=t.nodes.filter(n=>topicUnlocked(t.id,n.id)),all=available.flatMap(n=>n.qs).length;
- const modes=[['mixed','Обычный тест','Смешанные вопросы из выбранных тем'],['code','Code Lab','Разбор исходного Go-кода или SQL'],['interview','Interview Arena','Межтехнологическое собеседование'],['hardcore','Hardcore','Без подсказок и разбора до финиша']];
- return `${masthead('Практика','Один конструктор вместо Code Lab, Interview Arena и Hardcore. Тип вопросов, срок, объём и строгость — в одном месте.','TEST BUILDER')}${tabs()}
- <section class="kv-card v11-practice-builder"><div class="eyebrow">CHOOSE YOUR CHALLENGE</div><h3>Как сегодня потренируемся?</h3><div class="v11-mode-grid">${modes.map(([id,title,desc],i)=>`<button type="button" class="v11-mode ${v11PracticeKind===id?'active':''}" data-action-k="v11-mode" data-id="${id}"><span>${['◎','⌘','⚔','◈'][i]}</span><strong>${title}</strong><small>${desc}</small></button>`).join('')}</div><div class="kv-form v11-config-form">
+ const t=T.get(v11PracticeTech)||T.get('t0'),available=t.nodes.filter(n=>topicUnlocked(t.id,n.id)),all=uniqueConceptCount(available.flatMap(n=>n.qs.map(q=>Q.get(q.id))));
+ const interview=v11PracticeKind==='interview',isFree=v11PracticeKind==='free';
+ return `${tabs()}<section class="kv-card v11-practice-builder"><span class="eyebrow">PRACTICE / БЫСТРЫЙ СТАРТ</span><h3>Что хочешь потренировать?</h3>
+ <div class="v15-practice-choices">
+ <button data-action-k="v11-mode" data-id="mixed" class="${v11PracticeKind==='mixed'?'active':''}"><strong>◎ Базовые знания</strong><span>Понимание терминов, кода и концепций по технологии.</span></button>
+ <button data-action-k="v11-mode" data-id="interview" class="${interview?'active':''}"><strong>⚔ Собеседование</strong><span>Смешанные темы и выбор Junior / Middle / Senior.</span></button>
+ <button data-action-k="v11-mode" data-id="free" class="${isFree?'active':''}"><strong>∞ Free Mode</strong><span>Без таймера, продолжение сериями по 20 вопросов.</span></button></div>
+ <div class="kv-form" style="margin-bottom:12px">
  <label>Технология<select id="v11PracticeTech">${techs.map(item=>`<option value="${item.id}" ${item.id===t.id?'selected':''}>${esc(item.name)}</option>`).join('')}</select></label>
- <label>Тематика<select id="v11PracticeTopic"><option value="all">Все открытые темы · ${all} формулировок</option>${available.map(n=>`<option value="${n.id}" ${v11PracticeTopic===n.id?'selected':''}>${esc(n.name)}</option>`).join('')}</select></label>
- <label>Количество вопросов<select id="v11PracticeSize">${[5,10,15,20,30,50,100].map(x=>`<option value="${x}" ${x===15?'selected':''}>${x} вопросов</option>`).join('')}<option value="all">Все доступные без повторов</option></select></label>
- <label>Лимит на вопрос<select id="v11PracticeSeconds">${[['0','Без ограничения'],['15','15 секунд'],['30','30 секунд'],['45','45 секунд'],['60','60 секунд'],['90','90 секунд'],['120','120 секунд']].map(([v,label])=>`<option value="${v}" ${v==='45'?'selected':''}>${label}</option>`).join('')}</select></label>
- <label>Подбор<select id="v11PracticeFilter"><option value="mixed">Случайные (все доступные)</option><option value="new">Ещё не решённые</option><option value="mistakes">Предыдущие ошибки</option><option value="due">Пора повторить</option></select></label>
- <label>Сложность интервью<select id="v11PracticeLevel"><option value="junior">Junior</option><option value="middle" selected>Middle</option><option value="senior">Senior</option></select></label></div>
- <div class="v11-practice-foot"><div><strong>${esc(t.icon+' '+t.name)}</strong><small>${v11PracticeKind==='interview'?'Вопросы смешиваются между технологиями.':v11PracticeKind==='hardcore'?'Результаты и правильные ответы только в конце.':'Результаты обновят статистику и уверенность каждой темы.'} ${v11PracticeKind==='code'?'Для SQL доступны задания по PostgreSQL.':''}</small></div>${btn('Начать тренировку →','v11-practice-start','','button-primary')}</div></section>
- <section class="kv-card v11-hint-box"><h3>Экзамен темы — на самой карте знаний</h3><p>Чтобы получить зачёт и открыть следующие узлы, изучай конкретную тему в «Деревьях». Прохождение свободного теста не заменяет тематический зачёт.</p><div class="kv-actions">${btn('Дерево Go','open-tech','t0')}${btn('Дерево PostgreSQL','open-tech','t1')}</div></section>`;
+ ${interview?'<label>Уровень собеседования<select id="v11PracticeLevel"><option value="junior">Junior</option><option value="middle" selected>Middle</option><option value="senior">Senior</option></select></label>':`<label>Раздел<select id="v11PracticeTopic"><option value="all">Все открытые темы · ${all} концепций</option>${available.map(n=>`<option value="${n.id}" ${v11PracticeTopic===n.id?'selected':''}>${esc(n.name)}</option>`).join('')}</select></label>`}</div>
+ <div class="v11-practice-foot"><div><strong>${isFree?'∞ Свободная серия':interview?'⚔ Подготовка к собеседованию':'◎ Практика по знаниям'}</strong><small>${isFree?'20 вопросов без времени. После результатов доступна следующая серия без повторов предыдущей.':'Уже решённые задания не дублируются внутри одной попытки.'}</small></div>${btn(isFree?'Начать свободный режим →':'Начать тренировку →','v11-practice-start','','button-primary')}</div>
+ <details class="v15-advanced" ${['code','hardcore'].includes(v11PracticeKind)?'open':''}><summary>Дополнительные режимы, код и настройки экзамена</summary><div class="v15-start-actions" style="margin-top:13px"><button class="kv-btn ${v11PracticeKind==='code'?'accent':''}" data-action-k="v11-mode" data-id="code">⌘ Code Lab</button><button class="kv-btn ${v11PracticeKind==='hardcore'?'accent':''}" data-action-k="v11-mode" data-id="hardcore">◈ Hardcore</button>${btn('Ошибки','v15-errors')}${btn('Повторить по сроку','open-config','due')}</div>
+ <div class="kv-form"><label>Количество вопросов<select id="v11PracticeSize">${[5,10,15,20,30,50,100].map(x=>`<option value="${x}" ${x===15?'selected':''}>${x}</option>`).join('')}<option value="all">Все без повторов</option></select></label><label>Секунд на ответ<select id="v11PracticeSeconds">${[['0','Без таймера'],['15','15'],['30','30'],['45','45'],['60','60'],['90','90'],['120','120']].map(([v,lab])=>`<option value="${v}" ${v==='45'?'selected':''}>${lab}</option>`).join('')}</select></label><label>Подбор заданий<select id="v11PracticeFilter"><option value="mixed">Случайные</option><option value="new">Не решённые</option><option value="mistakes">Ошибки</option><option value="due">Повторения</option></select></label></div></details></section>
+ <div class="kv-card"><h3>Контрольные зачёты и теория</h3><p>Открываются внутри нужной темы на интерактивной карте. Это отдельный путь от свободной тренировки.</p><div class="kv-actions">${btn('К карте знаний','tab','trees','button-primary')}${btn('К прогрессу','tab','progress')}</div></div>`;
 }
 function v11StartPractice(){
  if(data.active){page='quiz';render();return;}
  const tid=$('#v11PracticeTech')?.value||v11PracticeTech,topic=$('#v11PracticeTopic')?.value||'all',size=$('#v11PracticeSize')?.value||'15',seconds=$('#v11PracticeSeconds')?.value||'45',filter=$('#v11PracticeFilter')?.value||'mixed',level=$('#v11PracticeLevel')?.value||'middle';
  const mode=v11PracticeKind;
+ if(mode==='free'){v15FreeRun=true;data.settings.mode='practice';save();begin('all','20','0','mixed');return;}
+ v15FreeRun=false;
  if(mode==='code'){data.settings.mode='practice';save();begin(topic==='all'?`codes:${tid}`:`codes:${tid}:${topic}`,size,seconds,filter);return;}
  if(mode==='interview'){data.settings.mode='practice';save();begin(`arena:${level}`,size,seconds,filter);return;}
  if(mode==='hardcore'){data.settings.mode='practice';save();begin(`hard:${tid}`,size,seconds,filter);return;}
@@ -2554,6 +2970,10 @@ function render(){let html;switch(page){case 'trees':html=treesIndex();break;cas
 function tick(){const a=active();if(page!=='quiz'||!a||a.feedback||!a.seconds)return;if(document.getElementById('view-knowledge')?.hidden&&!a.strict)return;const left=Math.max(0,Math.ceil((a.deadline-Date.now())/1000)),clock=$('#kxClock');if(clock){clock.textContent=`${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).toString().padStart(2,'0')}`;clock.classList.toggle('danger',left<=8);}if(Date.now()>=a.deadline)answer(-1,true);}
 function changePage(name){page=name;render();}
 root.addEventListener('click',e=>{const el=e.target.closest('[data-action-k]');if(!el||!root.contains(el))return;const a=el.dataset.actionK,id=el.dataset.id;
+if(a==='v15-errors'){configScope='mistakes';if(!scopeQs('mistakes').length){toast('Пока нет ошибок. Начни обычную тренировку.');page='practice';}else page='config';render();return;}
+if(a==='v15-interview'){v11PracticeKind='interview';page='practice';render();return;}
+if(a==='v15-free'){v11PracticeKind='free';page='practice';render();return;}
+if(a==='v15-next-free'){v15FreeRun=true;data.settings.mode='practice';begin('all','20','0','mixed');return;}
 if(a==='v11-mode'){v11PracticeKind=id;page='practice';render();return;}
 if(a==='v11-practice-start'){v11StartPractice();return;}
 if(a==='open-pg-editor'){page='pg-editor';render();return;}
@@ -2585,7 +3005,7 @@ if(a==='code-lab-start'){if(data.active){page='quiz';render();return;}const n=$(
  else if(a==='quick-errors'){if(!scopeQs(id).some(qWrong)){toast('Ошибок пока нет.');return;}configScope=id;data.settings.filter='mistakes';page='config';render();}
  else if(a==='answer')answer(Number(id));else if(a==='next')next();else if(a==='abort'){if(!confirm('Прервать тест? Уже полученные результаты ответов сохранятся, но незавершённый тест не попадёт в историю.'))return;data.active=null;save();page='overview';render();}
  else if(a==='result-errors'){const l=data.lastResult,pool=l?l.ids.map(x=>Q.get(x)).filter(qWrong):[];if(!pool.length){toast('Ошибок в последнем тесте больше нет.');page='overview';render();return;}configScope=l.scope;data.settings.filter='mistakes';page='config';render();}
- else if(a==='return-scope'){const scope=data.lastResult?.scope||'t0';if(scope.startsWith('exam:')){const [,tid]=scope.split(':');selectedTech=tid;page='tech';}else if(scope.startsWith('codes:')){page='code';}else if(scope.startsWith('arena:')){page='arena';}else if(scope.startsWith('cert:')){page='certs';}else if(scope.startsWith('hard:')){page='hardcore';}else if(scope.includes(':')){[selectedTech,selectedTopic]=scope.split(':');page='topic';}else if(T.has(scope)){selectedTech=scope;page='tech';}else page='overview';render();}
+ else if(a==='return-scope'){const scope=data.lastResult?.scope||'t0';if(scope.startsWith('exam:')){const [,tid]=scope.split(':');selectedTech=tid;page='tech';}else if(scope.startsWith('codes:')){page='code';}else if(scope.startsWith('arena:')){page='arena';}else if(scope.startsWith('cert:')){page='certs';}else if(data.lastResult?.mode==='free'){v11PracticeKind='free';page='practice';}else if(scope.startsWith('hard:')){page='hardcore';}else if(scope.includes(':')){[selectedTech,selectedTopic]=scope.split(':');page='topic';}else if(T.has(scope)){selectedTech=scope;page='tech';}else page='overview';render();}
 });
 root.addEventListener('change',e=>{if(e.target?.id==='v11PracticeTech'){v11PracticeTech=e.target.value;v11PracticeTopic='all';page='practice';render();return;}if(e.target?.id==='v11PracticeTopic'){v11PracticeTopic=e.target.value;}if(e.target?.id==='v11PgEditorNode'){v11EditingPgNode=e.target.value;render();return;}if(e.target?.id==='kvEditorNode'){kvEditingNode=e.target.value;render();}if(e.target?.id==='kvTrendNode'){kvTrendNode=e.target.value;render();}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-nav]');if(b?.dataset.nav==='knowledge'){if(data.active)page='quiz';render();}});
