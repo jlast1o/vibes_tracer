@@ -1019,6 +1019,85 @@ button.kx-report-row:hover{border-color:#a5ca74}
 }
 
 </style>
+<style id="v19-sql-studio-style">
+/* SQL Studio V17.3 — visual schema graph, IDE layout. Scoped to SQL Lab only. */
+.v19-studio .v18-workspace{background:#152019;border-color:#3f6045;box-shadow:0 14px 56px #040a0799;overflow:hidden}
+.v19-studio .v18-toolbar{background:#1d2e23;padding:10px 16px;border-radius:17px 17px 0 0}
+.v19-studio .v18-toolbar-controls{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.v19-studio .v18-toolbar .v18-step-btn{padding:8px 11px;font-size:11px}
+.v19-studio .v18-columns{grid-template-columns:minmax(0,var(--v19-left,49%)) minmax(0,1fr);gap:0;position:relative}
+.v19-studio .v18-learn{background:#18271d;border-right:1px solid #536b53}
+.v19-studio .v18-work{background:#111a14;display:flex;flex-direction:column}
+.v19-studio .v18-problem{background:transparent;min-height:0;padding:23px 22px 22px;border-bottom:1px solid #38543e}
+.v19-studio .v18-problem h3{font-size:clamp(21px,1.8vw,26px);margin:10px 0 12px}
+.v19-studio .v18-problem>p{font-size:13px;line-height:1.65;max-width:60ch}
+.v19-studio .v18-data{padding:19px 16px 25px;background:#19281e;border:0}
+.v19-studio .v18-data-title{margin-bottom:13px}
+.v19-studio .v18-editor{padding:0 0 16px;border-bottom:1px solid #36503b;min-height:300px;display:flex;flex-direction:column;flex:1}
+.v19-studio .v18-editor .v18-panel-title{margin:0;background:#203126;border-bottom:1px solid #38533f;padding:12px 16px}
+.v19-studio .v18-panel-title h4{font-size:17px;margin:2px 0 0}
+.v19-studio .v17-editor-frame{margin:16px 16px 0;border:1px solid #4d6a4e;flex:1;display:flex;flex-direction:column;min-height:215px;border-radius:10px;overflow:hidden;background:#0e1711}
+.v19-studio .v17-editor-header{background:#19271c}
+.v19-studio .v16-sql-editor{flex:1;resize:vertical;min-height:190px;height:260px;max-height:650px;font-size:13px;line-height:1.65;border:0;border-radius:0;padding:15px 15px 18px}
+.v19-studio .v17-actions{margin:13px 16px 0}
+.v19-studio .v17-runtime{padding:11px 16px 0;font-size:10px}
+.v19-studio .v18-hint{margin:10px 16px 0}
+.v19-studio .v18-result{padding:0 0 14px;flex:0 0 auto;background:#162219}
+.v19-studio .v18-result .v18-panel-title{padding:12px 16px;margin:0;background:#1c2c21;border-bottom:1px solid #38533f}
+.v19-studio .v18-result .v16-sql-result{margin:12px 15px 0;min-height:45px;max-height:350px;background:#111d15;border-color:#3c5740;overflow:auto}
+.v19-studio .v18-empty-result{padding:10px;font-size:11px}
+.v19-studio .v18-task-controls{padding:10px 16px;border-top:1px solid #334e39;background:#1c2b20;justify-content:flex-end}
+.v19-divider{width:6px;position:absolute;left:var(--v19-left,49%);top:0;bottom:0;transform:translateX(-50%);z-index:5;cursor:col-resize;touch-action:none;background:transparent}
+.v19-divider:hover,.v19-divider.active{background:#c4f57b55}
+.v19-divider::before{content:'⋮';font-size:18px;color:#bfd5b4;background:#304934;border:1px solid #647e5d;border-radius:7px;position:absolute;top:25%;left:50%;transform:translateX(-50%);width:13px;height:45px;display:grid;place-items:center;line-height:45px;text-align:center}
+.v19-section-caption{font-size:11px;color:#abc3a8;margin:3px 0 13px;line-height:1.5}
+.v19-graph-canvas{background-color:#121f17;background-image:radial-gradient(#3a563c55 1px,transparent 1px);background-size:18px 18px;border:1px solid #3a5a3e;border-radius:13px;position:relative;padding:21px 22px;min-width:0;isolation:isolate;overflow:visible}
+.v19-graph-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 35px;align-items:start}
+.v19-graph-canvas[data-count="1"] .v19-graph-grid{grid-template-columns:minmax(0,1fr);max-width:370px;margin:auto}
+.v19-graph-canvas[data-count="3"] .v19-graph-grid .v19-node:last-child{grid-column:2}
+.v19-graph-canvas[data-count="5"] .v19-graph-grid,.v19-graph-canvas[data-count="6"] .v19-graph-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.v19-wire-layer{position:absolute;inset:0;z-index:3;width:100%;height:100%;overflow:visible;pointer-events:none}
+.v19-wire-layer path{fill:none;stroke:#b5eb72;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 3px #a6d86944)}
+.v19-wire-layer .v19-wire-glow{stroke:#80af60;stroke-width:8;opacity:.10}
+.v19-wire-layer circle{fill:#d8ff65;stroke:#142218;stroke-width:2}
+.v19-node{background:#223428;border:1px solid #65825f;border-radius:11px;overflow:hidden;min-width:0;box-shadow:0 8px 20px #070c0966;position:relative;z-index:2}
+.v19-node header{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#314b35;padding:10px 12px;border-bottom:1px solid #4f7051}
+.v19-node-title{color:#f0ffe7;font-size:12px;font-weight:900;min-width:0;overflow-wrap:anywhere}
+.v19-node-sub{font-size:9px;color:#bdd8b4;font-weight:600;white-space:nowrap}
+.v19-col{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px;align-items:center;padding:7px 10px;border-bottom:1px solid #344b38;min-height:31px;background:#203126}
+.v19-col:last-child{border-bottom:0}
+.v19-col.pk,.v19-col.fk{background:#304733}
+.v19-col-name{color:#e6f4df;font:600 10px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;min-width:0}
+.v19-col-type{color:#b2c7ac;font:500 9px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:nowrap}
+.v19-key-chip{background:#d8ff65;color:#182516;border-radius:4px;font-size:8px;font-weight:900;padding:2px 4px;margin-left:5px;vertical-align:middle}
+.v19-key-chip.fk{background:#96dfc9}
+.v19-col-note{font-size:9px;color:#a6bc9f;padding:8px 10px;background:#19291e}
+.v19-legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px;color:#afcba6;font-size:10px}
+.v19-legend .v19-line-icon{display:inline-block;width:22px;border-top:2px solid #c4f57b;vertical-align:middle;margin-right:3px}
+.v19-example-panes{margin-top:12px}
+.v19-example-panes>details{background:#223428;border:1px solid #3f6244;border-radius:10px;margin-bottom:6px;overflow:hidden}
+.v19-example-panes>details>summary{padding:11px 12px;cursor:pointer;color:#d9eacb;font-weight:700;font-size:11px}
+.v19-example-panes>details[open]>summary{border-bottom:1px solid #496449;background:#293d2e}
+.v19-example-panes .v17-table-overflow{overflow-x:auto;padding:8px}
+.v19-example-panes .v17-records{font-size:10px;width:100%;border-collapse:collapse}
+.v19-example-panes .v17-records th,.v19-example-panes .v17-records td{padding:7px;border-bottom:1px solid #39513c;text-align:left}
+@media(max-width:1050px){.v19-studio .v18-columns{grid-template-columns:minmax(0,var(--v19-left,49%)) minmax(0,1fr)}.v19-graph-canvas{padding:15px 12px}.v19-graph-grid{gap:33px 20px}.v19-col{padding:6px}.v19-col-type{font-size:8px}}
+@media(max-width:840px){
+ .v19-studio .v18-columns{display:flex;flex-direction:column}
+ .v19-studio .v18-learn,.v19-studio .v18-work{display:contents}
+ .v19-studio .v18-problem{order:1}
+ .v19-studio .v18-editor{order:2;min-height:0}
+ .v19-studio .v18-data{order:3;border-bottom:1px solid #455a43}
+ .v19-studio .v18-result{order:4}
+ .v19-studio .v18-task-controls{order:5}
+ .v19-divider{display:none}
+ .v19-studio .v17-editor-frame{min-height:180px}
+ .v19-studio .v16-sql-editor{height:180px;min-height:160px}
+ .v19-graph-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 35px}
+}
+@media(max-width:420px){.v19-graph-canvas{padding:14px 9px}.v19-graph-grid{gap:32px 17px}.v19-node header{padding:7px 8px}.v19-node-title{font-size:9px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.v19-node-sub{display:none}.v19-col-name{font-size:9px}.v19-col-type{font-size:8px}.v19-col{grid-template-columns:minmax(0,1fr);gap:1px;min-height:33px;padding:6px 7px}.v19-studio .v18-toolbar-controls .v18-step-btn{display:none}}
+@media(prefers-reduced-motion:reduce){.v19-studio *, .v19-studio *::before,.v19-studio *::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
   <div id="storageBoot" class="storage-boot" role="status" aria-live="polite">
@@ -2592,7 +2671,7 @@ window.DP_K_CODE_BANK=[{"id":"code-shadowing-scope-0","node":"n0","concept":"go-
 'use strict';
 const root=document.getElementById('knowledgeApp'), host=window.DEVPULSE_K_HOST, techs=window.DP_K_BANK;
 if(!root||!host||!techs)return;
-const $=q=>root.querySelector(q),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=q=>root.querySelector(q),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const T=new Map(techs.map(t=>[t.id,t]));
 for (const entry of window.DP_K_CODE_BANK||[]) { const node=techs[0].nodes.find(n=>n.id===entry.node); if(node) node.qs.push({...entry,id:`code-${entry.concept}`,technology:'Go',topic:node.name,group:node.group}); }
 const questions=techs.flatMap(t=>t.nodes.flatMap(n=>n.qs.map(q=>({...q,tech:t.id,node:n.id,technology:t.name,topic:n.name,group:n.group}))));
@@ -2632,10 +2711,10 @@ function normalize(raw){const s=defaults();if(!raw||typeof raw!=='object')return
 
  if(raw.sqlLab&&typeof raw.sqlLab==='object'){
   const obj=raw.sqlLab;s.sqlLab={passed:{},grandfather:{},drafts:{},history:[]};
-  if(obj.passed&&typeof obj.passed==='object')for(const [key,v] of Object.entries(obj.passed).slice(0,110))if(/^sql-p(?:[0-9]|1[0-9]|2[0-4])-[12]$/.test(key)&&v)s.sqlLab.passed[key]=clamp(Number(v)||Date.now(),0,Date.now()+ONE_DAY);
+  if(obj.passed&&typeof obj.passed==='object')for(const [key,v] of Object.entries(obj.passed).slice(0,220))if(/^sql-p(?:[0-9]|1[0-9]|2[0-4])-[1-9][0-9]?$/.test(key)&&v)s.sqlLab.passed[key]=clamp(Number(v)||Date.now(),0,Date.now()+ONE_DAY);
   if(obj.grandfather&&typeof obj.grandfather==='object')for(const [key,v] of Object.entries(obj.grandfather).slice(0,25))if(/^p(?:[0-9]|1[0-9]|2[0-4])$/.test(key)&&v)s.sqlLab.grandfather[key]=true;
-  if(obj.drafts&&typeof obj.drafts==='object')for(const [key,v] of Object.entries(obj.drafts).slice(0,110))if(/^(?:free|sql-p(?:[0-9]|1[0-9]|2[0-4])-[12])$/.test(key)&&typeof v==='string')s.sqlLab.drafts[key]=v.slice(0,12000);
-  if(Array.isArray(obj.history))s.sqlLab.history=obj.history.filter(h=>h&&/^sql-p(?:[0-9]|1[0-9]|2[0-4])-[12]$/.test(h.id)).slice(-200);
+  if(obj.drafts&&typeof obj.drafts==='object')for(const [key,v] of Object.entries(obj.drafts).slice(0,220))if(/^(?:free|sql-p(?:[0-9]|1[0-9]|2[0-4])-[1-9][0-9]?)$/.test(key)&&typeof v==='string')s.sqlLab.drafts[key]=v.slice(0,12000);
+  if(Array.isArray(obj.history))s.sqlLab.history=obj.history.filter(h=>h&&/^sql-p(?:[0-9]|1[0-9]|2[0-4])-[1-9][0-9]?$/.test(h.id)).slice(-200);
  }else{
   // Grandfather historical PostgreSQL exams: V15 completion must not be revoked.
   s.sqlLab={passed:{},grandfather:{},drafts:{},history:[]};
@@ -3395,11 +3474,72 @@ function v18Route(){
  }).join('');
  return `<div class="v18-route-shade" data-action-k="v18-route-close" aria-label="Закрыть выбор упражнений"></div><aside class="v18-route-drawer" aria-label="Маршрут SQL-упражнений" role="dialog" aria-modal="true"><div class="v18-route-header"><div><span class="v17-kicker">SQL / НАВИГАЦИЯ</span><h3>Упражнения</h3><p>${done} из ${tasks.length} решено в разделе</p></div><button class="v18-close" data-action-k="v18-route-close" aria-label="Закрыть">✕</button></div><div class="v18-route-tools"><label class="v17-search"><span>⌕</span><input id="v16SqlSearch" value="${esc(v16SqlFilter)}" placeholder="Найти упражнение" autocomplete="off"></label><details class="v17-topic-picker"><summary>Раздел: ${esc(T.get('t1').nodes.find(n=>n.id===v17SelectedTopic)?.name||'SQL')}</summary><div class="v17-topic-list">${T.get('t1').nodes.map(n=>v17TopicButton(n.id)).join('')}</div></details></div><div class="v18-route-scroll">${items}</div></aside>`;
 }
-function v18CompactSchema(task){
- const isFree=v16SqlMode==='free';
- const tables=isFree?[v17FocusedTable]:v17TablesFor(task);
- return `<section class="v18-data"><div class="v18-data-title"><span class="v17-kicker">СТРУКТУРА ДАННЫХ</span><span class="v18-muted">PK — первичный ключ · FK — внешний</span></div>${isFree?`<div class="v17-free-db-list">${Object.keys(V17_METADATA).map(name=>`<button data-action-k="v17-table" data-id="${name}" class="${name===v17FocusedTable?'on':''}">${esc(name)}</button>`).join('')}</div>`:''}<div class="v17-table-grid ${tables.length===1?'one':''}">${tables.map(v17SchemaCard).join('')}</div>${v17Relations(tables)}</section>`;
+function v19NodeCard(name){
+ const cols=V17_METADATA[name]||[];
+ return `<article class="v19-node" data-v19-table="${name}" aria-label="Таблица ${esc(name)}"><header><span class="v19-node-title">▦ ${esc(name)}</span><span class="v19-node-sub">${esc(v17TableNames[name]||'Таблица')}</span></header><div class="v19-cols">${cols.map(col=>{
+  const key=col[3]||'';return `<div class="v19-col ${key.toLowerCase()}" data-v19-col="${esc(col[0])}" title="${esc(col[2])}"><span class="v19-col-name">${esc(col[0])}${key?`<small class="v19-key-chip ${key==='FK'?'fk':''}">${esc(key)}</small>`:''}</span><span class="v19-col-type">${esc(col[1])}</span></div>`;
+ }).join('')}</div></article>`;
 }
+function v19Samples(tables){
+ return `<div class="v19-example-panes">${tables.map(name=>{
+  const cols=V17_METADATA[name]||[],rows=V17_SAMPLE[name]||[];
+  return `<details><summary>▤ Примеры строк: ${esc(name)} <span class="v18-muted">· ${rows.length} записей</span></summary><div class="v17-table-overflow"><table class="v17-records"><thead><tr>${cols.map(c=>`<th>${esc(c[0])}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${cols.map((c,i)=>`<td>${row[i]===null?'NULL':esc(String(row[i]))}</td>`).join('')}</tr>`).join('')}</tbody></table></div></details>`;
+ }).join('')}</div>`;
+}
+function v18CompactSchema(task){
+ const isFree=v16SqlMode==='free';const tables=isFree?[v17FocusedTable]:v17TablesFor(task);
+ const edges=V17_EDGES.filter(([from,,to])=>tables.includes(from)&&tables.includes(to));
+ return `<section class="v18-data v19-schema"><div class="v18-data-title"><span class="v17-kicker">СХЕМА ДАННЫХ</span><span class="v18-muted">Наведись на поле, чтобы узнать назначение</span></div>
+ <p class="v19-section-caption">${tables.length===1?'Колонки таблицы, их типы и ключи.':`Схема связей ${tables.length} таблиц: линии соединяют PK и FK, как на карте знаний.`}</p>
+ ${isFree?`<div class="v17-free-db-list">${Object.keys(V17_METADATA).map(name=>`<button data-action-k="v17-table" data-id="${name}" class="${name===v17FocusedTable?'on':''}">${esc(name)}</button>`).join('')}</div>`:''}
+ <div class="v19-graph-canvas" data-count="${tables.length}" data-edges="${esc(JSON.stringify(edges))}"><svg class="v19-wire-layer" aria-hidden="true"></svg><div class="v19-graph-grid">${tables.map(v19NodeCard).join('')}</div></div>
+ <div class="v19-legend"><span> <b class="v19-key-chip">PK</b> первичный ключ</span><span><b class="v19-key-chip fk">FK</b> внешний ключ</span>${edges.length?'<span><i class="v19-line-icon"></i> связь 1 → N</span>':''}</div>
+ ${v19Samples(tables)}</section>`;
+}
+// Use DOM field anchors to draw true relationships; never estimate row positions.
+let v19ObservedGraph=null,v19GraphRO=null,v19PanelRatio=49,v19RedrawTimeout=null;
+function v19DrawGraph(){
+ const graph=root.querySelector('.v19-graph-canvas');if(!graph)return;
+ const svg=graph.querySelector('.v19-wire-layer');if(!svg)return;
+ const gRect=graph.getBoundingClientRect();if(gRect.width<=0||gRect.height<=0)return;
+ const w=gRect.width,h=gRect.height;
+ svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.setAttribute('preserveAspectRatio','none');
+ let edges=[];try{edges=JSON.parse(graph.dataset.edges||'[]');}catch(_){}
+ const paths=[];
+ for(const [edgeIndex,[a,ak,b,bk]] of edges.entries()){
+  const an=[...graph.querySelectorAll('.v19-node')].find(n=>n.dataset.v19Table===a);
+  const bn=[...graph.querySelectorAll('.v19-node')].find(n=>n.dataset.v19Table===b);
+  const af=an&&[...an.querySelectorAll('.v19-col')].find(n=>n.dataset.v19Col===ak);
+  const bf=bn&&[...bn.querySelectorAll('.v19-col')].find(n=>n.dataset.v19Col===bk);
+  if(!af||!bf)continue;
+  const ar=an.getBoundingClientRect(),br=bn.getBoundingClientRect(),ap=af.getBoundingClientRect(),bp=bf.getBoundingClientRect();
+  const leftToRight=ar.left<br.left-10, rightToLeft=br.left<ar.left-10;
+  const isAdjacent=leftToRight||rightToLeft;
+  const x1=(isAdjacent?(leftToRight?ar.right:ar.left):ar.right)-gRect.left;
+  const x2=(isAdjacent?(leftToRight?br.left:br.right):br.right)-gRect.left;
+  const y1=ap.top+ap.height/2-gRect.top,y2=bp.top+bp.height/2-gRect.top;
+  let d;
+  if(isAdjacent){const mx=(x1+x2)/2+(edgeIndex-(edges.length-1)/2)*6;d=`M${x1} ${y1} H${mx} V${y2} H${x2}`;}
+  else{const bend=Math.min(w-7,Math.max(ar.right,br.right)-gRect.left+9+edgeIndex*2);d=`M${x1} ${y1} H${bend} V${y2} H${x2}`;}
+  const color=['#d8ff65','#7de8ca','#f2cb85','#b6a4f5'][edgeIndex%4];
+  paths.push(`<path class="v19-wire-glow" d="${d}"/><path d="${d}" style="stroke:${color}"/><circle cx="${x1}" cy="${y1}" r="4" style="fill:${color}"/><circle cx="${x2}" cy="${y2}" r="4" style="fill:${color}"/>`);
+ }
+ svg.innerHTML=paths.join('');
+ if(typeof ResizeObserver==='function'&&v19ObservedGraph!==graph){
+  v19GraphRO?.disconnect();v19ObservedGraph=graph;v19GraphRO=new ResizeObserver(()=>requestAnimationFrame(v19DrawGraph));v19GraphRO.observe(graph);
+ }
+}
+window.addEventListener('resize',()=>{if(root.querySelector('.v19-graph-canvas'))requestAnimationFrame(v19DrawGraph);});
+// Adjustable editor width on desktop; resizing touches no application data.
+root.addEventListener('pointerdown',e=>{
+ const handle=e.target.closest('.v19-divider');if(!handle||!root.contains(handle)||matchMedia('(max-width:840px)').matches)return;
+ const box=handle.closest('.v18-columns');if(!box)return;
+ e.preventDefault();handle.classList.add('active');handle.setPointerCapture(e.pointerId);
+ function move(ev){const r=box.getBoundingClientRect();v19PanelRatio=Math.max(37,Math.min(64,(ev.clientX-r.left)/r.width*100));box.style.setProperty('--v19-left',v19PanelRatio+'%');requestAnimationFrame(v19DrawGraph);}
+ function stop(){handle.classList.remove('active');handle.removeEventListener('pointermove',move);handle.removeEventListener('pointerup',stop);handle.removeEventListener('pointercancel',stop);}
+ handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',stop);handle.addEventListener('pointercancel',stop);
+},true);
+
 const v18OldLab=v16LabPage;
 v16LabPage=function(){
  const task=v16TaskInfo(v16SqlTask),inCourse=v16SqlMode==='tasks',tasks=v16TasksByTopic[task.topic]||[],pos=tasks.findIndex(t=>t.id===task.id),passed=!!v16LabData().passed[task.id];
@@ -3408,15 +3548,15 @@ v16LabPage=function(){
  const prevButton=prev?`<button class="v18-step-btn" data-action-k="v16-select-task" data-id="${prev.id}" ${v16TaskAvailable(prev)?'':'disabled'}>← Предыдущая</button>`:'<span></span>';
  const nextButton=next?`<button class="v18-step-btn prominent" data-action-k="v16-select-task" data-id="${next.id}" ${v16TaskAvailable(next)?'':'disabled'}>Следующая →</button>`:'<span class="v18-muted">Конец раздела</span>';
  const statusText=v16SqlEngineReady?'● PostgreSQL готов':'○ PostgreSQL загрузится при первом запуске';
- return `<div class="v17-workshop v18-workshop"><header class="v17-hero"><div><span class="v17-kicker">DEV//PULSE / SQL WORKSHOP</span><h2>Учись писать SQL <i>руками.</i></h2><p>Одна задача → понятные таблицы → свой запрос → проверка на PostgreSQL.</p></div><div class="v17-hero-stat"><strong>${done}<small> / ${total}</small></strong><span>упражнений решено</span></div></header><div class="v17-nav">${btn('← Карта знаний','tab','trees')}${btn('Упражнения','v16-lab-mode','tasks',inCourse?'button-primary':'button-secondary')}${btn('Свободная песочница','v16-lab-mode','free',!inCourse?'button-primary':'button-secondary')}${btn('Теория PostgreSQL','open-tech','t1')}</div>
+ return `<div class="v17-workshop v18-workshop v19-studio"><header class="v17-hero"><div><span class="v17-kicker">DEV//PULSE / SQL WORKSHOP</span><h2>Учись писать SQL <i>руками.</i></h2><p>Одна задача → понятные таблицы → свой запрос → проверка на PostgreSQL.</p></div><div class="v17-hero-stat"><strong>${done}<small> / ${total}</small></strong><span>упражнений решено</span></div></header><div class="v17-nav">${btn('← Карта знаний','tab','trees')}${btn('Упражнения','v16-lab-mode','tasks',inCourse?'button-primary':'button-secondary')}${btn('Свободная песочница','v16-lab-mode','free',!inCourse?'button-primary':'button-secondary')}${btn('Теория PostgreSQL','open-tech','t1')}</div>
  <div class="v18-workspace">
- ${inCourse?`<div class="v18-toolbar"><div class="v18-toolbar-info"><span class="v18-topic-dot"></span><span>${esc(task.topicName)}</span><span class="v18-topic-progress">${pos+1} / ${tasks.length}</span></div><div class="v18-toolbar-controls"><button data-action-k="v18-route-open" class="v18-list-btn" aria-expanded="${v18RouteOpen?'true':'false'}">☷ Все задания</button></div></div>`:''}
- <div class="v18-columns"><div class="v18-column v18-learn">
+ ${inCourse?`<div class="v18-toolbar"><div class="v18-toolbar-info"><span class="v18-topic-dot"></span><span>${esc(task.topicName)}</span><span class="v18-topic-progress">${pos+1} / ${tasks.length}</span></div><div class="v18-toolbar-controls">${prevButton}${nextButton}<button data-action-k="v18-route-open" class="v18-list-btn" aria-expanded="${v18RouteOpen?'true':'false'}">☷ Все задания</button></div></div>`:''}
+ <div class="v18-columns" style="--v19-left:${v19PanelRatio}%"><div class="v19-divider" role="separator" aria-label="Изменить ширину панелей" aria-orientation="vertical" title="Перетащи для изменения ширины"></div><div class="v18-column v18-learn">
  <article class="v18-problem"><div class="v18-problem-meta"><span class="v17-kicker">${inCourse?`ЗАДАЧА ${String(pos+1).padStart(2,'0')} · ${esc(v18StageFor(task))}`:'СВОБОДНЫЙ РЕЖИМ'}</span>${inCourse?`<span class="v18-passed">${passed?'✓ Решено':'○ Не решено'}</span>`:''}</div><h3>${inCourse?esc(task.title):'Пиши любой PostgreSQL-запрос'}</h3><p>${inCourse?esc(task.prompt):'Создавай запросы и изменяй данные. Результат увидишь справа. Для экспериментов выбери нужную таблицу ниже.'}</p>${inCourse&&V16_GATES.has(task.topic)?`<div class="v17-gate-line"><span>Для следующей темы: ${v16LabCompleted(task.topic)}/${v17MinLabCount(task.topic)} практик</span></div>`:''}</article>
  ${v18CompactSchema(task)}</div>
  <div class="v18-column v18-work"><section class="v18-editor"><div class="v18-panel-title"><div><span class="v17-kicker">РЕШЕНИЕ</span><h4>Напиши запрос</h4></div><span class="v17-language">SQL · PostgreSQL</span></div><div class="v17-editor-frame"><div class="v17-editor-header"><span>● <b>solution.sql</b></span><span>Ctrl + Enter</span></div><textarea rows="7" id="v16SqlEditor" class="v16-sql-editor" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="-- Твой SQL-запрос…" aria-label="Редактор SQL">${esc(v16SqlDraft)}</textarea></div><div class="v17-actions"><button class="button button-primary" data-action-k="v16-run" ${v16SqlIsRunning?'disabled':''}>▶ Запустить</button>${inCourse?`<button class="button button-secondary" data-action-k="v16-check" ${v16SqlIsRunning?'disabled':''}>✓ Проверить</button>`:''}<button class="button button-ghost" data-action-k="v16-clear">Очистить</button>${!inCourse?`<button class="button button-ghost" data-action-k="v16-reset-db">↻ Сбросить БД</button>`:''}</div>${inCourse?`<details class="v18-hint"><summary>Нужна подсказка?</summary><p>${esc(task.hint)}</p></details>`:''}<div id="v16SqlStatus" class="v17-runtime">${statusText}</div></section>
  <section class="v18-result"><div class="v18-panel-title"><div><span class="v17-kicker">ВЫПОЛНЕНИЕ</span><h4>Результат запроса</h4></div><span class="v18-result-count" id="v16SqlResultCount">PostgreSQL</span></div><div class="v16-sql-result" id="v16SqlResult">${v16SqlOutput||'<div class="v18-empty-result">Результат появится после запуска SQL. Можно выполнять запросы сколько угодно раз.</div>'}</div></section>
- ${inCourse?`<div class="v18-task-controls">${prevButton}<button class="v18-all-tasks" data-action-k="v18-route-open">☷ Список заданий</button>${nextButton}</div>`:''}
+ ${inCourse?`<div class="v18-task-controls"><span class="v18-muted">Следующий шаг — в верхней панели редактора</span><button class="v18-all-tasks" data-action-k="v18-route-open">☷ Выбрать упражнение</button></div>`:''}
  </div></div>${v18Route()}</div></div>`;
 };
 // Update the current exercise's solved badge without replacing the editor or results.
@@ -3445,7 +3585,7 @@ window.DP_V17_TEST={tasks:V16_TASKS,getLayout:(tech)=>JSON.parse(JSON.stringify(
 
 window.DP_V16_TEST={tasks:V16_TASKS,gateTopics:[...V16_GATES],getLab:()=>JSON.parse(JSON.stringify(v16LabData())),openLab:(id)=>v16StartLab(id||V16_TASKS[0].id),getPage:()=>page,openTheory:(t,n)=>{selectedTech=t;selectedTopic=n;page='theory';render()},getMastery:(tid,nid)=>nodeMastery(tid,nid)};
 
-function render(){let html;switch(page){case 'trees':html=treesIndex();break;case 'practice':html=v11PracticePage();break;case 'progress':html=v11ProgressPage();break;case 'tech':html=techPage();break;case 'topic':html=topicPage();break;case 'config':html=configurePage();break;case 'quiz':html=quizPage();break;case 'result':html=resultPage();break;case 'review':html=reviewPage();break;case 'analytics':html=analyticsPage()+renderNodeAnalytics();break;case 'history':html=historyPage();break;case 'code':html=codeLabPage();break;case 'plan':html=planPage();break;case 'arena':html=arenaPage();break;case 'hardcore':html=hardcorePage();break;case 'trends':html=trendsPage();break;case 'certs':html=certsPage();break;case 'editor':html=graphEditorPage();break;case 'pg-editor':html=v11PgEditorPage();break;case 'sql-lab':html=v16LabPage();break;case 'theory':html=theoryPage();break;default:html=v11HomePage();}root.innerHTML=`<div class="k-shell kx-app">${html}<footer class="k-knowledge-help">DEV//PULSE / KNOWLEDGE ACADEMY V16 · ${questions.length} проверочных заданий · Статистика сохраняется в основной JSON-резервной копии.</footer></div>`;initTreeMaps();tick();}
+function render(){let html;switch(page){case 'trees':html=treesIndex();break;case 'practice':html=v11PracticePage();break;case 'progress':html=v11ProgressPage();break;case 'tech':html=techPage();break;case 'topic':html=topicPage();break;case 'config':html=configurePage();break;case 'quiz':html=quizPage();break;case 'result':html=resultPage();break;case 'review':html=reviewPage();break;case 'analytics':html=analyticsPage()+renderNodeAnalytics();break;case 'history':html=historyPage();break;case 'code':html=codeLabPage();break;case 'plan':html=planPage();break;case 'arena':html=arenaPage();break;case 'hardcore':html=hardcorePage();break;case 'trends':html=trendsPage();break;case 'certs':html=certsPage();break;case 'editor':html=graphEditorPage();break;case 'pg-editor':html=v11PgEditorPage();break;case 'sql-lab':html=v16LabPage();break;case 'theory':html=theoryPage();break;default:html=v11HomePage();}root.innerHTML=`<div class="k-shell kx-app">${html}<footer class="k-knowledge-help">DEV//PULSE / KNOWLEDGE ACADEMY V17.3 · ${questions.length} проверочных заданий · Статистика сохраняется в основной JSON-резервной копии.</footer></div>`;initTreeMaps();tick();if(page==='sql-lab'){v19DrawGraph();requestAnimationFrame(v19DrawGraph);clearTimeout(v19RedrawTimeout);v19RedrawTimeout=setTimeout(v19DrawGraph,180);}}
 function tick(){const a=active();if(page!=='quiz'||!a||a.feedback||!a.seconds)return;if(document.getElementById('view-knowledge')?.hidden&&!a.strict)return;const left=Math.max(0,Math.ceil((a.deadline-Date.now())/1000)),clock=$('#kxClock');if(clock){clock.textContent=`${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).toString().padStart(2,'0')}`;clock.classList.toggle('danger',left<=8);}if(Date.now()>=a.deadline)answer(-1,true);}
 function changePage(name){page=name;render();}
 root.addEventListener('click',e=>{const el=e.target.closest('[data-action-k]');if(!el||!root.contains(el))return;const a=el.dataset.actionK,id=el.dataset.id;
