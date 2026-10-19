@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0e0c">
   <meta name="description" content="DEV//PULSE — локальный трекер времени, стриков и достижений в программировании.">
-  <title>DEV//PULSE V18.2 — Release Audit</title>
+  <title>DEV//PULSE V18.3 — Go Playground Hotfix</title>
   <style>
     :root {
       color-scheme: dark;
@@ -4020,17 +4020,45 @@ func(__dpFailReader)Read([]byte)(int,error){return 0,__dpe.New("reader error")}
  const cases=task.tests.map(([label,expr],i)=>`func(){defer func(){if recover()!=nil{println("DPT|FAIL|${i}")}}();if ${expr}{println("DPT|PASS|${i}")}else{println("DPT|FAIL|${i}")}}()`).join('\n');
  return code.replace(m[1],m[1]+imports)+'\n'+helpers+'\nfunc main(){\n'+cases+'\n}\n';
 }
+/* V18.3: Shared browser transport for the official Go Playground API.
+   go.dev/compile is not the Playground compile route. Direct playground handler
+   supports CORS; the go.dev site hosts its handler at /_/compile.
+   No saved state, task ids, or grading rules are changed. */
+async function dpGoPlaygroundCompile(source, signal) {
+ const endpoints = ['https://play.golang.org/compile', 'https://go.dev/_/compile'];
+ const failures = [];
+ for (const endpoint of endpoints) {
+  if (signal?.aborted) throw Object.assign(new Error('Запрос отменён'), {name:'AbortError'});
+  try {
+   const response = await fetch(endpoint, {
+    method:'POST', mode:'cors', credentials:'omit',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({version:'2', body:source, withVet:'true'}),
+    signal
+   });
+   if (!response.ok) throw new Error('HTTP ' + response.status);
+   const raw = await response.json();
+   if (!raw || !Array.isArray(raw.Events) || typeof raw.Status !== 'number') {
+    throw new Error('Сервис вернул неожиданный формат данных');
+   }
+   return raw;
+  } catch (err) {
+   if (signal?.aborted || err?.name==='AbortError') throw err;
+   failures.push(endpoint + ': ' + (err?.message || String(err)));
+  }
+ }
+ throw new Error('Не удалось связаться с двумя адресами Go Playground. ' + failures.join(' | ') + '. Возможна блокировка CORS или сети; подробности смотри в F12 → Network.');
+}
 async function dpGoCheck(){if(dpGoBusy)return;const task=dpGoTask(),code=$('#dpGoChallengeEditor')?.value||'';if(!code.trim()){toast('Сначала напиши Go-код');return;}dpGoSaveDraft();let source;try{source=dpGoTestSource(code,task)}catch(e){dpGoOutput={compileError:e.message,cases:[],allPassed:false};$('#dpGoTestResults').innerHTML=dpGoResultsHTML();return;}
  dpGoBusy=true;dpGoOutput=null;$('#dpGoTestResults').innerHTML=dpGoResultsHTML();const button=$('#dpGoCheck');if(button){button.disabled=true;button.textContent='⏳ Проверяем…';}
  const ctrl=new AbortController();const timeout=setTimeout(()=>ctrl.abort(),30000);
- try{const response=await fetch('https://go.dev/compile',{method:'POST',mode:'cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({version:'2',body:source,withVet:'true'}),signal:ctrl.signal});if(!response.ok)throw Error('Go Playground HTTP '+response.status);
- const raw=await response.json();const log=(Array.isArray(raw.Events)?raw.Events:[]).map(e=>String(e.Message||'')).join('');const compileError=String(raw.Errors||'');const states=new Map();for(const line of log.split(/\r?\n/)){const m=line.trim().match(/^DPT\|(PASS|FAIL)\|(\d+)$/);if(m){const idx=Number(m[2]);if(idx>=0&&idx<task.tests.length)states.set(idx,m[1]==='PASS');}}
+ try{const raw=await dpGoPlaygroundCompile(source, ctrl.signal);const log=(Array.isArray(raw.Events)?raw.Events:[]).map(e=>String(e.Message||'')).join('');const compileError=String(raw.Errors||'');const states=new Map();for(const line of log.split(/\r?\n/)){const m=line.trim().match(/^DPT\|(PASS|FAIL)\|(\d+)$/);if(m){const idx=Number(m[2]);if(idx>=0&&idx<task.tests.length)states.set(idx,m[1]==='PASS');}}
  const cases=task.tests.map(([label],i)=>({label,ok:states.get(i)===true,unseen:!states.has(i)})),passed=cases.filter(x=>x.ok).length;
  const allPassed=!compileError&&Number(raw.Status)===0&&passed===task.tests.length;
  dpGoOutput={cases,passed,total:task.tests.length,compileError,allPassed,rawTail:log.replace(/^DPT\|(?:PASS|FAIL)\|\d+\s*$/gm,'').trim()};
  const store=dpGoStorage();store.taskRuns[task.id]=(Number(store.taskRuns[task.id])||0)+1;
  if(allPassed)store.taskPassed[task.id]=Date.now();save();
- }catch(e){dpGoOutput={network:e.name==='AbortError'?'Тестирование превысило 30 секунд. Проверь deadlock, ожидание каналов и поведение context.':'Не удалось вызвать Go Playground: '+e.message+'. Черновик сохранён. На предпросмотре и при ограничениях CORS запрос может блокироваться.'};}
+ }catch(e){dpGoOutput={network:e.name==='AbortError'?'Тестирование превысило 30 секунд. Проверь deadlock, ожидание каналов и поведение context.':'Не удалось вызвать Go Playground: '+e.message+' Черновик сохранён. При необходимости проверь F12 → Network.'};}
  finally{clearTimeout(timeout);dpGoBusy=false;const out=$('#dpGoTestResults');if(out)out.innerHTML=dpGoResultsHTML();const b=$('#dpGoCheck');if(b){b.disabled=false;b.textContent='▶ Запустить тесты';}const badge=root.querySelector('.dp-go-complete');if(badge&&dpGoStorage().taskPassed[task.id]){badge.textContent='✓ Выполнено';badge.classList.add('completed');}const count=root.querySelector('.dp-go-task-counter');if(count)count.textContent=Object.keys(dpGoStorage().taskPassed).filter(id=>dpGoStorage().taskPassed[id]&&DP_GO_TASKS.some(t=>t.id===id)).length+' / '+DP_GO_TASKS.length+' задач';}
 }
 function dpGoSelectRelative(offset){const pool=DP_GO_TASKS.filter(t=>t.mode===dpGoMode),i=pool.findIndex(t=>t.id===dpGoSelected);dpGoChangeTask(pool[(i+offset+pool.length)%pool.length].id);}
@@ -4053,16 +4081,13 @@ async function goLabRun(){if(goLabBusy)return;const e=$('#goLabEditor');if(!e)re
  goLabPersist();goLabBusy=true;goLabError=false;goLabNotice='';const run=$('#goLabRun'),status=$('#goLabRunStatus'),output=$('#goLabOutput');if(run){run.disabled=true;run.textContent='⏳ Выполняется…';}if(status)status.textContent='Компиляция…';if(output)output.innerHTML=goLabOutputHTML();
  const ctrl=new AbortController();goLabRequest=ctrl;const timeout=setTimeout(()=>ctrl.abort(),30000);
  try{
-  const payload=new URLSearchParams({version:'2',body:code,withVet:'true'});
-  const response=await fetch('https://go.dev/compile',{method:'POST',mode:'cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:payload,signal:ctrl.signal});
-  if(!response.ok)throw Error('Go Playground вернул HTTP '+response.status);
-  const raw=await response.json();if(!raw||(!Array.isArray(raw.Events)&&typeof raw.Errors!=='string'))throw Error('Неожиданный формат ответа Go Playground');
+  const raw=await dpGoPlaygroundCompile(code, ctrl.signal);
   const messages=(Array.isArray(raw.Events)?raw.Events:[]).map(ev=>String(ev.Message||'')).join('');
   goLabError=!!raw.Errors||Number(raw.Status)!==0;
   goLabOutput=[raw.Errors||'',messages].filter(Boolean).join('\n')||'(Программа завершилась без вывода)';
   data.goLab.runs=(Number(data.goLab.runs)||0)+1;save();
   goLabNotice=goLabError?'Проверь ошибку компилятора':'Программа выполнена на Go Playground';
- }catch(err){goLabError=true;goLabOutput=err.name==='AbortError'?'Превышено время ожидания Go Playground (30 секунд). Попробуй снова.':`Не удалось обратиться к Go Playground: ${err.message}. Проверь доступ к go.dev и ограничения CORS/расширений. Код сохранён локально.`;goLabNotice='Сетевая ошибка';}
+ }catch(err){goLabError=true;goLabOutput=err.name==='AbortError'?'Превышено время ожидания Go Playground (30 секунд). Попробуй снова.':`Не удалось обратиться к Go Playground: ${err.message} Код сохранён локально.`;goLabNotice='Сетевая ошибка';}
  finally{clearTimeout(timeout);goLabBusy=false;goLabRequest=null;if(page==='go-lab'){const out=$('#goLabOutput');if(out)out.innerHTML=goLabOutputHTML();const st=$('#goLabRunStatus');if(st)st.textContent=goLabError?'Ошибка':'Готово';if(run){run.disabled=false;run.textContent='▶ Запустить';}const footer=root.querySelector('.go-lab-bottom span');if(footer)footer.textContent=`Запусков в Go Lab: ${Number(data.goLab?.runs)||0} · ${goLabNotice}`;}}
 }
 root.addEventListener('input',ev=>{if(ev.target?.id!=='goLabEditor')return;goLabSyncLines();clearTimeout(goLabDebounce);goLabDebounce=setTimeout(goLabPersist,650);});
