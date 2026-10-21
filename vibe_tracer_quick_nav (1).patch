@@ -1,0 +1,186 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -4949,5 +4949,182 @@
+   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',relocate,{once:true});else relocate();
+  })();
+  </script>
++<!-- DEV//PULSE V18.4: accessible quick navigation. No persistence schema changes. -->
++<style id="dp-quick-nav-style">
++  .dp-quick-trigger{display:inline-flex;align-items:center;gap:8px;color:var(--muted);white-space:nowrap}
++  .dp-quick-trigger .dp-quick-glyph{font-size:17px;line-height:1}
++  .dp-quick-kbd{font-family:inherit;font-size:10px;color:var(--subtle);border:1px solid var(--stroke-strong);border-radius:5px;padding:2px 5px}
++  .dp-quick-overlay{position:fixed;inset:0;z-index:300;background:rgba(2,8,5,.78);backdrop-filter:blur(8px);display:flex;justify-content:center;align-items:flex-start;padding:clamp(56px,14vh,140px) 16px 20px}
++  .dp-quick-overlay[hidden]{display:none!important}
++  .dp-quick-dialog{width:min(100%,560px);max-height:min(72vh,640px);display:flex;flex-direction:column;background:var(--surface,#141916);border:1px solid var(--stroke-strong,#3b483d);border-radius:18px;overflow:hidden;box-shadow:0 28px 100px rgba(0,0,0,.55)}
++  .dp-quick-input-row{display:flex;align-items:center;gap:12px;padding:18px 19px;border-bottom:1px solid var(--stroke,#2a332d)}
++  .dp-quick-input-row .dp-quick-icon{font-size:20px;color:var(--accent,#d8ff65)}
++  .dp-quick-input{min-width:0;flex:1;background:none;color:var(--text,#fff);border:0;outline:0!important;font-size:16px}
++  .dp-quick-input::placeholder{color:var(--muted,#8b998e)}
++  .dp-quick-esc{color:var(--muted);background:var(--surface-2);border:1px solid var(--stroke);border-radius:7px;padding:5px 7px;font-size:10px}
++  .dp-quick-list{padding:9px;overflow-y:auto;min-height:80px}
++  .dp-quick-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:15px;border:1px solid transparent;background:transparent;color:var(--text);border-radius:10px;text-align:left;padding:12px 13px;cursor:pointer}
++  .dp-quick-option[data-selected="true"],.dp-quick-option:hover{background:rgba(216,255,101,.09);border-color:rgba(216,255,101,.18)}
++  .dp-quick-option strong{display:block;font-size:13px;font-weight:760}
++  .dp-quick-option small{display:block;margin-top:4px;color:var(--muted);font-size:11px;line-height:1.4}
++  .dp-quick-option .dp-quick-arrow{color:var(--accent);font-size:16px}
++  .dp-quick-empty{padding:26px 12px;text-align:center;color:var(--muted);font-size:13px}
++  .dp-quick-footer{border-top:1px solid var(--stroke);display:flex;justify-content:space-between;gap:10px;padding:10px 17px;color:var(--muted);font-size:10px}
++  @media(max-width:700px){.dp-quick-trigger .dp-quick-label,.dp-quick-kbd{display:none}.dp-quick-trigger{padding:9px 11px}.dp-quick-dialog{max-height:70vh}.dp-quick-overlay{padding-top:8vh}}
++  @media(prefers-reduced-motion:reduce){.dp-quick-overlay{backdrop-filter:none}}
++</style>
++<script id="dp-quick-nav-script">
++(() => {
++  'use strict';
++  const topActions = document.querySelector('.top-actions');
++  if (!topActions || document.getElementById('dp-quick-trigger')) return;
++
++  const commands = [
++    {name:'Дашборд', detail:'Таймер, активность и прогресс', terms:'главная фокус таймер', run:() => navigate('dashboard')},
++    {name:'Мир', detail:'Рейды, развитие и игровая карта', terms:'игра world квесты', run:() => navigate('world')},
++    {name:'Знания', detail:'Курсы, деревья навыков и тесты', terms:'обучение knowledge теория', run:() => navigate('knowledge')},
++    {name:'Go Lab', detail:'Практика и задачи по Go', terms:'golang playground задачи код', run:() => lab('go')},
++    {name:'SQL Lab', detail:'PostgreSQL и SQL-упражнения', terms:'postgres база данных запросы playground', run:() => lab('sql')},
++    {name:'Аналитика', detail:'Статистика и достижения', terms:'отчеты графики аналитика', run:() => navigate('analytics')},
++    {name:'Герой', detail:'Персонаж и инвентарь', terms:'гардероб кейсы коллекция', run:() => navigate('wardrobe')},
++    {name:'Настройки', detail:'Профиль, история и резервная копия', terms:'backup экспорт импорт данные', run:() => navigate('settings')},
++  ];
++  function navigate(route) {
++    document.querySelector(`.nav-button[data-nav="${route}"]`)?.click();
++  }
++  function lab(kind) {
++    if (typeof window.DP_PORTAL_TO_LABS === 'function') window.DP_PORTAL_TO_LABS(kind);
++    else navigate('playgrounds');
++  }
++
++  const trigger = document.createElement('button');
++  trigger.id = 'dp-quick-trigger';
++  trigger.type = 'button';
++  trigger.className = 'button button-ghost button-small dp-quick-trigger';
++  trigger.setAttribute('aria-label','Быстрый переход по разделам, Ctrl+K');
++  trigger.title = 'Быстрый переход (Ctrl+K / ⌘K)';
++  trigger.innerHTML = '<span class="dp-quick-glyph" aria-hidden="true">⌕</span><span class="dp-quick-label">Разделы</span><kbd class="dp-quick-kbd">Ctrl K</kbd>';
++  topActions.insertBefore(trigger,topActions.firstChild);
++
++  const overlay = document.createElement('div');
++  overlay.id = 'dp-quick-overlay';
++  overlay.className = 'dp-quick-overlay';
++  overlay.hidden = true;
++  overlay.innerHTML = `<div class="dp-quick-dialog" role="dialog" aria-modal="true" aria-label="Быстрый переход">
++    <div class="dp-quick-input-row"><span class="dp-quick-icon" aria-hidden="true">⌕</span>
++      <input class="dp-quick-input" id="dp-quick-search" type="search" placeholder="Найти раздел или инструмент…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="dp-quick-results">
++      <button type="button" class="dp-quick-esc" aria-label="Закрыть быстрый переход">ESC</button>
++    </div><div class="dp-quick-list" id="dp-quick-results" role="listbox" aria-label="Доступные разделы"></div>
++    <div class="dp-quick-footer"><span>↑ ↓ — выбрать · Enter — перейти</span><span>Esc — закрыть</span></div>
++  </div>`;
++  document.body.appendChild(overlay);
++
++  const input = overlay.querySelector('#dp-quick-search');
++  const results = overlay.querySelector('#dp-quick-results');
++  const closeButton = overlay.querySelector('.dp-quick-esc');
++  let matches = commands;
++  let selected = 0;
++  let focusBeforeOpen = null;
++
++  function syncSelection() {
++    const options = results.querySelectorAll('.dp-quick-option');
++    options.forEach((option,index) => {
++      const active = index === selected;
++      option.dataset.selected = String(active);
++      option.setAttribute('aria-selected', String(active));
++    });
++    const active = options[selected];
++    if (active) {
++      input.setAttribute('aria-activedescendant',active.id);
++      active.scrollIntoView({block:'nearest'});
++    } else input.removeAttribute('aria-activedescendant');
++  }
++  function render() {
++    const query = input.value.trim().toLocaleLowerCase('ru-RU');
++    matches = commands.filter(command => (command.name+' '+command.detail+' '+command.terms).toLocaleLowerCase('ru-RU').includes(query));
++    selected = 0;
++    results.replaceChildren();
++    if (!matches.length) {
++      const empty = document.createElement('div');
++      empty.className = 'dp-quick-empty';
++      empty.textContent = 'Ничего не найдено. Попробуй другой запрос.';
++      results.appendChild(empty);
++      syncSelection();
++      return;
++    }
++    matches.forEach((command,index) => {
++      const item = document.createElement('button');
++      item.type = 'button';
++      item.id = 'dp-quick-item-'+index;
++      item.className = 'dp-quick-option';
++      item.setAttribute('role','option');
++      const copy = document.createElement('span');
++      const name = document.createElement('strong');
++      name.textContent = command.name;
++      const detail = document.createElement('small');
++      detail.textContent = command.detail;
++      copy.append(name,detail);
++      const arrow = document.createElement('span');
++      arrow.className = 'dp-quick-arrow';
++      arrow.textContent = '↵';
++      arrow.setAttribute('aria-hidden','true');
++      item.append(copy,arrow);
++      item.addEventListener('pointerenter',() => {selected=index;syncSelection();});
++      item.addEventListener('click',() => choose(command));
++      results.appendChild(item);
++    });
++    syncSelection();
++  }
++  function open() {
++    if (document.getElementById('storageBoot')?.hidden === false ||
++        document.getElementById('modalBackdrop')?.hidden === false) return;
++    focusBeforeOpen = document.activeElement;
++    overlay.hidden = false;
++    input.value = '';
++    render();
++    input.focus();
++  }
++  function close(restoreFocus = true) {
++    overlay.hidden = true;
++    input.removeAttribute('aria-activedescendant');
++    if (restoreFocus && focusBeforeOpen?.isConnected) focusBeforeOpen.focus({preventScroll:true});
++    focusBeforeOpen = null;
++  }
++  function choose(command) {
++    close(false);
++    command.run();
++    trigger.focus({preventScroll:true});
++  }
++  trigger.addEventListener('click',open);
++  closeButton.addEventListener('click',() => close());
++  overlay.addEventListener('pointerdown',event => {if (event.target === overlay) close();});
++  input.addEventListener('input',render);
++  overlay.addEventListener('keydown',event => {
++    if (event.key !== 'Tab') return;
++    const focusable = [input,closeButton,...results.querySelectorAll('button')];
++    const first = focusable[0], last = focusable.at(-1);
++    if (event.shiftKey && document.activeElement === first) {event.preventDefault();last.focus();}
++    else if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
++  });
++  document.addEventListener('keydown',event => {
++    if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'k') {
++      event.preventDefault();event.stopImmediatePropagation();
++      if (overlay.hidden) open(); else close();
++      return;
++    }
++    if (overlay.hidden) return;
++    if (event.key === 'Escape') {event.preventDefault();event.stopImmediatePropagation();close();return;}
++    if (event.key === 'ArrowDown' && matches.length) {event.preventDefault();event.stopImmediatePropagation();selected=(selected+1)%matches.length;syncSelection();return;}
++    if (event.key === 'ArrowUp' && matches.length) {event.preventDefault();event.stopImmediatePropagation();selected=(selected-1+matches.length)%matches.length;syncSelection();return;}
++    if (event.key === 'Enter') {
++      // Don't activate the underlying Knowledge quiz while the palette is open.
++      event.stopImmediatePropagation();
++      if (document.activeElement === input && matches[selected]) {
++        event.preventDefault();choose(matches[selected]);
++      }
++    }
++  },true);
++})();
++</script>
+  </body>
+  </html>
