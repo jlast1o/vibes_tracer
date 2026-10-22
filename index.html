@@ -1065,6 +1065,30 @@ button.kx-report-row:hover{border-color:#a5ca74}
 @media(max-width:560px){.dp-go-practice-head h2{font-size:21px}.dp-go-tags{display:none}.dp-go-description{padding:14px}.dp-go-mode-nav button{flex:1;padding:10px 6px;font-size:11px}.dp-go-task-counter{width:100%;text-align:right}.dp-go-practice-head{padding:12px 0}.dp-go-bottom-nav>span{font-size:9px;text-align:center}.dp-fold>summary{flex-wrap:wrap}.dp-fold>summary small{margin-left:0}.dp-go-editor-side textarea{font-size:12px}}
 
   #sideBadgeCount:empty{display:none}
+
+/* DP//IDE smart editing: native textarea with synchronized, accessible Go syntax layer. */
+.dp-ide-host { position:relative; display:flex; flex:1 1 auto; min-height:295px; min-width:0; background:#0e1813; resize:vertical; overflow:hidden; isolation:isolate; }
+.go-lab-editor-wrap>.dp-ide-host { min-height:318px; }
+.dp-ide-host>textarea { box-sizing:border-box!important; position:relative!important; z-index:1; display:block!important; width:100%!important; height:auto!important; min-height:100%!important; flex:1 1 auto!important; resize:none!important; overflow:auto!important; background:transparent!important; color:#e0efdc!important; caret-color:#e8ff9a!important; white-space:pre!important; overflow-wrap:normal!important; word-break:normal!important; font-variant-ligatures:none!important; letter-spacing:0!important; }
+.dp-ide-host.dp-ide-ready>textarea { color:transparent!important; -webkit-text-fill-color:transparent!important; }
+.dp-ide-host>textarea::selection { background:rgba(146,197,93,.32); }
+.dp-ide-highlight { visibility:hidden; box-sizing:border-box; position:absolute; inset:0; z-index:0; display:block; overflow:hidden; margin:0; padding:18px; pointer-events:none; user-select:none; -webkit-user-select:none; white-space:pre; overflow-wrap:normal; tab-size:4; font:13px/1.7 ui-monospace,Consolas,'Cascadia Code',monospace; font-variant-ligatures:none; letter-spacing:0; color:#dce8d6; }
+.dp-ide-host.dp-ide-ready .dp-ide-highlight { visibility:visible; }
+.go-lab-editor-wrap .dp-ide-highlight { padding:17px 14px; font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; }
+.dp-ide-host .dp-go-token-keyword {color:#cba9ff}
+.dp-ide-host .dp-go-token-type {color:#78d8d0}
+.dp-ide-host .dp-go-token-string {color:#a8dd83}
+.dp-ide-host .dp-go-token-comment {color:#829689;font-style:italic}
+.dp-ide-host .dp-go-token-number {color:#f3c180}
+.dp-ide-host .dp-go-token-call {color:#e2d18d}
+.dp-ide-host .dp-go-token-var {color:#b3dff1}
+.dp-ide-host .dp-go-token-builtin {color:#86cce5}
+.dp-ide-hint {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:7px 12px;background:#17251b;border-top:1px solid #2e4532;color:#9eb69b;font-size:10px;line-height:1.6;}
+.dp-ide-position {color:#d9ff9c;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.dp-go-editor-side>.dp-ide-hint {border-top:1px solid #30452f;}
+.go-lab-right>.dp-ide-hint {border:1px solid #354b38;border-radius:9px;margin-top:-9px;}
+@media(max-width:560px){.dp-ide-host>.go-lab-editor,.dp-ide-host>#dpGoChallengeEditor{font-size:13px!important}.dp-ide-hint{font-size:9px}.dp-ide-highlight{font-size:13px;}}
+
 </style>
 <style id="v18-sql-workspace-styles">
 /* V17.2 — exercise and editor at the same reading level. */
@@ -3991,7 +4015,7 @@ function dpGoPage(){
  <div class="dp-go-practice-layout">
   <aside class="dp-go-tasks-panel"><div class="dp-go-tasks-top"><strong>Банк упражнений</strong><small>${all.length} в режиме</small></div><input id="dpGoFind" type="search" class="input" placeholder="Поиск по задачам…" value="${esc(dpGoSearch)}"><select class="select" id="dpGoCategory"><option value="all">Все направления</option>${categories.map(c=>`<option ${c===dpGoCategory?'selected':''} value="${esc(c)}">${esc(c)}</option>`).join('')}</select><div class="dp-go-task-list">${taskButtons||'<div class="dp-go-note">Ничего не найдено</div>'}</div></aside>
   <main class="dp-go-main-panel"><div class="dp-go-work-grid"><section class="dp-go-description"><div class="dp-go-description-top"><span class="eyebrow">${esc(task.category)} · ${esc(task.level)}</span><span class="dp-go-complete ${done?'completed':''}">${done?'✓ Выполнено':'К выполнению'}</span></div><h3>${esc(task.title)}</h3><p>${esc(task.description)}</p><div class="dp-go-signature"><span>Контракт</span><code>${esc(task.signature)}</code></div>${task.requirements?`<div class="dp-go-note">${esc(task.requirements)}</div>`:''}<div class="dp-go-spec"><span>ПРОВЕРКИ ВКЛЮЧАЮТ</span>${task.tests.map(([label])=>`<div>✓ ${esc(label)}</div>`).join('')}</div><details class="dp-go-help"><summary>Небольшая подсказка</summary><p>${esc(task.hint||'Учитывай пустые входы, повторные вызовы, правильное закрытие каналов и отсутствие зависаний.')}</p></details><p class="dp-go-reminder">${dpGoMode==='fix'?'В режиме багфикса вывод функции не показываем: видны только результаты проверок и ошибки компиляции.':'Редактируй реализацию, затем запусти проверку на нескольких наборах данных.'}</p></section>
-  <section class="dp-go-editor-side"><div class="dp-go-editor-top"><strong>${dpGoMode==='fix'?'bugfix.go':'solution.go'}</strong><span>Go · ${task.tests.length} проверок</span></div><textarea id="dpGoChallengeEditor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Код решения Go" maxlength="20000">${esc(dpGoCurrentCode())}</textarea><div class="dp-go-controls"><button class="button button-primary" id="dpGoCheck" data-action-k="dp-go-check" ${dpGoBusy?'disabled':''}>${dpGoBusy?'⏳ Проверяем…':'▶ Запустить тесты'}</button><button class="button button-secondary button-small" data-action-k="dp-go-reset">↺ Сбросить код</button><span class="dp-go-shortcut">Ctrl + Enter</span></div><div id="dpGoTestResults" class="dp-go-results">${dpGoResultsHTML()}</div></section></div>
+  <section class="dp-go-editor-side"><div class="dp-go-editor-top"><strong>${dpGoMode==='fix'?'bugfix.go':'solution.go'}</strong><span>Go · ${task.tests.length} проверок</span></div><div class="dp-ide-host"><pre class="dp-ide-highlight" aria-hidden="true"></pre><textarea id="dpGoChallengeEditor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Код решения Go" maxlength="20000">${esc(dpGoCurrentCode())}</textarea></div><div class="dp-ide-hint">↹ Tab / Shift+Tab · ↵ умный отступ · {} автоскобки · Ctrl+/ комментарий · Ctrl+D копия строки <span class="dp-ide-position">Стр 1 · Кол 1</span></div><div class="dp-go-controls"><button class="button button-primary" id="dpGoCheck" data-action-k="dp-go-check" ${dpGoBusy?'disabled':''}>${dpGoBusy?'⏳ Проверяем…':'▶ Запустить тесты'}</button><button class="button button-secondary button-small" data-action-k="dp-go-reset">↺ Сбросить код</button><span class="dp-go-shortcut">Ctrl + Enter</span></div><div id="dpGoTestResults" class="dp-go-results">${dpGoResultsHTML()}</div></section></div>
  <div class="dp-go-bottom-nav"><button class="button button-secondary button-small" data-action-k="dp-go-prev">← Предыдущая</button><span>${all.findIndex(t=>t.id===task.id)+1} / ${all.length} · ${esc(task.category)}</span><button class="button button-secondary button-small" data-action-k="dp-go-next">Следующая →</button></div></main></div><p class="dp-go-disclaimer">Тесты запускаются через публичный Go Playground и не заменяют go test -race. Проверочные сценарии исполняются в браузерно-собранной программе и не защищены от просмотра кода страницы. Для настоящей строгой оценки потребуется сервер с изолированным Go.</p>`;
 }
 function dpGoResultsHTML(){if(dpGoBusy)return '<div class="dp-go-output-idle">⏳ Go Playground компилирует и запускает тесты…</div>';if(!dpGoOutput)return '<div class="dp-go-output-idle">Здесь появятся пройденные проверки, ошибки компиляции и таймауты.</div>';
@@ -4075,7 +4099,7 @@ root.addEventListener('input',ev=>{if(ev.target?.id==='dpGoChallengeEditor'){cle
 root.addEventListener('change',ev=>{if(ev.target?.id==='dpGoCategory'){dpGoCategory=ev.target.value;render();}},true);
 root.addEventListener('keydown',ev=>{if(ev.target?.id!=='dpGoChallengeEditor')return;if((ev.ctrlKey||ev.metaKey)&&ev.key==='Enter'){ev.preventDefault();dpGoCheck();}if(ev.key==='Tab'){ev.preventDefault();ev.target.setRangeText('    ',ev.target.selectionStart,ev.target.selectionEnd,'end');ev.target.dispatchEvent(new Event('input',{bubbles:true}));}},true);
 
-function goLabLegacyPage(){const t=GO_LAB_EXAMPLES.find(x=>x.id===goLabSelected)||GO_LAB_EXAMPLES[0];const code=goLabCode();return `${tabs()}<div class="go-lab-shell"><div class="go-lab-top">${btn('← Практика','tab','practice')}${btn('К дереву Go →','open-tech','t0')}</div><div class="go-lab-banner"><div><span class="go-lab-section-title">DEV//PULSE / GO PLAYGROUND</span><h2>Пиши Go. Запускай настоящий код.</h2><p>Без установки Go и собственного сервера. Выполнение — через официальный Go Playground.</p></div><span class="go-lab-status-chip">GO · PLAYGROUND</span></div><div class="go-lab-workspace"><div class="go-lab-left"><div><div class="go-lab-section-title">ПРАКТИКА · ${GO_LAB_EXAMPLES.length} ПРИМЕРОВ</div><h3>${esc(t.title)}</h3></div><label for="goLabSelect" class="go-lab-section-title">Выбрать пример</label><select id="goLabSelect" class="go-lab-select">${GO_LAB_EXAMPLES.map(x=>`<option value="${x.id}" ${x.id===goLabSelected?'selected':''}>${esc(x.category)} · ${esc(x.title)}</option>`).join('')}</select><div class="go-lab-task-meta"><span>${esc(t.category)}</span><span>Редактируемый пример</span></div><p>${esc(t.body)}</p><div class="go-lab-notice"><b>Как пользоваться:</b> измени программу справа, запусти и посмотри результат. Это свободная практика: существующие зачёты и прогресс тем не меняются. Каждый пример сохраняет собственный черновик.</div><div class="go-lab-notice"><b>Ограничения:</b> требуется интернет; код отправляется на серверы Go. Нет обычного доступа к файловой системе и сети, существуют лимиты выполнения. Не вставляй секреты, токены и приватный код.</div></div><div class="go-lab-right"><div class="go-lab-panel-title"><div><div class="go-lab-section-title">РЕДАКТОР</div><h3>Напиши программу</h3></div><span class="go-lab-filename">main.go</span></div><div class="go-lab-editor-wrap"><div class="go-lab-lines" id="goLabLineNumbers" aria-hidden="true">${Array.from({length:code.split('\n').length},(_,i)=>i+1).join('\n')}</div><textarea id="goLabEditor" class="go-lab-editor" aria-label="Редактор Go" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="20000">${esc(code)}</textarea></div><div class="go-lab-actions"><button class="button button-primary" id="goLabRun" data-action-k="go-lab-run" ${goLabBusy?'disabled':''}>${goLabBusy?'⏳ Выполняется…':'▶ Запустить'}</button><button class="button button-secondary" data-action-k="go-lab-reset">↺ Сбросить пример</button><button class="button button-ghost" data-action-k="go-lab-copy">Копировать</button><span class="go-lab-runhint">Ctrl / Cmd + Enter</span></div><div class="go-lab-output"><div class="go-lab-output-head"><strong>Консоль / ошибки компиляции</strong><span id="goLabRunStatus">${goLabBusy?'Выполняется':goLabError?'Ошибка':goLabOutput?'Готово':'Ожидание'}</span></div><div id="goLabOutput">${goLabOutputHTML()}</div></div><div class="go-lab-bottom"><span>Запусков в Go Lab: ${Number(data.goLab?.runs)||0} · ${esc(goLabNotice)}</span><a href="https://go.dev/play/" target="_blank" rel="noopener noreferrer">Официальный Go Playground ↗</a></div></div></div></div>`;}
+function goLabLegacyPage(){const t=GO_LAB_EXAMPLES.find(x=>x.id===goLabSelected)||GO_LAB_EXAMPLES[0];const code=goLabCode();return `${tabs()}<div class="go-lab-shell"><div class="go-lab-top">${btn('← Практика','tab','practice')}${btn('К дереву Go →','open-tech','t0')}</div><div class="go-lab-banner"><div><span class="go-lab-section-title">DEV//PULSE / GO PLAYGROUND</span><h2>Пиши Go. Запускай настоящий код.</h2><p>Без установки Go и собственного сервера. Выполнение — через официальный Go Playground.</p></div><span class="go-lab-status-chip">GO · PLAYGROUND</span></div><div class="go-lab-workspace"><div class="go-lab-left"><div><div class="go-lab-section-title">ПРАКТИКА · ${GO_LAB_EXAMPLES.length} ПРИМЕРОВ</div><h3>${esc(t.title)}</h3></div><label for="goLabSelect" class="go-lab-section-title">Выбрать пример</label><select id="goLabSelect" class="go-lab-select">${GO_LAB_EXAMPLES.map(x=>`<option value="${x.id}" ${x.id===goLabSelected?'selected':''}>${esc(x.category)} · ${esc(x.title)}</option>`).join('')}</select><div class="go-lab-task-meta"><span>${esc(t.category)}</span><span>Редактируемый пример</span></div><p>${esc(t.body)}</p><div class="go-lab-notice"><b>Как пользоваться:</b> измени программу справа, запусти и посмотри результат. Это свободная практика: существующие зачёты и прогресс тем не меняются. Каждый пример сохраняет собственный черновик.</div><div class="go-lab-notice"><b>Ограничения:</b> требуется интернет; код отправляется на серверы Go. Нет обычного доступа к файловой системе и сети, существуют лимиты выполнения. Не вставляй секреты, токены и приватный код.</div></div><div class="go-lab-right"><div class="go-lab-panel-title"><div><div class="go-lab-section-title">РЕДАКТОР</div><h3>Напиши программу</h3></div><span class="go-lab-filename">main.go</span></div><div class="go-lab-editor-wrap"><div class="go-lab-lines" id="goLabLineNumbers" aria-hidden="true">${Array.from({length:code.split('\n').length},(_,i)=>i+1).join('\n')}</div><div class="dp-ide-host"><pre class="dp-ide-highlight" aria-hidden="true"></pre><textarea id="goLabEditor" class="go-lab-editor" aria-label="Редактор Go" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="20000">${esc(code)}</textarea></div></div><div class="dp-ide-hint">↹ Tab / Shift+Tab · ↵ умный отступ · {} автоскобки · Ctrl+/ комментарий · Ctrl+D копия строки <span class="dp-ide-position">Стр 1 · Кол 1</span></div><div class="go-lab-actions"><button class="button button-primary" id="goLabRun" data-action-k="go-lab-run" ${goLabBusy?'disabled':''}>${goLabBusy?'⏳ Выполняется…':'▶ Запустить'}</button><button class="button button-secondary" data-action-k="go-lab-reset">↺ Сбросить пример</button><button class="button button-ghost" data-action-k="go-lab-copy">Копировать</button><span class="go-lab-runhint">Ctrl / Cmd + Enter</span></div><div class="go-lab-output"><div class="go-lab-output-head"><strong>Консоль / ошибки компиляции</strong><span id="goLabRunStatus">${goLabBusy?'Выполняется':goLabError?'Ошибка':goLabOutput?'Готово':'Ожидание'}</span></div><div id="goLabOutput">${goLabOutputHTML()}</div></div><div class="go-lab-bottom"><span>Запусков в Go Lab: ${Number(data.goLab?.runs)||0} · ${esc(goLabNotice)}</span><a href="https://go.dev/play/" target="_blank" rel="noopener noreferrer">Официальный Go Playground ↗</a></div></div></div></div>`;}
 function goLabSyncLines(){const e=$('#goLabEditor'),l=$('#goLabLineNumbers');if(!e||!l)return;l.textContent=Array.from({length:e.value.split('\n').length},(_,i)=>i+1).join('\n');l.scrollTop=e.scrollTop;}
 async function goLabRun(){if(goLabBusy)return;const e=$('#goLabEditor');if(!e)return;const code=e.value;if(!code.trim()){toast('Напиши Go-программу');return;}if(code.length>20000){toast('Максимум 20 000 символов');return;}
  goLabPersist();goLabBusy=true;goLabError=false;goLabNotice='';const run=$('#goLabRun'),status=$('#goLabRunStatus'),output=$('#goLabOutput');if(run){run.disabled=true;run.textContent='⏳ Выполняется…';}if(status)status.textContent='Компиляция…';if(output)output.innerHTML=goLabOutputHTML();
@@ -4424,6 +4448,193 @@ window.DP_K_TEST={variant:'tree-v11',questions:questions.length,techs:techs.leng
       }
     }
   },true);
+})();
+</script>
+<script id="dp-ide-smart-editing">
+/* DP//IDE smart editing. No libraries and no changes to the saved Go source format. */
+(() => {
+  'use strict';
+  const IDS = new Set(['goLabEditor','dpGoChallengeEditor']);
+  const initialized = new WeakSet();
+  const keywords = new Set('break case chan const continue default defer else fallthrough for func go goto if import interface map package range return select struct switch type var'.split(' '));
+  const types = new Set('any bool byte comparable complex64 complex128 error float32 float64 int int8 int16 int32 int64 rune string uint uint8 uint16 uint32 uint64 uintptr'.split(' '));
+  const builtins = new Set('append cap clear close copy delete len make max min new panic print println recover true false iota nil'.split(' '));
+  const tokens = /\/\/[^\n]*|\/\*[\s\S]*?(?:\*\/|$)|`[^`]*(?:`|$)|"(?:\\.|[^"\\])*"?|'(?:\\.|[^'\\])*'?|\b(?:0[xX][0-9a-fA-F_]+|0[bB][01_]+|\d[\d_]*(?:\.\d[\d_]*)?(?:[eE][+-]?\d+)?)\b|\b[A-Za-z_]\w*\b/g;
+  const escape = text => text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  function highlight(code) {
+    let out = '', position = 0;
+    tokens.lastIndex = 0;
+    let m;
+    while ((m = tokens.exec(code))) {
+      out += escape(code.slice(position,m.index));
+      const word = m[0];
+      let style = '';
+      if (word.startsWith('//') || word.startsWith('/*')) style='comment';
+      else if (word[0]==='"' || word[0]==="'" || word[0]==='`') style='string';
+      else if (/^\d/.test(word)) style='number';
+      else if (keywords.has(word)) style='keyword';
+      else if (types.has(word)) style='type';
+      else if (builtins.has(word)) style='builtin';
+      else if (/^\s*\(/.test(code.slice(tokens.lastIndex))) style='call';
+      else style='var';
+      out += `<span class="dp-go-token-${style}">${escape(word)}</span>`;
+      position=tokens.lastIndex;
+    }
+    return out + escape(code.slice(position)) + (code.endsWith('\n')?'\u200b':'');
+  }
+  function currentEditor(node) {return node instanceof HTMLTextAreaElement && IDS.has(node.id) ? node : null;}
+  function sync(el) {
+    const host = el.closest('.dp-ide-host');
+    const pre = host?.querySelector('.dp-ide-highlight');
+    if (!pre) return;
+    // Compare normalized code only; no HTML source is executed by this layer.
+    const code=el.value;
+    if (pre.dataset.source !== code) {
+      pre.innerHTML=highlight(code);
+      pre.dataset.source=code;
+    }
+    pre.scrollTop=el.scrollTop;
+    pre.scrollLeft=el.scrollLeft;
+    const status=host.parentElement?.querySelector('.dp-ide-position') || host.parentElement?.parentElement?.querySelector('.dp-ide-position');
+    if (status) {
+      const upto=code.slice(0,el.selectionStart);
+      const line=upto.split('\n');
+      status.textContent=`Стр ${line.length} · Кол ${line[line.length-1].length+1}`;
+    }
+  }
+  function init() {
+    for (const id of IDS) {
+      const el=document.getElementById(id);
+      if (el && !initialized.has(el)) { initialized.add(el); el.closest('.dp-ide-host')?.classList.add('dp-ide-ready'); sync(el); }
+    }
+  }
+  function fire(el) {
+    el.dispatchEvent(new Event('input',{bubbles:true}));
+    sync(el);
+  }
+  function insert(el,start,end,text,cursor=start+text.length,selEnd=cursor) {
+    const limit=el.maxLength;
+    if (limit>=0 && el.value.length-(end-start)+text.length>limit) return false;
+    el.setRangeText(text,start,end,'end');
+    el.setSelectionRange(cursor,selEnd);
+    fire(el);
+    return true;
+  }
+  function indentation(v,pos) {
+    const line=v.slice(v.lastIndexOf('\n',pos-1)+1,pos);
+    return (line.match(/^[ \t]*/)||[''])[0];
+  }
+  function indentBlock(el,outdent) {
+    const v=el.value,from=el.selectionStart,to=el.selectionEnd;
+    const rowStart=v.lastIndexOf('\n',from-1)+1;
+    const lastEnd=(to>from && v[to-1]==='\n')?to-1:to;
+    const blockEnd=v.indexOf('\n',lastEnd);
+    const end=blockEnd===-1?v.length:blockEnd;
+    let offset=0,firstRemoved=0;
+    const block=v.slice(rowStart,end).split('\n').map((row,i)=>{
+      if (!outdent) {offset+=4;return '    '+row;}
+      const count=row.startsWith('\t')?1:Math.min(4,(row.match(/^ */)||[''])[0].length);
+      if (i===0) firstRemoved=count;
+      offset-=count;return row.slice(count);
+    }).join('\n');
+    const newFrom=outdent?Math.max(rowStart,from-firstRemoved):from+4;
+    const newTo=Math.max(newFrom,to+offset);
+    insert(el,rowStart,end,block,newFrom,newTo);
+  }
+  function toggleComment(el) {
+    const v=el.value,from=el.selectionStart,to=el.selectionEnd;
+    const begin=v.lastIndexOf('\n',from-1)+1;
+    const last=(to>from&&v[to-1]==='\n')?to-1:to;
+    const end=(v.indexOf('\n',last)===-1)?v.length:v.indexOf('\n',last);
+    const rows=v.slice(begin,end).split('\n');
+    const uncomment=rows.every(line=>!line.trim()||/^\s*\/\//.test(line));
+    const updated=rows.map(line=>{
+      if (!line.trim())return line;
+      if(uncomment) return line.replace(/^(\s*)\/\/ ?/,'$1');
+      return line.replace(/^(\s*)/,'$1// ');
+    }).join('\n');
+    insert(el,begin,end,updated,begin,begin+updated.length);
+  }
+  function handleKey(ev) {
+    const el=currentEditor(ev.target);
+    if(!el || ev.isComposing || el.readOnly || el.disabled) return;
+    const k=ev.key,ctrl=ev.ctrlKey||ev.metaKey,v=el.value,start=el.selectionStart,end=el.selectionEnd;
+    if(ctrl && !ev.altKey && k==='/') {ev.preventDefault();ev.stopPropagation();toggleComment(el);return;}
+    if(ctrl && !ev.altKey && !ev.shiftKey && k.toLowerCase()==='d') {
+      ev.preventDefault();ev.stopPropagation();
+      const begin=v.lastIndexOf('\n',start-1)+1, rowEnd=v.indexOf('\n',end);
+      const stop=rowEnd===-1?v.length:rowEnd;
+      insert(el,stop,stop,'\n'+v.slice(begin,stop),stop+1,stop+1+stop-begin);return;
+    }
+    if(ctrl||ev.altKey) return; // Let the application handle Ctrl/Cmd+Enter, save and other shortcuts.
+    if(k==='Tab') {
+      ev.preventDefault();ev.stopPropagation();
+      const selection=v.slice(start,end);
+      if(selection.includes('\n'))indentBlock(el,ev.shiftKey);
+      else if (ev.shiftKey) {
+        const begin=v.lastIndexOf('\n',start-1)+1;
+        const preceding=v.slice(begin,start);
+        const n=preceding.endsWith('\t')?1:Math.min(4,(preceding.match(/ *$/)||[''])[0].length);
+        if(n) insert(el,start-n,start,'');
+        else indentBlock(el,true);
+      } else insert(el,start,end,'    ');
+      return;
+    }
+    if(k==='Enter' && !ev.shiftKey) {
+      ev.preventDefault();ev.stopPropagation();
+      const left=v.slice(v.lastIndexOf('\n',start-1)+1,start);
+      const indent=(left.match(/^[ \t]*/)||[''])[0];
+      const prev=left.trimEnd().slice(-1);
+      const right=v.slice(end).trimStart().slice(0,1);
+      const opening=prev==='{'||prev==='('||prev==='[';
+      const matching=(prev==='{'&&right==='}')||(prev==='('&&right===')')||(prev==='['&&right===']');
+      const extra=opening?'    ':'';
+      if(matching) {
+        const mid='\n'+indent+extra;
+        insert(el,start,end,mid+'\n'+indent,start+mid.length);
+      } else insert(el,start,end,'\n'+indent+extra);
+      return;
+    }
+    const pairs={'{':'}','(':')','[':']','"':'"',"'":"'",'`':'`'};
+    if(Object.hasOwn(pairs,k)) {
+      if((k==='"'||k==="'"||k==='`')&&start===end&&v[start]===k){ev.preventDefault();ev.stopPropagation();insert(el,start,start,'',start+1);return;}
+      // Avoid pairing inside a line comment or directly after an escape character.
+      const lineBefore=v.slice(v.lastIndexOf('\n',start-1)+1,start);
+      if ((k==='"'||k==="'"||k==='`')&&lineBefore.endsWith('\\'))return;
+      if (lineBefore.includes('//') && !lineBefore.includes('"') && k!== '"') return;
+      ev.preventDefault();ev.stopPropagation();
+      const selected=v.slice(start,end);
+      insert(el,start,end,k+selected+pairs[k],start+1,start+1+selected.length);
+      return;
+    }
+    if(['}',')',']'].includes(k)) {
+      if(start===end&&v[start]===k){ev.preventDefault();ev.stopPropagation();el.setSelectionRange(start+1,start+1);sync(el);return;}
+      if(k==='}'&&start===end){
+        const begin=v.lastIndexOf('\n',start-1)+1, row=v.slice(begin,start);
+        if(/^ {4,}$/.test(row)) {ev.preventDefault();ev.stopPropagation();insert(el,start-4,start,'}');return;}
+      }
+    }
+    if(k==='Backspace'&&start===end&&start>0) {
+      if (pairs[v[start-1]]===v[start]) {ev.preventDefault();ev.stopPropagation();insert(el,start-1,start+1,'',start-1);}
+    }
+  }
+  document.addEventListener('keydown',handleKey,true);
+  document.addEventListener('input',ev=>{const el=currentEditor(ev.target);if(el)sync(el);},true);
+  document.addEventListener('scroll',ev=>{const el=currentEditor(ev.target);if(el)sync(el);},true);
+  document.addEventListener('click',ev=>{const el=currentEditor(ev.target);if(el)sync(el);},true);
+  document.addEventListener('keyup',ev=>{const el=currentEditor(ev.target);if(el)sync(el);},true);
+  document.addEventListener('focusin',ev=>{const el=currentEditor(ev.target);if(el)sync(el);},true);
+  // The app re-renders sections; initialize only newly inserted editors.
+  const observer=new MutationObserver(records=>{
+    for(const r of records)for(const n of r.addedNodes){
+      if(n.nodeType===1&&(IDS.has(n.id)||n.querySelector?.('#goLabEditor,#dpGoChallengeEditor'))) {init();return;}
+    }
+  });
+  const root=document.getElementById('root')||document.body;
+  observer.observe(root,{childList:true,subtree:true});
+  init();
+  window.DP_IDE_TEST={highlight,init,sync};
 })();
 </script>
 </body>
