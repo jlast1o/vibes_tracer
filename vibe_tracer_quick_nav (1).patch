@@ -17,44 +17,6 @@ diff --git a/index.html b/index.html
 +  .dp-quick-input-row .dp-quick-icon{font-size:20px;color:var(--accent,#d8ff65)}
 +  .dp-quick-input{min-width:0;flex:1;background:none;color:var(--text,#fff);border:0;outline:0!important;font-size:16px}
 +  .dp-quick-input::placeholder{color:var(--muted,#8b998e)}
-+  .dp-quick-esc{color:var(--muted);background:var(--surface-2);border:1px solid var(--stroke);border-radius:7px;padding:5px 7px;font-size:10px}
-+  .dp-quick-list{padding:9px;overflow-y:auto;min-height:80px}
-+  .dp-quick-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:15px;border:1px solid transparent;background:transparent;color:var(--text);border-radius:10px;text-align:left;padding:12px 13px;cursor:pointer}
-+  .dp-quick-option[data-selected="true"],.dp-quick-option:hover{background:rgba(216,255,101,.09);border-color:rgba(216,255,101,.18)}
-+  .dp-quick-option strong{display:block;font-size:13px;font-weight:760}
-+  .dp-quick-option small{display:block;margin-top:4px;color:var(--muted);font-size:11px;line-height:1.4}
-+  .dp-quick-option .dp-quick-arrow{color:var(--accent);font-size:16px}
-+  .dp-quick-empty{padding:26px 12px;text-align:center;color:var(--muted);font-size:13px}
-+  .dp-quick-footer{border-top:1px solid var(--stroke);display:flex;justify-content:space-between;gap:10px;padding:10px 17px;color:var(--muted);font-size:10px}
-+  @media(max-width:700px){.dp-quick-trigger .dp-quick-label,.dp-quick-kbd{display:none}.dp-quick-trigger{padding:9px 11px}.dp-quick-dialog{max-height:70vh}.dp-quick-overlay{padding-top:8vh}}
-+  @media(prefers-reduced-motion:reduce){.dp-quick-overlay{backdrop-filter:none}}
-+</style>
-+<script id="dp-quick-nav-script">
-+(() => {
-+  'use strict';
-+  const topActions = document.querySelector('.top-actions');
-+  if (!topActions || document.getElementById('dp-quick-trigger')) return;
-+
-+  const commands = [
-+    {name:'Дашборд', detail:'Таймер, активность и прогресс', terms:'главная фокус таймер', run:() => navigate('dashboard')},
-+    {name:'Мир', detail:'Рейды, развитие и игровая карта', terms:'игра world квесты', run:() => navigate('world')},
-+    {name:'Знания', detail:'Курсы, деревья навыков и тесты', terms:'обучение knowledge теория', run:() => navigate('knowledge')},
-+    {name:'Go Lab', detail:'Практика и задачи по Go', terms:'golang playground задачи код', run:() => lab('go')},
-+    {name:'SQL Lab', detail:'PostgreSQL и SQL-упражнения', terms:'postgres база данных запросы playground', run:() => lab('sql')},
-+    {name:'Аналитика', detail:'Статистика и достижения', terms:'отчеты графики аналитика', run:() => navigate('analytics')},
-+    {name:'Герой', detail:'Персонаж и инвентарь', terms:'гардероб кейсы коллекция', run:() => navigate('wardrobe')},
-+    {name:'Настройки', detail:'Профиль, история и резервная копия', terms:'backup экспорт импорт данные', run:() => navigate('settings')},
-+  ];
-+  function navigate(route) {
-+    document.querySelector(`.nav-button[data-nav="${route}"]`)?.click();
-+  }
-+  function lab(kind) {
-+    if (typeof window.DP_PORTAL_TO_LABS === 'function') window.DP_PORTAL_TO_LABS(kind);
-+    else navigate('playgrounds');
-+  }
-+
-+  const trigger = document.createElement('button');
-+  trigger.id = 'dp-quick-trigger';
 +  trigger.type = 'button';
 +  trigger.className = 'button button-ghost button-small dp-quick-trigger';
 +  trigger.setAttribute('aria-label','Быстрый переход по разделам, Ctrl+K');
